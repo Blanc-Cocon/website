@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanc Cocon — Kit de démarrage</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #faf9f7;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #3d2e24;
+      color: #f5ede4;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #c9b9a8;
+      font-size: .95rem;
+    }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e0d6;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      display: block;
+      padding: 16px 20px;
+      font-size: .82rem;
+      letter-spacing: .5px;
+      color: #7a6a5e;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: #3d2e24; border-bottom-color: #8c7b6e; }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .section-icon {
+      font-size: 1.5rem;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #3d2e24;
+    }
+    .section-desc {
+      font-size: .9rem;
+      color: #7a6a5e;
+      margin-bottom: 20px;
+      padding-left: 48px;
+    }
+
+    .text-block {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .text-block-header {
+      background: #f5f0eb;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8e0d6;
+    }
+    .text-block-label {
+      font-size: .75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c7b6e;
+      font-weight: 600;
+    }
+    .copy-btn {
+      background: #3d2e24;
+      color: #f5ede4;
+      border: none;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: .75rem;
+      cursor: pointer;
+      transition: background .2s;
+      letter-spacing: .5px;
+    }
+    .copy-btn:hover { background: #5a4535; }
+    .copy-btn.copied { background: #4a7c59; }
+
+    .text-block-content {
+      padding: 20px;
+      font-size: .95rem;
+      color: #3d2e24;
+      white-space: pre-wrap;
+      line-height: 1.8;
+    }
+
+    .placeholder {
+      background: #fff3cd;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: .85rem;
+      color: #856404;
+      font-style: normal;
+    }
+
+    .tip {
+      background: #f0ebe4;
+      border-left: 3px solid #8c7b6e;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: .85rem;
+      color: #5a4a3e;
+      margin-bottom: 16px;
+    }
+    .tip strong { color: #3d2e24; }
+
+    .post-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .post-card {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .post-card-top {
+      background: #f5f0eb;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8e0d6;
+    }
+    .post-number {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c7b6e;
+    }
+    .post-type {
+      font-size: .7rem;
+      background: #e8ddd4;
+      color: #6a5a4e;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+    .post-body {
+      padding: 16px;
+    }
+    .post-visual {
+      font-size: .8rem;
+      color: #8c7b6e;
+      font-style: italic;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .post-caption {
+      font-size: .9rem;
+      color: #3d2e24;
+      white-space: pre-wrap;
+      line-height: 1.7;
+      background: #faf9f7;
+      border-radius: 8px;
+      padding: 14px;
+      position: relative;
+    }
+    .post-copy {
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e8e0d6;
+      margin: 48px 0;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .check-box {
+      width: 20px; height: 20px;
+      border: 2px solid #c9b9a8;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+    .check-box.done {
+      background: #3d2e24;
+      border-color: #3d2e24;
+      color: white;
+      font-size: .7rem;
+    }
+    .check-text {
+      font-size: .9rem;
+      color: #3d2e24;
+    }
+    .check-sub {
+      font-size: .8rem;
+      color: #9a8a7e;
+      margin-top: 2px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: .8rem;
+      color: #b0a090;
+      border-top: 1px solid #e8e0d6;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 60px; }
+      nav a { padding: 14px 14px; font-size: .78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Blanc Cocon — Kit de démarrage</h1>
+  <p>Tous les textes prêts à copier-coller. Rien à rédiger.</p>
+</header>
+
+<nav>
+  <a href="#avis">⭐ Avis Google</a>
+  <a href="#instagram">📱 Instagram</a>
+  <a href="#google">📍 Fiche Google</a>
+  <a href="#posts">✍️ 9 premiers posts</a>
+  <a href="#parrainage">🎁 Parrainage</a>
+  <a href="#carte">🪪 Carte de visite</a>
+  <a href="#checklist">✅ Checklist</a>
+</nav>
+
+<main>
+
+  <!-- ══ AVIS GOOGLE ══ -->
+  <div class="section" id="avis">
+    <div class="section-header">
+      <span class="section-icon">⭐</span>
+      <h2 class="section-title">Message pour demander des avis Google</h2>
+    </div>
+    <p class="section-desc">
+      À envoyer une par une en WhatsApp ou SMS à chacune des 25 clientes.
+      Personnalise juste le prénom et colle le lien Google une fois ta fiche créée.
+    </p>
+
+    <div class="tip">
+      <strong>Comment obtenir ton lien Google direct ?</strong><br>
+      Une fois ta fiche Google Business créée → clique sur "Demander des avis" →
+      Google te donne un lien court à copier. C'est ce lien que tu colles ici.
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Version courte (WhatsApp)</span>
+        <button class="copy-btn" onclick="copyText(this, 'msg-court')">Copier</button>
+      </div>
+      <div class="text-block-content" id="msg-court">Bonjour <span class="placeholder">[Prénom]</span> 🤍
+
+Je me permets de te contacter car ton avis m'aiderait vraiment à faire connaître Blanc Cocon.
+Si tu es satisfaite de tes soins, tu peux laisser un avis ici — ça prend 30 secondes :
+<span class="placeholder">[LIEN GOOGLE]</span>
+
+Merci beaucoup, et à très bientôt !
+Emilie — Blanc Cocon</div>
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Version longue (si cliente proche)</span>
+        <button class="copy-btn" onclick="copyText(this, 'msg-long')">Copier</button>
+      </div>
+      <div class="text-block-content" id="msg-long">Bonjour <span class="placeholder">[Prénom]</span>,
+
+Je te contacte un peu en dehors de nos séances, j'espère que tu vas bien !
+
+Je suis en train de développer Blanc Cocon pour en faire mon activité principale, et les avis Google font vraiment la différence pour être visible et rassurer les nouvelles clientes.
+
+Si tu as quelques secondes et que tu es satisfaite de tes soins, je serais vraiment touchée que tu laisses un petit mot ici :
+<span class="placeholder">[LIEN GOOGLE]</span>
+
+Merci infiniment pour ta confiance 🤍
+Emilie</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ INSTAGRAM ══ -->
+  <div class="section" id="instagram">
+    <div class="section-header">
+      <span class="section-icon">📱</span>
+      <h2 class="section-title">Bio Instagram</h2>
+    </div>
+    <p class="section-desc">
+      À coller dans le champ "Bio" de ton profil @blanccocon34.
+      Tu as 150 caractères maximum — chaque mot compte.
+    </p>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Bio Instagram — @blanccocon34</span>
+        <button class="copy-btn" onclick="copyText(this, 'bio-insta')">Copier</button>
+      </div>
+      <div class="text-block-content" id="bio-insta">Institut médico-esthétique 🤍
+Cryolipolyse · Laser · Radiofréquence
+Saint-Clément-de-Rivière (34)
+Par une infirmière diplômée d'État
+📅 RDV en ligne ↓</div>
+    </div>
+
+    <div class="tip">
+      <strong>Le lien en bio :</strong> dans le champ "Site web" de ton profil,
+      colle ton lien Planity : <em>planity.com/blanc-cocon-34980-saint-clement-de-riviere</em>
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Nom du profil (champ "Nom")</span>
+        <button class="copy-btn" onclick="copyText(this, 'nom-insta')">Copier</button>
+      </div>
+      <div class="text-block-content" id="nom-insta">Blanc Cocon · Institut Beauté Montpellier</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ GOOGLE BUSINESS ══ -->
+  <div class="section" id="google">
+    <div class="section-header">
+      <span class="section-icon">📍</span>
+      <h2 class="section-title">Fiche Google Business</h2>
+    </div>
+    <p class="section-desc">
+      Ces textes sont à copier dans ta fiche Google My Business.
+      Ils contiennent les bons mots-clés pour que tu apparaisses dans les recherches locales.
+    </p>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Description courte (champ "Description de l'entreprise")</span>
+        <button class="copy-btn" onclick="copyText(this, 'google-desc')">Copier</button>
+      </div>
+      <div class="text-block-content" id="google-desc">Blanc Cocon est un institut médico-esthétique situé à Saint-Clément-de-Rivière (34), à deux pas de Montpellier.
+
+Fondé par Emilie, infirmière diplômée d'État, l'institut propose des soins corporels et esthétiques haut de gamme : cryolipolyse, épilation laser diode, radiofréquence anti-âge, sauna dôme japonais aux infrarouges, et laser diode focalisé.
+
+Chaque séance est précédée d'un bilan personnalisé offert. Les contre-indications médicales sont systématiquement vérifiées pour garantir votre sécurité et l'efficacité des soins.
+
+📅 Réservation en ligne 24h/24 via Planity.
+📞 07 49 49 13 35</div>
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Catégorie principale à choisir sur Google</span>
+        <button class="copy-btn" onclick="copyText(this, 'google-cat')">Copier</button>
+      </div>
+      <div class="text-block-content" id="google-cat">Institut de beauté</div>
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Catégories secondaires à ajouter</span>
+        <button class="copy-btn" onclick="copyText(this, 'google-cat2')">Copier</button>
+      </div>
+      <div class="text-block-content" id="google-cat2">Centre d'épilation
+Spa
+Centre de bien-être</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ 9 PREMIERS POSTS ══ -->
+  <div class="section" id="posts">
+    <div class="section-header">
+      <span class="section-icon">✍️</span>
+      <h2 class="section-title">Les 9 premiers posts Instagram</h2>
+    </div>
+    <p class="section-desc">
+      Ces 9 posts forment la vitrine de ton profil. Quelqu'un qui arrive sur ton compte
+      doit comprendre en un coup d'œil qui tu es et ce que tu proposes.
+      Publie-les dans cet ordre, un par un.
+    </p>
+
+    <div class="post-grid">
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 1</span>
+          <span class="post-type">Bienvenue</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : l'entrée ou l'ambiance générale du cabinet</p>
+          <div class="post-caption" id="post1">Bienvenue chez Blanc Cocon 🤍
+
+Un espace pensé pour vous — discret, chaleureux, professionnel.
+
+Blanc Cocon, c'est un institut médico-esthétique niché au cœur de Saint-Clément-de-Rivière. On y propose des soins corporels innovants, réalisés dans le respect de votre sécurité et de votre bien-être.
+
+Cryolipolyse · Épilation laser · Radiofréquence · Sauna dôme japonais
+
+📅 Réservation en ligne dans la bio.
+
+#blanccocon #institutbeaute #saintclementderiviere #montpellier #beaute34</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post1')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 2</span>
+          <span class="post-type">Présentation</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : portrait professionnel d'Emilie dans le cabinet</p>
+          <div class="post-caption" id="post2">Derrière Blanc Cocon, il y a moi — Emilie 👋
+
+Infirmière diplômée d'État depuis plusieurs années, j'ai décidé de mettre mon expertise médicale au service de votre beauté et de votre bien-être.
+
+Ce qui change avec un regard infirmier :
+✅ Chaque soin commence par un bilan pour écarter les contre-indications
+✅ Je connais les mécanismes d'action de chaque technique
+✅ Votre sécurité n'est jamais négociée
+
+Blanc Cocon, c'est l'assurance d'être entre de bonnes mains — au sens propre.
+
+📅 Prenez rendez-vous en ligne dans la bio.
+
+#blanccocon #institutbeaute #infirmiere #medioesthetique #montpellier</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post2')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 3</span>
+          <span class="post-type">Éducatif</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : machine cryolipolyse ou zone traitée</p>
+          <div class="post-caption" id="post3">La cryolipolyse, c'est quoi exactement ? ❄️
+
+En clair : on applique un froid contrôlé sur une zone ciblée (ventre, cuisses, flancs...). Les cellules graisseuses — plus sensibles au froid que les autres — sont éliminées naturellement par le corps dans les semaines qui suivent.
+
+✔️ Sans chirurgie, sans anesthésie, sans cicatrice
+✔️ Résultats visibles à partir de 6-8 semaines
+✔️ Bilan offert avant chaque première séance
+
+C'est une technique médicale. C'est pourquoi je réalise systématiquement un bilan avant toute séance pour vérifier que vous y êtes éligible.
+
+À partir de 290 € la zone.
+
+Des questions ? Envoyez-moi un message 👇
+
+#cryolipolyse #minceur #silhouette #blanccocon #institutbeaute #montpellier</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post3')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 4</span>
+          <span class="post-type">Éducatif</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : zone épilée avant/après ou machine laser</p>
+          <div class="post-caption" id="post4">Épilation laser vs épilation à la cire ⚡
+
+La cire : efficace sur le moment, mais on recommence tous les 4-6 semaines… pour toujours.
+
+Le laser diode : on vise la racine du poil. Après un protocole de 6 à 10 séances, environ 90% des poils disparaissent durablement.
+
+Sur le long terme, le laser est souvent moins cher que des années de cire.
+
+Chez Blanc Cocon :
+→ Épilation laser femme et homme
+→ Toutes les zones
+→ Bilan offert et obligatoire avant la première séance
+→ À partir de 60 € la zone
+
+📅 Réservation dans la bio.
+
+#epilationlaser #epilationdefinitive #laser #blanccocon #beaute34 #montpellier</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post4')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 5</span>
+          <span class="post-type">Éducatif</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : soin radiofréquence visage ou résultat</p>
+          <div class="post-caption" id="post5">La radiofréquence, le soin anti-âge dont personne ne parle assez ✨
+
+Avec l'âge, le collagène se raréfie. La peau se relâche, les contours s'estompent.
+
+La radiofréquence envoie de la chaleur en profondeur dans les tissus pour :
+→ Stimuler la production de collagène naturellement
+→ Raffermir et tonifier la peau
+→ Redessiner les contours du visage et du corps
+
+Résultat : une peau plus ferme, plus lumineuse. Sans injection, sans bistouri.
+
+Chez Blanc Cocon :
+· Visage + cou : 69 € la séance
+· Cure de 6 séances à partir de 345 €
+
+📅 Prenez rendez-vous dans la bio.
+
+#radiofrequence #antiage #soinsvisage #raffermissement #blanccocon #montpellier</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post5')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 6</span>
+          <span class="post-type">Découverte</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : sauna dôme japonais dans le cabinet</p>
+          <div class="post-caption" id="post6">Le sauna dôme japonais — une bulle de détox 🫧
+
+C'est l'un des soins dont les clientes me reparlent le plus.
+
+Le principe : vous êtes allongée dans un dôme chauffant aux pierres minérales et aux infrarouges longs. Votre corps transpire en profondeur, votre tête reste à l'air libre. On appelle ça le "bain de vapeur japonais".
+
+Les bénéfices en une séance :
+🔥 ~600 calories brûlées
+🧘 Réduction du stress mesurable
+💧 Élimination des toxines et métaux lourds
+📐 Perte moyenne de tour de taille sur cure
+
+40 € la séance · Forfait 10 séances : 330 €
+
+Un soin idéal en complément de la cryolipolyse.
+
+#saunadome #infrarouge #detox #minceur #bienetre #blanccocon #saintclementderiviere</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post6')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 7</span>
+          <span class="post-type">Coulisses</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo : les équipements ou la salle de soin préparée</p>
+          <div class="post-caption" id="post7">Dans les coulisses de Blanc Cocon 🤍
+
+Ce que vous voyez ici, c'est le résultat de mois de préparation : choisir les bons équipements, se former, aménager un espace où chaque cliente se sent vraiment attendue.
+
+Mon objectif n'a jamais changé : vous offrir des soins qui font vraiment la différence — avec le sérieux d'un professionnel de santé, dans un cadre qui ressemble à ce que vous méritez.
+
+On est loin d'un grand institut froid et pressé. Ici, vous avez le temps.
+
+📅 Réservation en ligne dans la bio.
+
+#blanccocon #institutbeaute #coulisses #saintclementderiviere #beaute34</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post7')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 8</span>
+          <span class="post-type">Témoignage</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Capture d'écran de l'avis Planity ou fond neutre avec le texte</p>
+          <div class="post-caption" id="post8">Ça, ça me touche vraiment 🤍
+
+⭐⭐⭐⭐⭐
+"J'ai passé un excellent moment de détente, très chaleureux… comme dans un cocon ! Emilie, des doigts de fée, est très professionnelle, douce et attentive aux souhaits et au bien-être de sa cliente."
+
+C'est exactement pour ça que j'ai créé Blanc Cocon.
+
+Merci à toi 🙏
+
+📅 Prends rendez-vous dans la bio — le premier bilan est toujours offert.
+
+#avis #blanccocon #institutbeaute #montpellier #beaute34</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post8')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-card-top">
+          <span class="post-number">Post 9</span>
+          <span class="post-type">Appel à l'action</span>
+        </div>
+        <div class="post-body">
+          <p class="post-visual">📸 Photo lumineuse du cabinet ou d'un soin en cours</p>
+          <div class="post-caption" id="post9">Prête à commencer ? 🤍
+
+Chez Blanc Cocon, chaque parcours commence par un bilan offert et personnalisé. Ensemble, on définit le soin adapté à vos objectifs — sans pression, sans engagement.
+
+Ce que vous trouverez ici :
+❄️ Cryolipolyse — silhouette et amincissement
+⚡ Épilation laser — femme et homme
+✨ Radiofréquence — anti-âge et raffermissement
+🫧 Sauna dôme japonais — détox et bien-être
+
+📍 135 Av. du Miradou, Saint-Clément-de-Rivière
+📞 07 49 49 13 35
+📅 Réservation en ligne dans la bio — disponible 24h/24
+
+#blanccocon #institutbeaute #cryolipolyse #epilationlaser #radiofrequence #montpellier #herault #beaute34 #saintclementderiviere</div>
+          <div class="post-copy">
+            <button class="copy-btn" onclick="copyText(this, 'post9')">Copier</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ PARRAINAGE ══ -->
+  <div class="section" id="parrainage">
+    <div class="section-header">
+      <span class="section-icon">🎁</span>
+      <h2 class="section-title">Programme de parrainage</h2>
+    </div>
+    <p class="section-desc">
+      À envoyer aux 25 clientes une fois les premiers avis Google obtenus (mois 2).
+      Simple, clair, mémorisable.
+    </p>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Message parrainage — WhatsApp</span>
+        <button class="copy-btn" onclick="copyText(this, 'parrainage')">Copier</button>
+      </div>
+      <div class="text-block-content" id="parrainage">Bonjour <span class="placeholder">[Prénom]</span> 🤍
+
+Je lance un petit programme parrainage chez Blanc Cocon :
+si tu recommandes l'institut à une amie et qu'elle prend rendez-vous,
+elle bénéficie de -15% sur sa première séance — et toi aussi sur ta prochaine.
+
+Il suffit qu'elle mentionne ton prénom au moment de la réservation.
+
+Merci pour ta confiance 😊
+Emilie — Blanc Cocon · 07 49 49 13 35</div>
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Texte pour afficher en cabinet</span>
+        <button class="copy-btn" onclick="copyText(this, 'parrainage-affiche')">Copier</button>
+      </div>
+      <div class="text-block-content" id="parrainage-affiche">🎁 Parrainage Blanc Cocon
+
+Vous aimez vos soins ? Parlez-en autour de vous.
+
+→ Votre amie bénéficie de -15% sur sa 1ère séance
+→ Vous bénéficiez de -15% sur votre prochaine séance
+
+Il suffit qu'elle cite votre prénom à la réservation.
+
+Merci pour votre confiance 🤍</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ CARTE DE VISITE ══ -->
+  <div class="section" id="carte">
+    <div class="section-header">
+      <span class="section-icon">🪪</span>
+      <h2 class="section-title">Texte pour les cartes de visite</h2>
+    </div>
+    <p class="section-desc">
+      À commander sur Vistaprint, Canva Print ou Moo. Budget : 20-40 € pour 250 cartes.
+      Format standard : 85 × 55 mm.
+    </p>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Recto de la carte</span>
+        <button class="copy-btn" onclick="copyText(this, 'carte-recto')">Copier</button>
+      </div>
+      <div class="text-block-content" id="carte-recto">BLANC COCON
+Institut médico-esthétique
+
+Emilie — Infirmière DE
+
+Cryolipolyse · Épilation laser
+Radiofréquence · Sauna japonais</div>
+    </div>
+
+    <div class="text-block">
+      <div class="text-block-header">
+        <span class="text-block-label">Verso de la carte</span>
+        <button class="copy-btn" onclick="copyText(this, 'carte-verso')">Copier</button>
+      </div>
+      <div class="text-block-content" id="carte-verso">📍 135 Av. du Miradou
+     34980 Saint-Clément-de-Rivière
+
+📞 07 49 49 13 35
+📱 @blanccocon34
+
+📅 RDV en ligne 24h/24
+     planity.com → Blanc Cocon</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ CHECKLIST ══ -->
+  <div class="section" id="checklist">
+    <div class="section-header">
+      <span class="section-icon">✅</span>
+      <h2 class="section-title">Checklist de lancement</h2>
+    </div>
+    <p class="section-desc">
+      Coche au fur et à mesure. Les étapes sont dans l'ordre de priorité.
+    </p>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Créer la fiche Google My Business</p>
+          <p class="check-sub">business.google.com · 30 min · Gratuit</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Envoyer le message avis aux 25 clientes</p>
+          <p class="check-sub">Copier le message ci-dessus + lien Google · 30 min</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Refaire la bio Instagram</p>
+          <p class="check-sub">Copier la bio ci-dessus dans @blanccocon34 · 5 min</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Commander les cartes de visite</p>
+          <p class="check-sub">Vistaprint ou Canva Print · ~30 € · 250 cartes</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Publier les 9 premiers posts Instagram</p>
+          <p class="check-sub">1 post tous les 2 jours · Captions copiées ci-dessus</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Ajouter les photos du cabinet sur Google Business</p>
+          <p class="check-sub">Les 14 photos récupérées sont dans assets/photos/</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Lancer l'offre -20% première séance</p>
+          <p class="check-sub">À faire en mois 2 · Sur Instagram + story</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Envoyer le message parrainage aux 25 clientes</p>
+          <p class="check-sub">À faire après les premiers avis Google · Mois 2</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box" onclick="toggleCheck(this)"></div>
+        <div>
+          <p class="check-text">Lancer une publicité Facebook/Instagram</p>
+          <p class="check-sub">7-10 €/jour · Femmes 28-55 ans · Rayon 15 km · Mois 3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Blanc Cocon · Saint-Clément-de-Rivière · 07 49 49 13 35 · @blanccocon34
+</footer>
+
+<script>
+  function copyText(btn, id) {
+    const el = document.getElementById(id);
+    // Get text without HTML tags
+    const text = el.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ Copié !';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copier';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function toggleCheck(box) {
+    box.classList.toggle('done');
+    box.textContent = box.classList.contains('done') ? '✓' : '';
+  }
+</script>
+
+</body>
+</html>
