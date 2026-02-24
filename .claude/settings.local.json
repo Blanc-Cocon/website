@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.planity.com)",
+      "WebFetch(domain:www.instagram.com)",
+      "Bash(curl:*)",
+      "Bash(which node:*)",
+      "Bash(node:*)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(xdg-open:*)",
+      "Bash(gh auth:*)",
+      "Bash(git init:*)"
+    ]
+  }
+}
