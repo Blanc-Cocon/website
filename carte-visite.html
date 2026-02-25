@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanc Cocon — Carte de visite</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown-dark:  #2e2018;
+      --brown-mid:   #5a3e2b;
+      --brown-warm:  #8c7b6e;
+      --beige-light: #f5ede4;
+      --beige-mid:   #e8ddd4;
+      --cream:       #faf9f7;
+      --gold:        #c9a96e;
+    }
+
+    body {
+      background: #f0ebe4;
+      font-family: 'Jost', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px 80px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--brown-dark);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: .8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-warm);
+      margin-bottom: 48px;
+    }
+
+    /* ── WRAPPER ── */
+    .cards-wrapper {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+
+    .card-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .card-label {
+      font-size: .72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown-warm);
+    }
+
+    /* ── CARTE : dimensions réelles 85mm × 55mm à 96dpi ── */
+    .card {
+      width: 321px;   /* 85mm */
+      height: 208px;  /* 55mm */
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(46,32,24,.22), 0 2px 8px rgba(46,32,24,.10);
+      position: relative;
+    }
+
+    /* ══ RECTO ══ */
+    .card-front {
+      background: var(--brown-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 26px 28px 22px;
+    }
+
+    /* Motif décoratif */
+    .card-front::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,169,110,.15);
+    }
+    .card-front::after {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,169,110,.10);
+    }
+
+    .front-top {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem;
+      font-weight: 300;
+      color: var(--beige-light);
+      letter-spacing: 4px;
+      line-height: 1;
+    }
+    .brand-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .brand-tagline {
+      font-size: .58rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(232,221,212,.55);
+      margin-top: 4px;
+    }
+
+    .front-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .person-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--beige-light);
+      letter-spacing: 1px;
+    }
+
+    .person-title {
+      font-size: .6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    .front-services {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .service-pill {
+      font-size: .52rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(232,221,212,.5);
+      border: 1px solid rgba(232,221,212,.2);
+      border-radius: 20px;
+      padding: 2px 8px;
+    }
+
+    /* Ligne décorative */
+    .front-line {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    /* ══ VERSO ══ */
+    .card-back {
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px 28px;
+      border: 1px solid var(--beige-mid);
+    }
+
+    .back-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .back-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--brown-dark);
+      letter-spacing: 3px;
+    }
+    .back-brand em {
+      font-style: italic;
+      color: var(--brown-warm);
+    }
+
+    .back-divider {
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      margin: 8px 0;
+    }
+
+    .back-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .info-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .68rem;
+      color: var(--brown-mid);
+      letter-spacing: .3px;
+    }
+    .info-icon {
+      font-size: .75rem;
+      width: 14px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .back-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 4px;
+    }
+
+    /* QR placeholder */
+    .qr-box {
+      width: 52px; height: 52px;
+      border: 1.5px solid var(--beige-mid);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .52rem;
+      color: var(--brown-warm);
+      text-align: center;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .qr-label {
+      font-size: .52rem;
+      color: var(--brown-warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .back-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .back-address {
+      font-size: .62rem;
+      color: var(--brown-warm);
+      letter-spacing: .3px;
+      line-height: 1.5;
+    }
+
+    .back-insta {
+      font-size: .62rem;
+      color: var(--brown-warm);
+      letter-spacing: 1px;
+    }
+
+    /* ── INSTRUCTIONS ── */
+    .instructions {
+      background: #fff;
+      border: 1px solid var(--beige-mid);
+      border-radius: 12px;
+      padding: 24px 28px;
+      max-width: 720px;
+      width: 100%;
+    }
+    .instructions h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--brown-dark);
+      margin-bottom: 16px;
+    }
+    .steps-print {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step-print {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .85rem;
+      color: #5a4a3e;
+    }
+    .step-print-num {
+      width: 22px; height: 22px;
+      background: var(--brown-dark);
+      color: var(--beige-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .btn-print {
+      margin-top: 20px;
+      background: var(--brown-dark);
+      color: var(--beige-light);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-size: .85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: background .2s;
+    }
+    .btn-print:hover { background: var(--brown-mid); }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      h1, .subtitle, .card-label, .instructions { display: none; }
+      .cards-wrapper {
+        gap: 20px;
+      }
+      .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        /* Taille réelle 85mm × 55mm */
+        width: 85mm;
+        height: 55mm;
+      }
+      .brand-name { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Blanc <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#8c7b6e;">Cocon</em></h1>
+  <p class="subtitle">Carte de visite — Aperçu</p>
+
+  <div class="cards-wrapper">
+
+    <!-- RECTO -->
+    <div class="card-side">
+      <span class="card-label">Recto</span>
+      <div class="card card-front">
+        <div class="front-top">
+          <div class="brand-name">Blanc <em>Cocon</em></div>
+          <div class="brand-tagline">Institut médico-esthétique</div>
+        </div>
+        <div class="front-bottom">
+          <div class="person-name">Emilie</div>
+          <div class="person-title">Infirmière diplômée d'État</div>
+          <div class="front-services">
+            <span class="service-pill">Cryolipolyse</span>
+            <span class="service-pill">Laser</span>
+            <span class="service-pill">Radiofréquence</span>
+            <span class="service-pill">Sauna japonais</span>
+          </div>
+        </div>
+        <div class="front-line"></div>
+      </div>
+    </div>
+
+    <!-- VERSO -->
+    <div class="card-side">
+      <span class="card-label">Verso</span>
+      <div class="card card-back">
+        <div class="back-top">
+          <div>
+            <div class="back-brand">Blanc <em>Cocon</em></div>
+            <div class="back-divider"></div>
+            <div class="back-info">
+              <div class="info-line">
+                <span class="info-icon">📞</span>
+                <span>07 49 49 13 35</span>
+              </div>
+              <div class="info-line">
+                <span class="info-icon">📱</span>
+                <span>@blanccocon34</span>
+              </div>
+              <div class="info-line">
+                <span class="info-icon">📅</span>
+                <span>RDV en ligne — Planity</span>
+              </div>
+            </div>
+          </div>
+          <div class="back-right">
+            <div class="qr-box">QR<br>RDV</div>
+            <div class="qr-label">Scan → RDV</div>
+          </div>
+        </div>
+        <div class="back-bottom">
+          <div class="back-address">
+            135 Av. du Miradou<br>
+            34980 Saint-Clément-de-Rivière
+          </div>
+          <div class="back-insta">blanccocon34</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="instructions">
+    <h2>Comment imprimer ou commander</h2>
+    <div class="steps-print">
+      <div class="step-print">
+        <div class="step-print-num">1</div>
+        <div><strong>Imprimer depuis le navigateur</strong> — Fichier → Imprimer → choisir "Format A4",
+          activer "Graphiques d'arrière-plan" dans les options. Couper ensuite aux ciseaux.</div>
+      </div>
+      <div class="step-print">
+        <div class="step-print-num">2</div>
+        <div><strong>Exporter en PDF</strong> — Dans la fenêtre d'impression, choisir
+          "Enregistrer en PDF" comme imprimante. Envoyer le PDF à un imprimeur local.</div>
+      </div>
+      <div class="step-print">
+        <div class="step-print-num">3</div>
+        <div><strong>Commander en ligne</strong> — Sur Vistaprint.fr ou Canva Print,
+          recréer le design avec ces textes. Budget : ~30 € pour 250 cartes.</div>
+      </div>
+      <div class="step-print">
+        <div class="step-print-num">4</div>
+        <div><strong>QR Code RDV</strong> — Générer un QR code gratuit sur qr-code-generator.com
+          pointant vers ton lien Planity, et remplacer la case "QR RDV" du verso.</div>
+      </div>
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨 Imprimer la carte</button>
+  </div>
+
+</body>
+</html>
