@@ -1,2 +1,28 @@
 # Médias Contour Paris (6 Go — stockés en local uniquement)
-assets/contour-paris/
+assets/contour-paris/**
+
+# Exception : 12 images référencées dans programme-mars.html
+!assets/contour-paris/cryolipolyse/
+!assets/contour-paris/cryolipolyse/reseaux-sociaux/
+!assets/contour-paris/cryolipolyse/reseaux-sociaux/publications/
+!assets/contour-paris/cryolipolyse/reseaux-sociaux/publications/1 1.png
+!assets/contour-paris/cryolipolyse/reseaux-sociaux/publications/OK (32).png
+!assets/contour-paris/cryolipolyse/key-visual/
+!assets/contour-paris/cryolipolyse/key-visual/Affiches CONTOUR PARIS-Cryo.png
+!assets/contour-paris/capsule-market/
+!assets/contour-paris/capsule-market/edition-2/
+!assets/contour-paris/capsule-market/edition-2/post-9.png
+!assets/contour-paris/capsule-market/edition-2/post-3.png
+!assets/contour-paris/capsule-market/edition-4/
+!assets/contour-paris/capsule-market/edition-4/1.png
+!assets/contour-paris/capsule-market/edition-4/2.png
+!assets/contour-paris/capsule-market/edition-6/
+!assets/contour-paris/capsule-market/edition-6/18.png
+!assets/contour-paris/capsule-market/edition-6/3.png
+!assets/contour-paris/collagen-boost/
+!assets/contour-paris/collagen-boost/avant-apres/
+!assets/contour-paris/collagen-boost/avant-apres/Contour Collagen Boost - 10.png
+!assets/contour-paris/skin-laser/
+!assets/contour-paris/skin-laser/reseaux-sociaux/
+!assets/contour-paris/skin-laser/reseaux-sociaux/2.png
+!assets/contour-paris/skin-laser/reseaux-sociaux/1.png
