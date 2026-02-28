@@ -16,7 +16,11 @@
       "Bash(gh api:*)",
       "Bash(cp:*)",
       "Bash(git:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(whois:*)",
+      "Bash(aws sts:*)",
+      "Bash(aws iam:*)",
+      "Bash(aws configure:*)"
     ]
   }
 }
