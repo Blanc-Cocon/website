@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanc Cocon — Programme de publication Mars 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #faf9f7;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #3d2e24;
+      color: #f5ede4;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #c9b9a8;
+      font-size: .95rem;
+    }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e0d6;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      display: block;
+      padding: 16px 20px;
+      font-size: .82rem;
+      letter-spacing: .5px;
+      color: #7a6a5e;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: #3d2e24; border-bottom-color: #8c7b6e; }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    /* ── Recap cards ── */
+    .recap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .recap-card {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .recap-card .rc-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3d2e24;
+    }
+    .recap-card .rc-label {
+      font-size: .78rem;
+      color: #8c7b6e;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .85rem;
+      color: #5a4a3e;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-pub { background: #c0392b; }
+    .dot-info { background: #2980b9; }
+    .dot-prev { background: #27ae60; }
+
+    /* ── Week sections ── */
+    .week {
+      margin-bottom: 56px;
+    }
+    .week-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .week-number {
+      background: #3d2e24;
+      color: #f5ede4;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .week-dates {
+      font-size: .9rem;
+      color: #7a6a5e;
+    }
+
+    /* ── Post cards ── */
+    .post-card {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .post-card-top {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8e0d6;
+    }
+
+    .post-card-top.type-pub { background: #fdf0ef; }
+    .post-card-top.type-info { background: #eef4fa; }
+    .post-card-top.type-prev { background: #eef8f1; }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .post-day {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c7b6e;
+    }
+    .post-type {
+      font-size: .7rem;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+    .type-pub .post-type { background: #c0392b; color: #fff; }
+    .type-info .post-type { background: #2980b9; color: #fff; }
+    .type-prev .post-type { background: #27ae60; color: #fff; }
+
+    .badge-sponsor {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: #f39c12;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 10px;
+    }
+
+    .post-body {
+      padding: 16px;
+    }
+    .post-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #3d2e24;
+      margin-bottom: 8px;
+    }
+    .post-visual {
+      font-size: .8rem;
+      color: #8c7b6e;
+      font-style: italic;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .post-caption {
+      font-size: .9rem;
+      color: #3d2e24;
+      white-space: pre-wrap;
+      line-height: 1.7;
+      background: #faf9f7;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .post-copy {
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    .copy-btn {
+      background: #3d2e24;
+      color: #f5ede4;
+      border: none;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: .75rem;
+      cursor: pointer;
+      transition: background .2s;
+      letter-spacing: .5px;
+    }
+    .copy-btn:hover { background: #5a4535; }
+    .copy-btn.copied { background: #4a7c59; }
+
+    .tip {
+      background: #f0ebe4;
+      border-left: 3px solid #8c7b6e;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: .85rem;
+      color: #5a4a3e;
+      margin-bottom: 16px;
+    }
+    .tip strong { color: #3d2e24; }
+
+    .divider {
+      height: 1px;
+      background: #e8e0d6;
+      margin: 48px 0;
+    }
+
+    /* ── Budget section ── */
+    .budget {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 48px;
+    }
+    .budget h3 {
+      font-size: 1.1rem;
+      color: #3d2e24;
+      margin-bottom: 16px;
+    }
+    .budget-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .budget-item {
+      background: #faf9f7;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .budget-item .bi-label {
+      font-size: .78rem;
+      color: #8c7b6e;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .budget-item .bi-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #3d2e24;
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: .8rem;
+      color: #b0a090;
+      border-top: 1px solid #e8e0d6;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 60px; }
+      nav a { padding: 14px 14px; font-size: .78rem; }
+      .recap { grid-template-columns: 1fr; }
+      .budget-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Programme de publication — Mars 2026</h1>
+  <p>12 posts prêts à copier-coller. 3 par semaine. Rien à inventer.</p>
+</header>
+
+<nav>
+  <a href="index.html" style="color:#3d2e24;font-weight:600;">← Accueil</a>
+  <a href="#semaine1">Semaine 1</a>
+  <a href="#semaine2">Semaine 2</a>
+  <a href="#semaine3">Semaine 3</a>
+  <a href="#semaine4">Semaine 4</a>
+  <a href="#budget">Budget pub</a>
+</nav>
+
+<main>
+
+  <div class="recap">
+    <div class="recap-card">
+      <div class="rc-num">12</div>
+      <div class="rc-label">Posts au total</div>
+    </div>
+    <div class="recap-card">
+      <div class="rc-num">4</div>
+      <div class="rc-label">Sponsorisés</div>
+    </div>
+    <div class="recap-card">
+      <div class="rc-num">120-200 €</div>
+      <div class="rc-label">Budget pub/mois</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-dot dot-pub"></span> Publicité — offres, promotions</div>
+    <div class="legend-item"><span class="legend-dot dot-info"></span> Information — éducatif, expertise</div>
+    <div class="legend-item"><span class="legend-dot dot-prev"></span> Prévention — conseils santé, bien-être</div>
+  </div>
+
+  <!-- ══════════════ SEMAINE 1 ══════════════ -->
+  <div class="week" id="semaine1">
+    <div class="week-header">
+      <span class="week-number">Semaine 1</span>
+      <span class="week-dates">2 — 6 mars 2026</span>
+    </div>
+
+    <!-- Post 1 -->
+    <div class="post-card">
+      <div class="post-card-top type-info">
+        <div class="post-meta">
+          <span class="post-day">Lundi 2</span>
+          <span class="post-type">Information</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Comment fonctionne la cryolipolyse ?</p>
+        <p class="post-visual">📸 Carrousel 5 slides : schéma simplifié du processus étape par étape</p>
+        <div class="post-caption" id="s1-post1">La cryolipolyse en 5 étapes — tout ce que vous devez savoir ❄️
+
+1️⃣ Bilan personnalisé offert
+On évalue ensemble vos zones à traiter et on vérifie que vous êtes éligible.
+
+2️⃣ Application de l'applicateur
+Un gel protecteur est posé sur la peau, puis l'appareil aspire doucement la zone ciblée.
+
+3️⃣ Refroidissement contrôlé
+Pendant 45 à 60 minutes, les cellules graisseuses sont exposées à un froid précis (-5 à -10°C).
+
+4️⃣ Les cellules graisseuses s'éliminent naturellement
+Le corps les évacue progressivement par le système lymphatique au fil des semaines.
+
+5️⃣ Résultats visibles dès 6-8 semaines
+La zone traitée s'affine durablement — les cellules éliminées ne reviennent pas.
+
+Vous avez des questions ? Envoyez-moi un message, je vous réponds personnellement 👇
+
+📅 Bilan offert — lien dans la bio.
+
+#cryolipolyse #minceur #amincissement #blanccocon #institutbeaute #saintclementderiviere #montpellier</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's1-post1')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="post-card">
+      <div class="post-card-top type-prev">
+        <div class="post-meta">
+          <span class="post-day">Mercredi 4</span>
+          <span class="post-type">Prévention</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Protéger sa peau en fin d'hiver</p>
+        <p class="post-visual">📸 Flat lay : crème hydratante, verre d'eau, gommage doux — lumière douce</p>
+        <div class="post-caption" id="s1-post2">Le soleil revient doucement… et votre peau a besoin d'attention ☀️
+
+Après l'hiver, la peau est souvent déshydratée, terne et fragilisée. Avant de profiter des premiers rayons, voici 4 réflexes simples :
+
+🧴 Hydratez matin et soir — une peau bien nourrie vieillit moins vite
+🧽 Exfoliez 1 fois par semaine — gommage doux pour relancer l'éclat
+💧 Buvez au moins 1,5L d'eau par jour — l'hydratation vient aussi de l'intérieur
+🚫 Pas de laser ni de soin sur peau bronzée — on anticipe maintenant
+
+C'est le bon moment pour démarrer un protocole radiofréquence ou laser — votre peau est claire et réceptive.
+
+Une question ? Je suis là 👇
+
+#conseilbeaute #prevention #peausaine #soindelapeau #blanccocon #montpellier #bienetre</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's1-post2')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="post-card">
+      <div class="post-card-top type-pub">
+        <div class="post-meta">
+          <span class="post-day">Vendredi 6</span>
+          <span class="post-type">Publicité</span>
+        </div>
+        <span class="badge-sponsor">Sponsorisé</span>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Offre de printemps : -20% sur votre 1ère séance</p>
+        <p class="post-visual">📸 Visuel impactant : photo du cabinet + texte "-20%" en gros — format carré</p>
+        <div class="tip">
+          <strong>Sponsorisation :</strong> Budget 30-50 € · Ciblage : Femmes 40-60 ans · Rayon 15 km autour de Saint-Clément · Intérêts : bien-être, minceur, beauté, esthétique
+        </div>
+        <div class="post-caption" id="s1-post3">-20% sur votre première séance chez Blanc Cocon 🤍
+
+Pour fêter le printemps, on vous offre -20% sur votre premier soin — quel qu'il soit :
+
+❄️ Cryolipolyse — amincissement ciblé
+⚡ Épilation laser — résultats durables
+✨ Radiofréquence — anti-âge et raffermissement
+🫧 Sauna dôme japonais — détox profonde
+
+Chaque parcours commence par un bilan gratuit et personnalisé.
+
+📍 Saint-Clément-de-Rivière (34) — à 10 min de Montpellier
+📅 Réservez en ligne — lien dans la bio
+📞 07 49 49 13 35
+
+Offre valable jusqu'au 31 mars. Mentionnez "PRINTEMPS" à la réservation.
+
+#blanccocon #offre #promo #cryolipolyse #epilationlaser #montpellier #herault #beaute34 #saintclementderiviere</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's1-post3')">Copier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════ SEMAINE 2 ══════════════ -->
+  <div class="week" id="semaine2">
+    <div class="week-header">
+      <span class="week-number">Semaine 2</span>
+      <span class="week-dates">9 — 13 mars 2026</span>
+    </div>
+
+    <!-- Post 4 -->
+    <div class="post-card">
+      <div class="post-card-top type-prev">
+        <div class="post-meta">
+          <span class="post-day">Lundi 9</span>
+          <span class="post-type">Prévention</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Épilation laser : 5 choses à savoir avant de commencer</p>
+        <p class="post-visual">📸 Carrousel 5 slides : une info clé par slide, fond clair, typo lisible</p>
+        <div class="post-caption" id="s2-post1">Vous envisagez l'épilation laser ? Lisez ça d'abord ⚡
+
+5 choses que j'aurais aimé qu'on me dise avant :
+
+1️⃣ Il faut raser la zone 24h avant la séance
+Le laser cible la racine du poil — si le poil dépasse, l'énergie se disperse en surface. Pas de cire ni d'épilateur pendant le protocole.
+
+2️⃣ On ne fait pas de laser sur une peau bronzée
+Risque de brûlure. C'est pour ça que la fin d'hiver / le début de printemps est le meilleur moment pour commencer.
+
+3️⃣ Il faut 6 à 10 séances
+Les poils poussent par cycles. On ne peut traiter que ceux en phase de croissance — d'où la nécessité de plusieurs séances espacées de 4 à 8 semaines.
+
+4️⃣ Ce n'est pas "sans douleur" mais c'est supportable
+On ressent une sensation de chaleur et de picotement. La plupart des clientes décrivent ça comme un élastique qui claque. Rien d'insurmontable.
+
+5️⃣ Un bilan est indispensable avant la 1ère séance
+Phototype, antécédents, traitements en cours… Chez Blanc Cocon, ce bilan est offert et obligatoire.
+
+Des questions ? Je vous réponds en DM 👇
+
+#epilationlaser #laser #conseilbeaute #prevention #blanccocon #montpellier #beaute34</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's2-post1')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 5 -->
+    <div class="post-card">
+      <div class="post-card-top type-info">
+        <div class="post-meta">
+          <span class="post-day">Mercredi 11</span>
+          <span class="post-type">Information</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Radiofréquence : résultats en 6 séances</p>
+        <p class="post-visual">📸 Avant/après (avec accord cliente) ou schéma du protocole en 6 séances</p>
+        <div class="post-caption" id="s2-post2">La radiofréquence, c'est 6 séances pour des résultats qui se voient ✨
+
+Voici ce qui se passe séance après séance :
+
+Séances 1-2 → La peau est stimulée en profondeur. Le collagène commence à se réorganiser. Vous sentez la peau plus ferme au toucher.
+
+Séances 3-4 → Les contours se redessinent. L'ovale du visage, le cou, le décolleté — les zones traitées gagnent en tonicité.
+
+Séances 5-6 → Le résultat s'installe. La peau est visiblement plus lisse, plus lumineuse. L'effet continue de s'améliorer pendant 2-3 mois après la fin du protocole.
+
+Le principe : des ondes de chaleur pénètrent la peau pour relancer la production naturelle de collagène. Sans injection. Sans bistouri. Sans éviction sociale.
+
+Visage + cou : 69 €/séance
+Cure 6 séances : 345 €
+
+📅 Bilan offert — lien dans la bio.
+
+#radiofrequence #antiage #raffermissement #collagene #blanccocon #soinvisage #montpellier</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's2-post2')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 6 -->
+    <div class="post-card">
+      <div class="post-card-top type-pub">
+        <div class="post-meta">
+          <span class="post-day">Vendredi 13</span>
+          <span class="post-type">Publicité</span>
+        </div>
+        <span class="badge-sponsor">Sponsorisé</span>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Cure Minceur & Détox : cryo + sauna dôme</p>
+        <p class="post-visual">📸 Photo : machine cryo + sauna dôme côte à côte ou résultat silhouette</p>
+        <div class="tip">
+          <strong>Sponsorisation :</strong> Budget 30-50 € · Ciblage : Femmes 30-55 ans · Intérêts : minceur, perte de poids, detox, remise en forme
+        </div>
+        <div class="post-caption" id="s2-post3">Votre cure Minceur & Détox — deux soins complémentaires pour des résultats visibles 🤍
+
+❄️ La cryolipolyse élimine les cellules graisseuses localisées
+🫧 Le sauna dôme japonais accélère le drainage et la détoxification
+
+Ensemble, ces deux soins se renforcent : le froid cible les graisses, la chaleur infrarouge booste leur élimination.
+
+Le pack Minceur & Détox :
+→ 3 séances de cryolipolyse + 5 séances de sauna dôme
+→ 670 € au lieu de 810 € à la carte
+
+Résultats visibles dès le premier mois.
+
+📍 Blanc Cocon — Saint-Clément-de-Rivière
+📅 Réservez votre bilan offert — lien dans la bio
+📞 07 49 49 13 35
+
+#minceur #detox #cryolipolyse #saunadome #blanccocon #amincissement #montpellier #herault</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's2-post3')">Copier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════ SEMAINE 3 ══════════════ -->
+  <div class="week" id="semaine3">
+    <div class="week-header">
+      <span class="week-number">Semaine 3</span>
+      <span class="week-dates">16 — 20 mars 2026</span>
+    </div>
+
+    <!-- Post 7 -->
+    <div class="post-card">
+      <div class="post-card-top type-info">
+        <div class="post-meta">
+          <span class="post-day">Lundi 16</span>
+          <span class="post-type">Information</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Sauna dôme japonais : ce qui se passe dans votre corps</p>
+        <p class="post-visual">📸 Photo : le sauna dôme ouvert dans le cabinet, ambiance tamisée</p>
+        <div class="post-caption" id="s3-post1">Le sauna dôme japonais — la science derrière la détente 🫧
+
+Vous êtes allongée dans un dôme chauffant. Votre tête reste à l'air libre. Pendant 30 à 45 minutes, votre corps transpire en profondeur grâce aux infrarouges longs.
+
+Ce qui se passe à l'intérieur :
+
+🔥 Votre température corporelle monte progressivement
+Le métabolisme s'accélère — le corps brûle jusqu'à 600 calories en une séance.
+
+💧 La sudation profonde démarre
+Contrairement à un sauna classique, les infrarouges traversent la peau sur 4 cm. La transpiration est plus profonde et élimine davantage de toxines et métaux lourds.
+
+🧘 Le système nerveux bascule en mode repos
+Le stress diminue, les tensions musculaires se relâchent. Beaucoup de clientes s'endorment pendant la séance.
+
+📐 La zone abdominale se dégonfle
+Grâce au drainage naturel, on observe une perte de tour de taille dès la première séance sur une cure.
+
+40 € la séance · Forfait 10 séances : 330 €
+
+Un soin idéal seul ou en complément de la cryolipolyse.
+
+📅 Réservation dans la bio.
+
+#saunadome #sauna #infrarouge #detox #bienetre #blanccocon #montpellier #relaxation</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's3-post1')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 8 -->
+    <div class="post-card">
+      <div class="post-card-top type-prev">
+        <div class="post-meta">
+          <span class="post-day">Mercredi 18</span>
+          <span class="post-type">Prévention</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Relâchement cutané : à partir de quel âge agir ?</p>
+        <p class="post-visual">📸 Visuel graphique : courbe du collagène avec l'âge, design épuré</p>
+        <div class="post-caption" id="s3-post2">Le collagène commence à décliner dès 25 ans. Et après 40 ans, on en perd 1% par an 📉
+
+C'est le collagène qui donne à la peau sa fermeté, son élasticité, son rebond. Quand il diminue, la peau se relâche — mâchoire, cou, bras, ventre…
+
+La bonne nouvelle : on peut relancer sa production naturellement.
+
+La radiofréquence envoie de la chaleur contrôlée en profondeur pour :
+→ Stimuler les fibroblastes (les cellules qui fabriquent le collagène)
+→ Raffermir les tissus progressivement
+→ Redessiner les contours sans injection
+
+À quel âge commencer ?
+✅ Dès 30 ans en prévention — pour maintenir la fermeté
+✅ Après 40 ans en correction — pour retrouver de la tonicité
+✅ À tout âge après une perte de poids — pour retendre la peau
+
+Plus on agit tôt, plus les résultats sont durables.
+
+Envie d'en savoir plus ? Le bilan est offert 👇
+
+#antiage #prevention #collagene #radiofrequence #peaumature #blanccocon #montpellier #bienetre</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's3-post2')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 9 -->
+    <div class="post-card">
+      <div class="post-card-top type-pub">
+        <div class="post-meta">
+          <span class="post-day">Vendredi 20</span>
+          <span class="post-type">Publicité</span>
+        </div>
+        <span class="badge-sponsor">Sponsorisé</span>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Parrainage : -15% pour vous, -15% pour votre amie</p>
+        <p class="post-visual">📸 Visuel chaleureux : deux amies ensemble ou design "offre parrainage" élégant</p>
+        <div class="tip">
+          <strong>Sponsorisation :</strong> Budget 30-50 € · Ciblage : Femmes 40-60 ans ayant interagi avec @blanccocon34 ou visiteurs Planity (retargeting)
+        </div>
+        <div class="post-caption" id="s3-post3">Vous aimez vos soins chez Blanc Cocon ? Partagez l'expérience 🤍
+
+Notre programme parrainage :
+
+🎁 Votre amie bénéficie de -15% sur sa première séance
+🎁 Vous bénéficiez de -15% sur votre prochaine séance
+
+Comment ça marche ?
+→ Parlez de Blanc Cocon à une amie
+→ Elle mentionne votre prénom à la réservation
+→ Vous recevez toutes les deux votre réduction
+
+C'est aussi simple que ça.
+
+Valable sur tous les soins : cryolipolyse, épilation laser, radiofréquence, sauna dôme.
+
+📅 Réservation en ligne — lien dans la bio
+📞 07 49 49 13 35
+
+#parrainage #blanccocon #bonplan #beaute #montpellier #saintclementderiviere #institutbeaute</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's3-post3')">Copier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════ SEMAINE 4 ══════════════ -->
+  <div class="week" id="semaine4">
+    <div class="week-header">
+      <span class="week-number">Semaine 4</span>
+      <span class="week-dates">23 — 27 mars 2026</span>
+    </div>
+
+    <!-- Post 10 -->
+    <div class="post-card">
+      <div class="post-card-top type-prev">
+        <div class="post-meta">
+          <span class="post-day">Lundi 23</span>
+          <span class="post-type">Prévention</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Pourquoi je fais un bilan avant chaque 1er soin</p>
+        <p class="post-visual">📸 Photo : Émilie en consultation, ambiance professionnelle et rassurante</p>
+        <div class="post-caption" id="s4-post1">Chez Blanc Cocon, aucun soin ne commence sans bilan. Voici pourquoi 🤍
+
+En tant qu'infirmière reconvertie dans la médico-esthétique, j'ai gardé un réflexe fondamental : on ne traite jamais sans évaluer d'abord.
+
+Avant chaque première séance, je vérifie :
+
+✅ Votre état de santé général
+Certains traitements en cours, certaines pathologies ou certains médicaments sont des contre-indications absolues.
+
+✅ Votre type de peau et votre phototype
+Le réglage du laser ou de la radiofréquence dépend directement de votre peau. Un mauvais réglage = un risque.
+
+✅ Vos attentes réalistes
+Je préfère vous dire honnêtement ce qu'un soin peut (et ne peut pas) faire, plutôt que de vous promettre l'impossible.
+
+Ce bilan est gratuit, il dure 15-20 minutes, et il me permet de vous proposer un protocole adapté — pas un soin générique.
+
+C'est ce qui fait la différence entre un institut et un institut médico-esthétique.
+
+📅 Réservez votre bilan — lien dans la bio.
+
+#bilan #securite #prevention #medioesthetique #blanccocon #institutbeaute #montpellier</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's4-post1')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 11 -->
+    <div class="post-card">
+      <div class="post-card-top type-info">
+        <div class="post-meta">
+          <span class="post-day">Mercredi 25</span>
+          <span class="post-type">Information</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Laser diode vs lumière pulsée : quelle différence ?</p>
+        <p class="post-visual">📸 Carrousel comparatif : 2-3 slides, un critère par slide (efficacité, douleur, durée)</p>
+        <div class="post-caption" id="s4-post2">Laser diode ou lumière pulsée ? On fait le point ⚡
+
+Beaucoup confondent les deux. Pourtant, la différence est significative :
+
+🔬 La lumière pulsée (IPL)
+→ Envoie un spectre large de lumière
+→ Moins ciblée, moins puissante
+→ Efficace sur les poils fins et clairs… en théorie
+→ Souvent utilisée en institut classique
+
+⚡ Le laser diode
+→ Émet une seule longueur d'onde, très précise
+→ Pénètre plus profondément jusqu'au bulbe du poil
+→ Plus efficace sur les poils épais ET les peaux mates
+→ Résultats plus rapides, moins de séances nécessaires
+
+Chez Blanc Cocon, j'utilise un laser diode de dernière génération.
+
+Pourquoi ce choix ?
+Parce que je veux des résultats réels, pas des promesses. Le laser diode est la référence médicale pour l'épilation définitive.
+
+À partir de 60 € la zone.
+
+📅 Bilan offert — lien dans la bio.
+
+#epilationlaser #laserdiode #IPL #comparatif #blanccocon #epilationdefinitive #montpellier</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's4-post2')">Copier</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 12 -->
+    <div class="post-card">
+      <div class="post-card-top type-pub">
+        <div class="post-meta">
+          <span class="post-day">Vendredi 27</span>
+          <span class="post-type">Publicité</span>
+        </div>
+        <span class="badge-sponsor">Sponsorisé</span>
+      </div>
+      <div class="post-body">
+        <p class="post-title">Préparez votre corps pour l'été — Bilan offert</p>
+        <p class="post-visual">📸 Visuel lumineux et printanier : photo du cabinet + "Bilan offert" en accroche</p>
+        <div class="tip">
+          <strong>Sponsorisation :</strong> Budget 30-50 € · Ciblage : Femmes 40-60 ans · Rayon 20 km · Intérêts : été, maillot, minceur, épilation, beauté · Urgence saisonnière
+        </div>
+        <div class="post-caption" id="s4-post3">L'été se prépare maintenant. Pas en juin. Maintenant 🤍
+
+Pourquoi ? Parce que les meilleurs soins demandent du temps pour donner leurs résultats :
+
+❄️ Cryolipolyse → résultats visibles à 6-8 semaines
+⚡ Épilation laser → protocole de 6 à 10 séances, espacées d'un mois
+✨ Radiofréquence → 6 séances pour un effet raffermissant complet
+🫧 Sauna dôme → cure de 5-10 séances pour une détox en profondeur
+
+Si vous commencez en mars, vous serez prête pour l'été.
+
+Votre premier pas : un bilan personnalisé, offert et sans engagement.
+On regarde ensemble vos objectifs et je vous propose le protocole adapté.
+
+📍 Blanc Cocon — 135 Av. du Miradou, Saint-Clément-de-Rivière
+📞 07 49 49 13 35
+📅 Réservation en ligne — lien dans la bio
+
+Mentionnez "ÉTÉ" pour bénéficier de -20% sur votre 1ère séance.
+
+#preparationete #bodygoals #cryolipolyse #epilationlaser #radiofrequence #blanccocon #montpellier #herault #saintclementderiviere</div>
+        <div class="post-copy">
+          <button class="copy-btn" onclick="copyText(this, 's4-post3')">Copier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════ BUDGET ══════════════ -->
+  <div id="budget">
+    <div class="week-header">
+      <span class="week-number">Budget</span>
+      <span class="week-dates">Récapitulatif publicité Mars 2026</span>
+    </div>
+
+    <div class="budget">
+      <h3>Estimation du budget publicitaire</h3>
+      <div class="budget-grid">
+        <div class="budget-item">
+          <div class="bi-label">Posts sponsorisés</div>
+          <div class="bi-value">4 posts</div>
+        </div>
+        <div class="budget-item">
+          <div class="bi-label">Budget par post</div>
+          <div class="bi-value">30 — 50 €</div>
+        </div>
+        <div class="budget-item">
+          <div class="bi-label">Budget total / mois</div>
+          <div class="bi-value">120 — 200 €</div>
+        </div>
+        <div class="budget-item">
+          <div class="bi-label">Posts organiques</div>
+          <div class="bi-value">8 gratuits</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top: 20px;">
+      <strong>Comment sponsoriser un post ?</strong><br>
+      1. Publiez le post normalement sur Instagram<br>
+      2. Appuyez sur "Booster la publication" sous le post<br>
+      3. Choisissez l'objectif "Visites du profil" ou "Messages"<br>
+      4. Définissez l'audience : femmes, 40-60 ans, 15 km autour de Saint-Clément<br>
+      5. Ajoutez les intérêts : bien-être, minceur, beauté, esthétique<br>
+      6. Réglez le budget (30-50 €) et la durée (5-7 jours)<br>
+      7. Lancez !
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Blanc Cocon · Saint-Clément-de-Rivière · 07 49 49 13 35 · @blanccocon34
+</footer>
+
+<script>
+  function copyText(btn, id) {
+    const el = document.getElementById(id);
+    const text = el.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ Copié !';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copier';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

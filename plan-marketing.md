@@ -217,7 +217,7 @@ Message à envoyer aux 25 clientes en cure + à afficher en cabinet.
 #### Meta Ads (budget recommandé : 7-10€/jour)
 **Campagne 1 — Notoriété locale :**
 - Objectif : Trafic vers Planity ou messages Instagram
-- Ciblage : Femmes 28-55 ans, rayon 15 km autour de Saint-Clément-de-Rivière
+- Ciblage : Femmes 40-60 ans, rayon 15 km autour de Saint-Clément-de-Rivière
 - Intérêts : Bien-être, perte de poids, soins de beauté, épilation
 - Visuel : Avant/Après cryolipolyse ou RF (le plus impactant)
 

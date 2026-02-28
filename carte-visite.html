@@ -44,6 +44,23 @@
       color: var(--brown-warm);
       margin-bottom: 48px;
     }
+    .back-link {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      font-family: 'Jost', sans-serif;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--brown-dark);
+      text-decoration: none;
+      background: var(--beige-light);
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--beige-mid);
+      z-index: 100;
+      transition: background .2s;
+    }
+    .back-link:hover { background: var(--beige-mid); }
 
     /* ── WRAPPER ── */
     .cards-wrapper {
@@ -362,6 +379,8 @@
 </head>
 <body>
 
+  <a href="index.html" class="back-link">← Accueil</a>
+
   <h1>Blanc <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:#8c7b6e;">Cocon</em></h1>
   <p class="subtitle">Carte de visite — Aperçu</p>
 
@@ -377,7 +396,7 @@
         </div>
         <div class="front-bottom">
           <div class="person-name">Emilie</div>
-          <div class="person-title">Infirmière diplômée d'État</div>
+          <div class="person-title">Infirmière reconvertie</div>
           <div class="front-services">
             <span class="service-pill">Cryolipolyse</span>
             <span class="service-pill">Laser</span>

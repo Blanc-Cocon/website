@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanc Cocon — Plan Marketing</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #faf9f7;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #3d2e24;
+      color: #f5ede4;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    header p {
+      color: #c9b9a8;
+      font-size: .95rem;
+    }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e0d6;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      display: block;
+      padding: 16px 20px;
+      font-size: .82rem;
+      letter-spacing: .5px;
+      color: #7a6a5e;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: #3d2e24; border-bottom-color: #8c7b6e; }
+    nav a.back { color: #3d2e24; font-weight: 600; }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .section-icon {
+      font-size: 1.5rem;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #3d2e24;
+    }
+    .section-desc {
+      font-size: .9rem;
+      color: #7a6a5e;
+      margin-bottom: 20px;
+      padding-left: 48px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e8e0d6;
+      margin: 48px 0;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .card h4 {
+      font-size: .95rem;
+      color: #3d2e24;
+      margin-bottom: 8px;
+    }
+    .card p, .card li {
+      font-size: .9rem;
+      color: #5a4a3e;
+    }
+    .card ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+    .card li {
+      margin-bottom: 4px;
+    }
+
+    /* ── Quote ── */
+    .quote {
+      background: #3d2e24;
+      color: #f5ede4;
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .quote .q-text {
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: .5px;
+      line-height: 1.7;
+    }
+    .quote .q-sub {
+      font-size: .85rem;
+      color: #c9b9a8;
+      margin-top: 10px;
+    }
+
+    /* ── Atouts grid ── */
+    .atouts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .atout {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .atout-icon {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+    .atout-title {
+      font-size: .85rem;
+      font-weight: 700;
+      color: #3d2e24;
+      margin-bottom: 4px;
+    }
+    .atout-desc {
+      font-size: .8rem;
+      color: #7a6a5e;
+      line-height: 1.5;
+    }
+
+    /* ── Tables ── */
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+    }
+    th {
+      background: #f5f0eb;
+      color: #5a4a3e;
+      font-size: .75rem;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid #e8e0d6;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0ebe4;
+      color: #3d2e24;
+    }
+    tr:last-child td { border-bottom: none; }
+    .price { font-weight: 600; color: #3d2e24; }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: #e8e0d6;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #3d2e24;
+      border: 2px solid #faf9f7;
+    }
+    .tl-label {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c7b6e;
+      margin-bottom: 4px;
+    }
+    .tl-text {
+      font-size: .9rem;
+      color: #3d2e24;
+    }
+
+    /* ── Month badges ── */
+    .month-badge {
+      display: inline-block;
+      background: #3d2e24;
+      color: #f5ede4;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    /* ── KPI cards ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .kpi {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+    .kpi-label {
+      font-size: .75rem;
+      color: #8c7b6e;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .kpi-values {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .kpi-m1 {
+      font-size: 1.1rem;
+      color: #b0a090;
+    }
+    .kpi-arrow {
+      font-size: .8rem;
+      color: #c9b9a8;
+    }
+    .kpi-m3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #3d2e24;
+    }
+
+    /* ── Revenue ── */
+    .revenue-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .rev-card {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rev-card.highlight {
+      background: #3d2e24;
+      border-color: #3d2e24;
+    }
+    .rev-card.highlight .rev-label,
+    .rev-card.highlight .rev-mix { color: #c9b9a8; }
+    .rev-card.highlight .rev-amount { color: #f5ede4; }
+    .rev-left { flex: 1; }
+    .rev-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c7b6e;
+    }
+    .rev-mix {
+      font-size: .85rem;
+      color: #5a4a3e;
+      margin-top: 2px;
+    }
+    .rev-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3d2e24;
+    }
+    .rev-sub {
+      font-size: .75rem;
+      color: #8c7b6e;
+      text-align: right;
+    }
+
+    .tip {
+      background: #f0ebe4;
+      border-left: 3px solid #8c7b6e;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: .85rem;
+      color: #5a4a3e;
+      margin-bottom: 16px;
+    }
+    .tip strong { color: #3d2e24; }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: .8rem;
+      color: #b0a090;
+      border-top: 1px solid #e8e0d6;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 32px 16px 60px; }
+      nav a { padding: 14px 14px; font-size: .78rem; }
+      .atouts { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Plan Marketing — Blanc Cocon</h1>
+  <p>Stratégie de développement sur 3 mois · 2026</p>
+</header>
+
+<nav>
+  <a href="index.html" class="back">← Accueil</a>
+  <a href="#diagnostic">Diagnostic</a>
+  <a href="#prestations">Prestations</a>
+  <a href="#mois1">Mois 1</a>
+  <a href="#mois2">Mois 2</a>
+  <a href="#mois3">Mois 3</a>
+  <a href="#kpi">Objectifs</a>
+  <a href="#revenus">Revenus</a>
+</nav>
+
+<main>
+
+  <!-- ══ DIAGNOSTIC ══ -->
+  <div class="section" id="diagnostic">
+    <div class="section-header">
+      <span class="section-icon">🔍</span>
+      <h2 class="section-title">Diagnostic</h2>
+    </div>
+    <p class="section-desc">Ce que Blanc Cocon a déjà, et pourquoi ça change tout.</p>
+
+    <div class="atouts">
+      <div class="atout">
+        <div class="atout-icon">🩺</div>
+        <div class="atout-title">Crédibilité médicale</div>
+        <div class="atout-desc">Infirmière reconvertie — connaissance des contre-indications, protocoles et physiologie.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-icon">⚙️</div>
+        <div class="atout-title">Équipement premium</div>
+        <div class="atout-desc">Cryolipolyse, laser diode, radiofréquence, sauna japonais — rare en zone périurbaine.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-icon">👥</div>
+        <div class="atout-title">25 clientes en cure</div>
+        <div class="atout-desc">Revenus récurrents + 25 avis Google potentiels + 25 ambassadrices.</div>
+      </div>
+      <div class="atout">
+        <div class="atout-icon">🔥</div>
+        <div class="atout-title">Audience chaude</div>
+        <div class="atout-desc">Patientèle infirmière déjà informée de la reconversion — confiance acquise.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>État actuel</h4>
+      <ul>
+        <li>Planity : profil complet, 5/5 (1 seul avis)</li>
+        <li>Instagram @blanccocon34 : récent, à refondre</li>
+        <li>Pas de fiche Google Business (à créer en urgence)</li>
+        <li>25 clientes en cure = 25 avis potentiels non sollicités</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>L'objectif</h4>
+      <p>Passer à temps plein. Avec un panier moyen élevé (cryo à 290 €+, RF à 69 €+, packs à 670-2000 €), <strong>3 à 4 créneaux par jour suffisent à dépasser un salaire d'infirmière libérale</strong>.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ POSITIONNEMENT ══ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💎</span>
+      <h2 class="section-title">Positionnement</h2>
+    </div>
+
+    <div class="quote">
+      <div class="q-text">"L'expertise médicale au service de votre corps."</div>
+      <div class="q-sub">Soins haut de gamme par une infirmière — pour des résultats vrais, en toute sécurité.</div>
+    </div>
+
+    <div class="card">
+      <p>Ce positionnement <strong>justifie les tarifs premium</strong>, rassure sur la sécurité des soins, se distingue des instituts classiques, et est authentique et vérifiable.</p>
+      <p style="margin-top: 8px; font-size: .85rem; color: #8c7b6e;">À décliner partout : bio Instagram, fiche Google, description Planity, signature mail.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ PRESTATIONS ══ -->
+  <div class="section" id="prestations">
+    <div class="section-header">
+      <span class="section-icon">✨</span>
+      <h2 class="section-title">Catalogue des prestations</h2>
+    </div>
+
+    <div class="card">
+      <h4>🫧 Sauna dôme japonais</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Prestation</th><th>Durée</th><th>Prix</th></tr>
+          <tr><td>Bilan (obligatoire)</td><td>20 min</td><td class="price">Offert</td></tr>
+          <tr><td>Séance</td><td>40 min</td><td class="price">40 €</td></tr>
+          <tr><td>Forfait 5 séances</td><td>40 min</td><td class="price">175 €</td></tr>
+          <tr><td>Forfait 10 séances</td><td>40 min</td><td class="price">330 €</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>✨ Radiofréquence (anti-âge, raffermissement)</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Prestation</th><th>Durée</th><th>Prix</th></tr>
+          <tr><td>Visage / cou</td><td>40 min</td><td class="price">69 €</td></tr>
+          <tr><td>Cure 6 séances visage / cou</td><td>30 min</td><td class="price">345 €</td></tr>
+          <tr><td>Visage + cou + décolleté</td><td>1h</td><td class="price">100 €</td></tr>
+          <tr><td>Cure 6 séances full</td><td>50 min</td><td class="price">500 €</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>❄️ Cryolipolyse (amincissement)</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Prestation</th><th>Durée</th><th>Prix</th></tr>
+          <tr><td>Bilan (obligatoire)</td><td>—</td><td class="price">Offert</td></tr>
+          <tr><td>1 zone</td><td>1h20</td><td class="price">290 €</td></tr>
+          <tr><td>2 zones</td><td>1h</td><td class="price">520 €</td></tr>
+          <tr><td>3 zones</td><td>1h</td><td class="price">750 €</td></tr>
+          <tr><td>Pack silhouette 6 zones</td><td>1h</td><td class="price">1 300 €</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>⚡ Épilation laser femme</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Zone</th><th>Durée</th><th>Prix</th></tr>
+          <tr><td>Aisselles</td><td>30 min</td><td class="price">60 €</td></tr>
+          <tr><td>Demi-jambes</td><td>45 min</td><td class="price">100 €</td></tr>
+          <tr><td>Cuisses</td><td>45 min</td><td class="price">110 €</td></tr>
+        </table>
+      </div>
+      <p style="font-size: .8rem; color: #8c7b6e; margin-top: 8px;">Forfait 5 séances : -10% (1 zone), -20% (2 zones) · + 9 autres zones sur Planity</p>
+    </div>
+
+    <div class="card">
+      <h4>⚡ Épilation laser homme</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Zone</th><th>Durée</th><th>Prix</th></tr>
+          <tr><td>Torse</td><td>30 min</td><td class="price">à partir de 140 €</td></tr>
+          <tr><td>Ventre</td><td>30 min</td><td class="price">à partir de 110 €</td></tr>
+          <tr><td>Aisselles</td><td>30 min</td><td class="price">à partir de 80 €</td></tr>
+        </table>
+      </div>
+      <p style="font-size: .8rem; color: #8c7b6e; margin-top: 8px;">Forfait 6 séances : -10% (1 zone), -20% (2 zones) · + 10 autres zones sur Planity</p>
+    </div>
+
+    <div class="card">
+      <h4>🎁 Packs signatures</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Pack</th><th>Contenu</th><th>Prix</th></tr>
+          <tr><td>Silhouette Sculpt</td><td>3 zones cryo + cure 6 LDF</td><td class="price">1 000 €</td></tr>
+          <tr><td>Glow & Lift femme</td><td>Cure 6 RF abdomen + 6 laser maillot</td><td class="price">940 €</td></tr>
+          <tr><td>Full Smooth</td><td>6 aisselles + 6 maillot intégral + 6 jambes</td><td class="price">2 000 €</td></tr>
+          <tr><td>Minceur & Détox</td><td>6 LDF + 10 sauna</td><td class="price">670 €</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ MOIS 1 ══ -->
+  <div class="section" id="mois1">
+    <div class="section-header">
+      <span class="section-icon">🏗️</span>
+      <h2 class="section-title">Mois 1 — Les fondations</h2>
+    </div>
+    <p class="section-desc">Les 4 premières semaines. Priorité : être trouvable et récolter des avis.</p>
+
+    <span class="month-badge">Semaines 1 à 4</span>
+
+    <div class="card">
+      <h4>1. Google Business Profile — J+1, priorité absolue</h4>
+      <ul>
+        <li>Nom : "Blanc Cocon — Institut médico-esthétique"</li>
+        <li>Catégorie : Institut de beauté / Centre d'épilation</li>
+        <li>Adresse, téléphone, horaires complets</li>
+        <li>Description avec les mots-clés : cryolipolyse, épilation laser, radiofréquence, Saint-Clément-de-Rivière</li>
+        <li>Ajouter les 14 photos du cabinet</li>
+        <li>Lien vers Planity en CTA</li>
+      </ul>
+      <div class="tip" style="margin-top: 12px;">
+        <strong>Pourquoi c'est urgent :</strong> c'est le premier résultat quand quelqu'un cherche "épilation laser Saint-Clément" ou "cryolipolyse Montpellier nord". Gratuit et immédiatement indexé.
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>2. Activation des 25 clientes en cure — J+3</h4>
+      <p>Message personnalisé par SMS ou WhatsApp pour demander un avis Google.</p>
+      <p style="margin-top: 8px;"><strong>Objectif : 15 avis Google en 2 semaines.</strong></p>
+    </div>
+
+    <div class="card">
+      <h4>3. Activation de la patientèle infirmière — J+5</h4>
+      <p>En fin de consultation, mentionner naturellement l'institut + remettre une carte de visite Blanc Cocon.</p>
+    </div>
+
+    <div class="card">
+      <h4>4. Refonte Instagram @blanccocon34 — Semaines 1-2</h4>
+      <ul>
+        <li>Réécrire la bio (texte prêt dans le kit)</li>
+        <li>Préparer et publier les 9 posts fondateurs (1 tous les 2 jours)</li>
+        <li>Ajouter le lien Planity en bio</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ MOIS 2 ══ -->
+  <div class="section" id="mois2">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">Mois 2 — Accélération</h2>
+    </div>
+    <p class="section-desc">Contenu régulier, offre de lancement et parrainage.</p>
+
+    <span class="month-badge">Mois 2</span>
+
+    <div class="card">
+      <h4>Stratégie de contenu — 3 posts / semaine</h4>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Pilier</th><th>Type</th><th>Exemple</th><th>Fréquence</th></tr>
+          <tr><td><strong>Résultats</strong></td><td>Avant/Après</td><td>Cryo, RF visage, laser</td><td>1/semaine</td></tr>
+          <tr><td><strong>Éducatif</strong></td><td>Carrousel / Reel</td><td>"Comment fonctionne la cryo ?"</td><td>1/semaine</td></tr>
+          <tr><td><strong>Humain</strong></td><td>Coulisses</td><td>Préparation séance, avis client</td><td>1/semaine</td></tr>
+          <tr><td><strong>Offre</strong></td><td>Promo / pack</td><td>Pack du mois, disponibilités</td><td>Ponctuel</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Offre de lancement</h4>
+      <p><strong>-20% sur la 1ère séance</strong> (hors packs), pour les nouveaux clients uniquement.</p>
+      <p style="font-size: .85rem; color: #7a6a5e; margin-top: 4px;">À diffuser sur Instagram, Google Business, et par les clientes actuelles.</p>
+    </div>
+
+    <div class="card">
+      <h4>Programme de parrainage</h4>
+      <p><strong>-15% pour la marraine, -15% pour la filleule</strong> sur la séance suivante / première séance.</p>
+      <p style="font-size: .85rem; color: #7a6a5e; margin-top: 4px;">Message à envoyer aux 25 clientes + affiche en cabinet.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ MOIS 3 ══ -->
+  <div class="section" id="mois3">
+    <div class="section-header">
+      <span class="section-icon">📢</span>
+      <h2 class="section-title">Mois 3 — Amplification</h2>
+    </div>
+    <p class="section-desc">Publicité Meta et partenariats locaux pour élargir l'audience.</p>
+
+    <span class="month-badge">Mois 3</span>
+
+    <div class="card">
+      <h4>Meta Ads — Budget 7-10 €/jour</h4>
+      <p><strong>Campagne 1 — Notoriété locale :</strong></p>
+      <ul>
+        <li>Objectif : trafic vers Planity ou messages Instagram</li>
+        <li>Ciblage : Femmes 40-60 ans, rayon 15 km</li>
+        <li>Intérêts : bien-être, perte de poids, soins de beauté</li>
+        <li>Visuel : avant/après cryolipolyse ou RF</li>
+      </ul>
+      <p style="margin-top: 12px;"><strong>Campagne 2 — Retargeting :</strong></p>
+      <ul>
+        <li>Cibler les personnes ayant visité le profil Instagram ou Planity</li>
+        <li>Offre spécifique : pack ou -20% 1ère séance</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Partenariats locaux</h4>
+      <ul>
+        <li><strong>Pharmacies</strong> de Saint-Clément et Prades-le-Lez</li>
+        <li><strong>Médecins généralistes / dermatos</strong> du secteur</li>
+        <li><strong>Salles de sport</strong> (Prades, Grabels)</li>
+        <li><strong>Coiffeurs</strong> — échange de recommandations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>SEO local — Mots-clés à cibler</h4>
+      <ul>
+        <li>"cryolipolyse Montpellier nord"</li>
+        <li>"épilation laser Saint-Clément-de-Rivière"</li>
+        <li>"radiofréquence anti-âge Hérault"</li>
+        <li>"sauna infrarouge Montpellier"</li>
+        <li>"institut médico-esthétique 34980"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ ROADMAP ══ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🗓️</span>
+      <h2 class="section-title">Roadmap synthétique</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-label">Semaine 1</div>
+        <div class="tl-text">Créer fiche Google Business · Refaire bio Instagram · Préparer les 9 posts de base</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Semaine 2</div>
+        <div class="tl-text">SMS aux 25 clientes pour avis Google · Commande cartes de visite pour patientèle infirmière</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Semaines 3-4</div>
+        <div class="tl-text">Rythme 3 posts/semaine · Premiers Reels éducatifs</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Mois 2</div>
+        <div class="tl-text">Offre lancement -20% · Programme parrainage · Contacter partenaires locaux</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-label">Mois 3</div>
+        <div class="tl-text">Lancer Meta Ads · Bilan et ajustements · Objectif 30+ avis Google</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ KPIs ══ -->
+  <div class="section" id="kpi">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <h2 class="section-title">Objectifs à suivre</h2>
+    </div>
+    <p class="section-desc">Évolution attendue entre le mois 1 et le mois 3.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">Avis Google</div>
+        <div class="kpi-values">
+          <span class="kpi-m1">15</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-m3">30+</span>
+        </div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Remplissage agenda</div>
+        <div class="kpi-values">
+          <span class="kpi-m1">40%</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-m3">70%</span>
+        </div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Abonnés Instagram</div>
+        <div class="kpi-values">
+          <span class="kpi-m1">+100</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-m3">+300</span>
+        </div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Chiffre d'affaires</div>
+        <div class="kpi-values">
+          <span class="kpi-m1">base</span>
+          <span class="kpi-arrow">→</span>
+          <span class="kpi-m3">+40%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══ REVENUS ══ -->
+  <div class="section" id="revenus">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <h2 class="section-title">Simulation de revenus</h2>
+    </div>
+    <p class="section-desc">Pour remplacer un salaire d'infirmière libérale (~3 500 € net/mois).</p>
+
+    <div class="revenue-cards">
+      <div class="rev-card">
+        <div class="rev-left">
+          <div class="rev-label">Conservateur</div>
+          <div class="rev-mix">1 cryo + 2 RF + 2 sauna / jour</div>
+        </div>
+        <div>
+          <div class="rev-amount">~5 000 €</div>
+          <div class="rev-sub">net/mois</div>
+        </div>
+      </div>
+
+      <div class="rev-card highlight">
+        <div class="rev-left">
+          <div class="rev-label">Réaliste</div>
+          <div class="rev-mix">1 cryo + 3 RF + 1 sauna / jour</div>
+        </div>
+        <div>
+          <div class="rev-amount">~6 100 €</div>
+          <div class="rev-sub" style="color: #c9b9a8;">net/mois</div>
+        </div>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-left">
+          <div class="rev-label">Optimal</div>
+          <div class="rev-mix">2 cryo + 2 RF / jour</div>
+        </div>
+        <div>
+          <div class="rev-amount">~7 900 €</div>
+          <div class="rev-sub">net/mois</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top: 16px;">
+      <strong>Conclusion :</strong> avec un agenda rempli à 60-70%, Émilie peut dépasser son revenu d'infirmière. La priorité est de remplir les créneaux rapidement — d'où l'importance de l'activation immédiate des 25 clientes + patientèle infirmière.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Blanc Cocon · Saint-Clément-de-Rivière · 07 49 49 13 35 · @blanccocon34
+</footer>
+
+</body>
+</html>

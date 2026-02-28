@@ -3,947 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blanc Cocon — Plan de développement</title>
+  <title>Blanc Cocon — Espace stratégie</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Georgia', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #faf9f7;
       color: #2d2d2d;
-    }
-
-    /* ── NAVIGATION ── */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(250,249,247,0.95);
-      border-bottom: 1px solid #e8e0d6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 32px;
-      z-index: 100;
-      backdrop-filter: blur(6px);
-    }
-    .nav-logo { font-size: 1.1rem; letter-spacing: 3px; color: #8c7b6e; font-style: italic; }
-    .nav-steps { display: flex; gap: 6px; }
-    .nav-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #d8cfc7;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .nav-dot.active { background: #8c7b6e; }
-
-    /* ── SECTIONS ── */
-    section {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 100px 60px 60px;
-      max-width: 960px;
-      margin: 0 auto;
     }
 
-    /* ── COVER ── */
-    .cover {
+    header {
+      background: #3d2e24;
+      color: #f5ede4;
+      padding: 60px 32px 48px;
       text-align: center;
-      max-width: 100%;
     }
-    .cover-eyebrow {
-      font-size: .85rem;
+    header .brand {
+      font-size: 2.2rem;
+      font-weight: 300;
       letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #b0a090;
+      margin-bottom: 6px;
+    }
+    header .brand em {
+      font-style: italic;
+      font-weight: 300;
+    }
+    header .tagline {
+      color: #c9b9a8;
+      font-size: 1rem;
+      letter-spacing: 1px;
       margin-bottom: 24px;
     }
-    .cover-title {
-      font-size: 4rem;
-      font-weight: normal;
-      color: #3d2e24;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .cover-title em {
-      font-style: italic;
-      color: #8c7b6e;
-    }
-    .cover-sub {
-      font-size: 1.2rem;
-      color: #7a6a5e;
-      margin-bottom: 48px;
-      line-height: 1.6;
-    }
-    .cover-divider {
-      width: 60px;
-      height: 2px;
-      background: #c9b9a8;
-      margin: 0 auto 48px;
-    }
-    .cover-info {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .cover-info-item {
-      text-align: center;
-    }
-    .cover-info-label {
-      font-size: .75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #b0a090;
-      margin-bottom: 4px;
-    }
-    .cover-info-value {
-      font-size: 1rem;
-      color: #4a3a30;
-    }
-
-    /* ── SECTION HEADERS ── */
-    .section-number {
-      font-size: .75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #c9b9a8;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 2.6rem;
-      font-weight: normal;
-      color: #3d2e24;
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    .section-title em { font-style: italic; color: #8c7b6e; }
-    .section-intro {
-      font-size: 1.1rem;
-      color: #6a5a4e;
-      line-height: 1.7;
-      margin-bottom: 48px;
-      max-width: 620px;
-    }
-
-    /* ── CARDS ── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #e8e0d6;
-      border-radius: 12px;
-      padding: 28px 24px;
-    }
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
+    header .heart {
+      font-size: 1.4rem;
+      margin-bottom: 24px;
       display: block;
     }
-    .card-title {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #3d2e24;
-      margin-bottom: 8px;
+    header .subtitle {
+      font-size: .85rem;
+      color: #a09080;
       letter-spacing: .5px;
     }
-    .card-text {
-      font-size: .9rem;
-      color: #7a6a5e;
-      line-height: 1.6;
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
     }
-    .card.accent {
+
+    .intro {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .intro p {
+      font-size: .95rem;
+      color: #7a6a5e;
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .tile {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(61,46,36,0.08);
+      border-color: #c9b9a8;
+    }
+    .tile:active {
+      transform: translateY(0);
+    }
+
+    .tile-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .tile-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #3d2e24;
+      margin-bottom: 6px;
+    }
+    .tile-desc {
+      font-size: .82rem;
+      color: #8c7b6e;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .tile-arrow {
+      margin-top: 14px;
+      font-size: .8rem;
+      color: #c9b9a8;
+      letter-spacing: .5px;
+    }
+
+    .tile.featured {
+      grid-column: 1 / -1;
       background: #3d2e24;
       border-color: #3d2e24;
     }
-    .card.accent .card-title { color: #f5ede4; }
-    .card.accent .card-text { color: #c9b9a8; }
-    .card.accent .card-icon { filter: grayscale(0); }
+    .tile.featured .tile-title { color: #f5ede4; }
+    .tile.featured .tile-desc { color: #c9b9a8; }
+    .tile.featured .tile-arrow { color: #8c7b6e; }
 
-    /* ── HIGHLIGHT BOX ── */
-    .highlight {
-      background: #f0ebe4;
-      border-left: 4px solid #8c7b6e;
-      border-radius: 0 10px 10px 0;
-      padding: 24px 28px;
-      margin-bottom: 32px;
+    .contact {
+      margin-top: 48px;
+      text-align: center;
+      padding: 32px;
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 16px;
     }
-    .highlight-label {
+    .contact-title {
       font-size: .75rem;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #8c7b6e;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
-    .highlight-text {
-      font-size: 1.15rem;
+    .contact-info {
+      font-size: .9rem;
       color: #3d2e24;
-      line-height: 1.7;
-      font-style: italic;
+      line-height: 1.8;
     }
-
-    /* ── TIMELINE ── */
-    .timeline { display: flex; flex-direction: column; gap: 0; }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 24px;
-      padding: 28px 0;
+    .contact-info a {
+      color: #3d2e24;
+      text-decoration: none;
       border-bottom: 1px solid #e8e0d6;
-      align-items: start;
     }
-    .timeline-item:last-child { border-bottom: none; }
-    .timeline-period {
-      font-size: .8rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #8c7b6e;
-      font-weight: bold;
-      padding-top: 2px;
-    }
-    .timeline-content-title {
-      font-size: 1.05rem;
-      font-weight: bold;
-      color: #3d2e24;
-      margin-bottom: 8px;
-    }
-    .timeline-content-text {
-      font-size: .9rem;
-      color: #7a6a5e;
-      line-height: 1.6;
-    }
-    .timeline-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-    .tag {
-      background: #f0ebe4;
-      color: #6a5a4e;
-      font-size: .75rem;
-      padding: 4px 10px;
-      border-radius: 20px;
-      letter-spacing: .5px;
-    }
-    .tag.urgent {
-      background: #3d2e24;
-      color: #f5ede4;
+    .contact-info a:hover {
+      border-bottom-color: #3d2e24;
     }
 
-    /* ── NUMBERS ── */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-    .stat {
+    footer {
       text-align: center;
-      background: #fff;
-      border: 1px solid #e8e0d6;
-      border-radius: 12px;
-      padding: 28px 16px;
-    }
-    .stat-number {
-      font-size: 2.8rem;
-      color: #3d2e24;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-number em {
-      font-style: normal;
-      font-size: 1.4rem;
-      color: #8c7b6e;
-    }
-    .stat-label {
+      padding: 32px;
       font-size: .8rem;
-      color: #7a6a5e;
-      letter-spacing: .5px;
-      line-height: 1.4;
-    }
-
-    /* ── STEPS ── */
-    .steps { display: flex; flex-direction: column; gap: 16px; }
-    .step {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 20px;
-      align-items: start;
-      background: #fff;
-      border: 1px solid #e8e0d6;
-      border-radius: 12px;
-      padding: 20px 24px;
-    }
-    .step-number {
-      width: 40px; height: 40px;
-      background: #3d2e24;
-      color: #f5ede4;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .9rem;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-    .step-title {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #3d2e24;
-      margin-bottom: 6px;
-    }
-    .step-text {
-      font-size: .9rem;
-      color: #7a6a5e;
-      line-height: 1.6;
-    }
-    .step-detail {
-      margin-top: 10px;
-      background: #faf9f7;
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-size: .85rem;
-      color: #5a4a3e;
-      line-height: 1.6;
-      font-style: italic;
-    }
-
-    /* ── SERVICES ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .service-card {
-      background: #fff;
-      border: 1px solid #e8e0d6;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
-    .service-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-    .service-name {
-      font-size: .95rem;
-      font-weight: bold;
-      color: #3d2e24;
-      margin-bottom: 6px;
-    }
-    .service-price {
-      font-size: .85rem;
-      color: #8c7b6e;
-    }
-    .service-desc {
-      font-size: .8rem;
-      color: #9a8a7e;
-      margin-top: 6px;
-      line-height: 1.5;
-    }
-
-    /* ── QUOTE ── */
-    .quote-section {
-      text-align: center;
-    }
-    .quote {
-      font-size: 1.8rem;
-      font-style: italic;
-      color: #3d2e24;
-      line-height: 1.5;
-      max-width: 680px;
-      margin: 0 auto 20px;
-    }
-    .quote-source {
-      font-size: .85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
       color: #b0a090;
     }
 
-    /* ── FINAL CTA ── */
-    .cta-section {
-      text-align: center;
-    }
-    .cta-title {
-      font-size: 2.8rem;
-      font-weight: normal;
-      color: #3d2e24;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .cta-title em { font-style: italic; color: #8c7b6e; }
-    .cta-text {
-      font-size: 1.1rem;
-      color: #6a5a4e;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .cta-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .cta-action {
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 16px;
-      background: #fff;
-      border: 1px solid #e8e0d6;
-      border-radius: 12px;
-      padding: 18px 20px;
-      text-align: left;
-      align-items: center;
-    }
-    .cta-action-num {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #8c7b6e;
-    }
-    .cta-action-text {
-      font-size: .95rem;
-      color: #3d2e24;
-      font-weight: bold;
-    }
-    .cta-action-sub {
-      font-size: .8rem;
-      color: #9a8a7e;
-      margin-top: 2px;
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: #c9b9a8;
-      margin: 0 0 40px;
-    }
-
-    /* ── SCROLL HINT ── */
-    .scroll-hint {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: .75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #b0a090;
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-6px); }
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      section { padding: 90px 24px 40px; }
-      .cover-title { font-size: 2.6rem; }
-      .section-title { font-size: 2rem; }
-      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
-      .nav { padding: 12px 20px; }
-    }
-
-    /* ── PRINT ── */
-    @media print {
-      .nav, .scroll-hint { display: none; }
-      section { min-height: auto; page-break-after: always; }
+      header { padding: 48px 24px 36px; }
+      header .brand { font-size: 1.7rem; }
+      main { padding: 32px 16px 60px; }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<nav class="nav">
-  <span class="nav-logo">Blanc Cocon</span>
-  <div class="nav-steps" id="navDots"></div>
-</nav>
+<header>
+  <div class="brand">Blanc <em>Cocon</em></div>
+  <div class="tagline">Institut médico-esthétique</div>
+  <span class="heart">🤍</span>
+  <div class="subtitle">Espace stratégie & ressources</div>
+</header>
 
-<!-- ══ 0. COUVERTURE ══ -->
-<section id="s0">
-  <div class="cover">
-    <p class="cover-eyebrow">Plan de développement · 2026</p>
-    <h1 class="cover-title">Blanc <em>Cocon</em></h1>
-    <p class="cover-sub">Comment faire de ton institut<br>ton activité à temps plein.</p>
-    <div class="cover-divider"></div>
-    <div class="cover-info">
-      <div class="cover-info-item">
-        <p class="cover-info-label">Institut</p>
-        <p class="cover-info-value">Médico-esthétique</p>
-      </div>
-      <div class="cover-info-item">
-        <p class="cover-info-label">Lieu</p>
-        <p class="cover-info-value">Saint-Clément-de-Rivière</p>
-      </div>
-      <div class="cover-info-item">
-        <p class="cover-info-label">Objectif</p>
-        <p class="cover-info-value">Temps plein dès que possible</p>
-      </div>
-    </div>
-  </div>
-</section>
+<main>
 
-<!-- ══ 1. POINT DE DÉPART ══ -->
-<section id="s1">
-  <p class="section-number">01</p>
-  <h2 class="section-title">Tu pars avec<br><em>de vrais atouts.</em></h2>
-  <p class="section-intro">
-    Avant de parler de ce qu'on va faire, regardons ce que tu as déjà.
-    C'est plus solide qu'on ne le pense souvent.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <span class="card-icon">🏥</span>
-      <p class="card-title">Ton profil infirmière</p>
-      <p class="card-text">
-        La plupart des esthéticiennes ne peuvent pas expliquer comment fonctionne
-        la cryolipolyse ou la radiofréquence avec tes mots. Toi, oui.
-        C'est une confiance que les clientes ne donnent pas à n'importe qui.
-      </p>
-    </div>
-    <div class="card">
-      <span class="card-icon">💎</span>
-      <p class="card-title">Des soins rares dans ta zone</p>
-      <p class="card-text">
-        Cryolipolyse, laser diode, radiofréquence, sauna infrarouge japonais :
-        ce ne sont pas des soins qu'on trouve dans tous les instituts.
-        Tu n'as pas vraiment de concurrence directe à Saint-Clément.
-      </p>
-    </div>
-    <div class="card">
-      <span class="card-icon">🤝</span>
-      <p class="card-title">25 clientes déjà convaincues</p>
-      <p class="card-text">
-        Elles ont signé des cures. C'est la meilleure preuve que ça marche
-        et que les gens sont prêts à payer. Ces 25 personnes sont ton
-        meilleur outil de communication.
-      </p>
-    </div>
-    <div class="card">
-      <span class="card-icon">👩‍⚕️</span>
-      <p class="card-title">Ta patientèle d'infirmière</p>
-      <p class="card-text">
-        Tes patients savent que tu te reconvertis. C'est une audience
-        que tu as déjà, qui te fait confiance, et qui peut te recommander
-        dès aujourd'hui.
-      </p>
-    </div>
-  </div>
-
-  <div class="highlight">
-    <p class="highlight-label">En résumé</p>
-    <p class="highlight-text">
-      "Tu n'es pas en train de partir de zéro. Tu as un outil différenciant,
-      des vraies clientes, et une crédibilité médicale que personne d'autre
-      dans ta zone ne peut revendiquer."
+  <div class="intro">
+    <p>
+      Bienvenue dans l'espace de pilotage de Blanc Cocon.<br>
+      Retrouvez ici tous les outils, textes et documents pour développer l'institut.
     </p>
   </div>
-</section>
 
-<!-- ══ 2. LES SOINS ══ -->
-<section id="s2">
-  <p class="section-number">02</p>
-  <h2 class="section-title">Ce que tu proposes<br><em>est premium.</em></h2>
-  <p class="section-intro">
-    Ces soins ne s'adressent pas à tout le monde — et c'est une bonne chose.
-    Les clientes qui viennent pour ça savent ce qu'elles veulent et sont
-    prêtes à investir.
-  </p>
+  <div class="grid">
 
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="service-icon">❄️</span>
-      <p class="service-name">Cryolipolyse</p>
-      <p class="service-price">À partir de 290 €</p>
-      <p class="service-desc">Eliminer des zones graisseuses sans chirurgie</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">✨</span>
-      <p class="service-name">Radiofréquence</p>
-      <p class="service-price">À partir de 69 €</p>
-      <p class="service-desc">Raffermir la peau, effet anti-âge</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">⚡</span>
-      <p class="service-name">Épilation laser</p>
-      <p class="service-price">À partir de 60 €</p>
-      <p class="service-desc">Résultat définitif, femme et homme</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🫧</span>
-      <p class="service-name">Sauna dôme japonais</p>
-      <p class="service-price">40 € / séance</p>
-      <p class="service-desc">Détox, minceur, relaxation profonde</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🎁</span>
-      <p class="service-name">Packs signatures</p>
-      <p class="service-price">De 670 € à 2 000 €</p>
-      <p class="service-desc">Combinaisons sur-mesure, meilleur rapport résultat</p>
+    <a href="presentation.html" class="tile featured">
+      <div class="tile-icon">🎯</div>
+      <div class="tile-title">Présentation stratégique</div>
+      <div class="tile-desc">Le pitch complet : atouts, positionnement, objectifs et plan en 3 mois. À montrer en réunion.</div>
+      <div class="tile-arrow">Ouvrir →</div>
+    </a>
+
+    <a href="plan-marketing.html" class="tile">
+      <div class="tile-icon">📋</div>
+      <div class="tile-title">Plan marketing</div>
+      <div class="tile-desc">Diagnostic, catalogue des prestations, plan d'action mois par mois, KPIs et projections de revenus.</div>
+      <div class="tile-arrow">Ouvrir →</div>
+    </a>
+
+    <a href="programme-mars.html" class="tile">
+      <div class="tile-icon">📅</div>
+      <div class="tile-title">Programme Mars 2026</div>
+      <div class="tile-desc">12 posts planifiés avec légendes, visuels et budget pub. 4 sponsorisés, 8 organiques.</div>
+      <div class="tile-arrow">Ouvrir →</div>
+    </a>
+
+    <a href="kit-demarrage.html" class="tile">
+      <div class="tile-icon">📝</div>
+      <div class="tile-title">Kit de démarrage</div>
+      <div class="tile-desc">Tous les textes prêts à copier-coller : avis Google, bio Instagram, 9 posts fondateurs, parrainage.</div>
+      <div class="tile-arrow">Ouvrir →</div>
+    </a>
+
+    <a href="blog/" class="tile">
+      <div class="tile-icon">📰</div>
+      <div class="tile-title">Blog — Les bienfaits</div>
+      <div class="tile-desc">Articles sur les soins : cryolipolyse, radiofréquence, sauna japonais, épilation laser. Idéal pour le référencement.</div>
+      <div class="tile-arrow">Ouvrir →</div>
+    </a>
+
+  </div>
+
+  <div class="contact">
+    <div class="contact-title">Informations</div>
+    <div class="contact-info">
+      <strong>Blanc Cocon</strong> — Émilie, infirmière reconvertie<br>
+      135 Av. du Miradou, 34980 Saint-Clément-de-Rivière<br>
+      <a href="tel:0749491335">07 49 49 13 35</a> · <a href="https://instagram.com/blanccocon34">@blanccocon34</a><br>
+      <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere">Réserver sur Planity</a>
     </div>
   </div>
 
-  <div class="highlight" style="margin-top: 32px;">
-    <p class="highlight-label">Ce que ça signifie concrètement</p>
-    <p class="highlight-text">
-      Avec 1 cryolipolyse + 2 radiofréquences + 2 saunas par jour,
-      tu génères environ 450 € de chiffre d'affaires.
-      5 jours par semaine, c'est plus de 9 000 € par mois.
-    </p>
-  </div>
-</section>
+</main>
 
-<!-- ══ 3. LES 3 OBJECTIFS ══ -->
-<section id="s3">
-  <p class="section-number">03</p>
-  <h2 class="section-title">On a <em>trois choses</em><br>à construire.</h2>
-  <p class="section-intro">
-    Pas 15 objectifs. Trois. Dans cet ordre.
-  </p>
-
-  <div class="stats">
-    <div class="stat">
-      <p class="stat-number">📅</p>
-      <p class="stat-label" style="font-size: 1rem; color: #3d2e24; font-weight: bold; margin-bottom: 6px;">Remplir l'agenda</p>
-      <p class="stat-label">Les créneaux vides coûtent de l'argent. C'est la priorité n°1.</p>
-    </div>
-    <div class="stat">
-      <p class="stat-number">🔍</p>
-      <p class="stat-label" style="font-size: 1rem; color: #3d2e24; font-weight: bold; margin-bottom: 6px;">Être trouvable</p>
-      <p class="stat-label">Quand quelqu'un cherche "épilation laser Montpellier", il faut qu'il tombe sur toi.</p>
-    </div>
-    <div class="stat">
-      <p class="stat-number">⭐</p>
-      <p class="stat-label" style="font-size: 1rem; color: #3d2e24; font-weight: bold; margin-bottom: 6px;">Avoir des avis</p>
-      <p class="stat-label">Les gens font confiance aux avis d'autres clients avant d'appeler un numéro inconnu.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 4. LE PLAN ══ -->
-<section id="s4">
-  <p class="section-number">04</p>
-  <h2 class="section-title">Le plan sur<br><em>3 mois.</em></h2>
-  <p class="section-intro">
-    Pas besoin de tout faire d'un coup. Voici comment on procède,
-    étape par étape, dans un ordre qui a du sens.
-  </p>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <p class="timeline-period">Cette semaine</p>
-      <div>
-        <p class="timeline-content-title">Créer ta fiche Google</p>
-        <p class="timeline-content-text">
-          C'est comme mettre une enseigne sur la rue principale d'internet.
-          Quand quelqu'un tape "cryolipolyse près de chez moi", il faut
-          que Blanc Cocon apparaisse. C'est gratuit et ça prend 30 minutes à créer.
-        </p>
-        <div class="timeline-tags">
-          <span class="tag urgent">Priorité absolue</span>
-          <span class="tag">Gratuit</span>
-          <span class="tag">30 min</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <p class="timeline-period">Semaine 1</p>
-      <div>
-        <p class="timeline-content-title">Demander des avis à tes 25 clientes</p>
-        <p class="timeline-content-text">
-          Un simple message WhatsApp à chacune, avec un lien direct vers Google.
-          Elles t'apprécient déjà — elles ont signé des cures. La plupart
-          accepteront de laisser un avis si on leur facilite la tâche.
-        </p>
-        <div class="timeline-detail">
-          <em>"Bonjour [prénom], si tu es satisfaite de tes soins chez Blanc Cocon,
-          un avis Google m'aiderait énormément à me faire connaître — ça prend
-          30 secondes. Merci beaucoup ! Emilie 🤍"</em>
-        </div>
-        <div class="timeline-tags">
-          <span class="tag urgent">Objectif : 15 avis en 2 semaines</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <p class="timeline-period">Semaine 1-2</p>
-      <div>
-        <p class="timeline-content-title">Remettre en ordre ton Instagram</p>
-        <p class="timeline-content-text">
-          Pas besoin de tout refaire. Juste s'assurer que quelqu'un qui
-          atterrit sur ton profil comprend en 5 secondes : qui tu es,
-          ce que tu fais, comment prendre rendez-vous.
-        </p>
-        <div class="timeline-tags">
-          <span class="tag">@blanccocon34</span>
-          <span class="tag">Bio + lien RDV</span>
-          <span class="tag">9 premiers posts</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <p class="timeline-period">Mois 1</p>
-      <div>
-        <p class="timeline-content-title">Parler de Blanc Cocon à tes patients</p>
-        <p class="timeline-content-text">
-          Tes patients te font déjà confiance. Ils savent que tu te reconvertis.
-          Glisser une carte de visite en fin de consultation ou en parler
-          naturellement peut générer des rendez-vous dès la semaine suivante.
-          C'est ton levier le plus immédiat.
-        </p>
-        <div class="timeline-tags">
-          <span class="tag urgent">Levier n°1</span>
-          <span class="tag">Carte de visite</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <p class="timeline-period">Mois 2</p>
-      <div>
-        <p class="timeline-content-title">Publier régulièrement sur Instagram</p>
-        <p class="timeline-content-text">
-          3 fois par semaine. Pas plus. Un résultat avant/après, une explication
-          sur un soin, une photo de l'ambiance du cabinet. Ton background d'infirmière
-          te permet d'écrire des choses que personne d'autre ne peut écrire sur ces soins.
-          C'est ce qui donne envie et confiance.
-        </p>
-        <div class="timeline-tags">
-          <span class="tag">3 posts / semaine</span>
-          <span class="tag">Avant/Après</span>
-          <span class="tag">Éducatif</span>
-          <span class="tag">Coulisses</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <p class="timeline-period">Mois 2</p>
-      <div>
-        <p class="timeline-content-title">Lancer une offre pour les nouvelles clientes</p>
-        <p class="timeline-content-text">
-          -20% sur la première séance, pendant 1 mois. Ça donne une raison
-          de venir maintenant plutôt que "plus tard". Et les clientes satisfaites
-          de leur première séance reviennent.
-        </p>
-        <div class="timeline-tags">
-          <span class="tag">-20% 1ère séance</span>
-          <span class="tag">Durée limitée</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <p class="timeline-period">Mois 3</p>
-      <div>
-        <p class="timeline-content-title">Publicité ciblée sur les réseaux</p>
-        <p class="timeline-content-text">
-          Un petit budget quotidien (7 à 10 € par jour) pour montrer tes posts
-          à des femmes de 30 à 55 ans dans un rayon de 15 km autour de ton cabinet.
-          À ce stade, tu as déjà des avis et du contenu — la pub va servir
-          à accélérer ce qui marche déjà.
-        </p>
-        <div class="timeline-tags">
-          <span class="tag">Budget : 7-10 €/jour</span>
-          <span class="tag">Rayon 15 km</span>
-          <span class="tag">Facebook · Instagram</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 5. CETTE SEMAINE ══ -->
-<section id="s5">
-  <p class="section-number">05</p>
-  <h2 class="section-title">Cette semaine,<br><em>3 choses.</em></h2>
-  <p class="section-intro">
-    Pas besoin d'un plan parfait pour commencer.
-    Voici les trois actions à faire cette semaine, dans cet ordre.
-  </p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-number">1</div>
-      <div>
-        <p class="step-title">Créer ta fiche Google My Business</p>
-        <p class="step-text">
-          Aller sur <strong>business.google.com</strong>, créer un compte avec ton adresse
-          professionnelle, renseigner l'adresse du cabinet, les horaires, le numéro
-          de téléphone, et mettre quelques photos du local.
-        </p>
-        <div class="step-detail">
-          Durée : 30 à 45 minutes · Résultat : visible sur Google sous 48h
-        </div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">2</div>
-      <div>
-        <p class="step-title">Envoyer un message à tes 25 clientes</p>
-        <p class="step-text">
-          Une par une, un message WhatsApp ou SMS personnalisé pour leur demander
-          de laisser un avis sur Google. Leur envoyer le lien direct pour qu'elles
-          n'aient pas à chercher.
-        </p>
-        <div class="step-detail">
-          Durée : 30 minutes · Résultat attendu : 10 à 15 avis en 1 semaine
-        </div>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">3</div>
-      <div>
-        <p class="step-title">Commander des cartes de visite Blanc Cocon</p>
-        <p class="step-text">
-          Avec le nom de l'institut, ce qu'on y fait, le numéro de téléphone,
-          et le lien pour prendre rendez-vous. À glisser à chaque patient
-          en fin de consultation.
-        </p>
-        <div class="step-detail">
-          Coût : 20 à 40 € pour 250 cartes · Sites : Vistaprint, Canva Print, Moo
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 6. RÉSULTATS ATTENDUS ══ -->
-<section id="s6">
-  <p class="section-number">06</p>
-  <h2 class="section-title">À quoi s'attendre<br><em>au bout de 3 mois.</em></h2>
-  <p class="section-intro">
-    Ce ne sont pas des chiffres magiques. C'est ce qui est raisonnablement
-    atteignable avec de la régularité.
-  </p>
-
-  <div class="stats">
-    <div class="stat">
-      <p class="stat-number">30<em>+</em></p>
-      <p class="stat-label">Avis Google — la base pour être recommandée par les inconnus</p>
-    </div>
-    <div class="stat">
-      <p class="stat-number">70<em>%</em></p>
-      <p class="stat-label">Taux de remplissage de l'agenda — objectif réaliste à 3 mois</p>
-    </div>
-    <div class="stat">
-      <p class="stat-number">300<em>+</em></p>
-      <p class="stat-label">Abonnés Instagram — une communauté locale qui commence à s'engager</p>
-    </div>
-  </div>
-
-  <div class="highlight">
-    <p class="highlight-label">Sur le revenu</p>
-    <p class="highlight-text">
-      À 70% de remplissage avec ton panier moyen actuel, tu peux dépasser
-      ton revenu d'infirmière libérale. Ce n'est pas dans 5 ans — c'est
-      l'objectif des 6 prochains mois.
-    </p>
-  </div>
-</section>
-
-<!-- ══ 7. CE QUI TE DIFFÉRENCIE ══ -->
-<section id="s7" style="background: #3d2e24;">
-  <div class="quote-section">
-    <p class="quote" style="color: #f5ede4;">
-      "Tu n'es pas une esthéticienne qui a acheté des machines.
-      Tu es une infirmière qui sait ce qu'elle fait subir à la peau — et pourquoi ça marche."
-    </p>
-    <p class="quote-source" style="color: #c9b9a8; margin-top: 24px;">
-      C'est ça, ton positionnement. C'est ça qu'on va dire partout.
-    </p>
-  </div>
-</section>
-
-<!-- ══ 8. PROCHAINES ÉTAPES ══ -->
-<section id="s8">
-  <div class="cta-section">
-    <p class="section-number">08</p>
-    <h2 class="cta-title">Par où <em>commencer</em><br>aujourd'hui.</h2>
-    <p class="cta-text">
-      Le plan est là. Il ne reste plus qu'à démarrer.
-      Voici les premières actions dans l'ordre.
-    </p>
-
-    <div class="cta-actions">
-      <div class="cta-action">
-        <p class="cta-action-num">1</p>
-        <div>
-          <p class="cta-action-text">Créer la fiche Google</p>
-          <p class="cta-action-sub">business.google.com · 30 minutes</p>
-        </div>
-      </div>
-      <div class="cta-action">
-        <p class="cta-action-num">2</p>
-        <div>
-          <p class="cta-action-text">Envoyer les messages aux 25 clientes</p>
-          <p class="cta-action-sub">Un message WhatsApp avec le lien Google · 30 minutes</p>
-        </div>
-      </div>
-      <div class="cta-action">
-        <p class="cta-action-num">3</p>
-        <div>
-          <p class="cta-action-text">Commander les cartes de visite</p>
-          <p class="cta-action-sub">Vistaprint ou Canva Print · ~30 €</p>
-        </div>
-      </div>
-      <div class="cta-action">
-        <p class="cta-action-num">4</p>
-        <div>
-          <p class="cta-action-text">Refaire la bio Instagram</p>
-          <p class="cta-action-sub">@blanccocon34 · 10 minutes</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="scroll-hint" id="scrollHint">↓ défiler</div>
-
-<script>
-  const sections = document.querySelectorAll('section');
-  const navDots = document.getElementById('navDots');
-  const scrollHint = document.getElementById('scrollHint');
-
-  // Créer les points de navigation
-  sections.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => {
-      sections[i].scrollIntoView({ behavior: 'smooth' });
-    });
-    navDots.appendChild(dot);
-  });
-
-  // Observer les sections actives
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const idx = Array.from(sections).indexOf(entry.target);
-        document.querySelectorAll('.nav-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === idx);
-        });
-        // Cacher le hint après la 1ère section
-        if (idx > 0) scrollHint.style.opacity = '0';
-        else scrollHint.style.opacity = '1';
-      }
-    });
-  }, { threshold: 0.5 });
-
-  sections.forEach(s => observer.observe(s));
-</script>
+<footer>
+  Blanc Cocon · 2026
+</footer>
 
 </body>
 </html>
