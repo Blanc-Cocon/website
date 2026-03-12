@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Avis Google — Blanc Cocon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #f5f0eb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* --- Panneau de configuration (masqué à l'impression) --- */
+        .config {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .config h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .config p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .config label {
+            display: block;
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 6px;
+            font-weight: 400;
+        }
+
+        .config input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0d6cc;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Lato', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .config input:focus {
+            border-color: #c9a96e;
+        }
+
+        .config button {
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: #c9a96e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .config button:hover {
+            background: #b8944f;
+        }
+
+        .config .steps {
+            background: #faf7f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .config .steps ol {
+            padding-left: 20px;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .print-btn {
+            margin-top: 10px;
+            background: #5a7a5a !important;
+        }
+
+        .print-btn:hover {
+            background: #4a6a4a !important;
+        }
+
+        /* --- Carte imprimable --- */
+        .card {
+            width: 350px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px 35px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c9a96e, #e8d5b0, #c9a96e);
+        }
+
+        .card .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .card .subtitle {
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .card .message {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .card .qr-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card .qr-container canvas {
+            border-radius: 8px;
+        }
+
+        .card .instruction {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .card .stars {
+            font-size: 1.8rem;
+            color: #c9a96e;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .card .merci {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #c9a96e;
+            font-style: italic;
+        }
+
+        .card .separator {
+            width: 40px;
+            height: 1px;
+            background: #e0d6cc;
+            margin: 15px auto;
+        }
+
+        /* --- Deuxième format : petit chevalet --- */
+        .card-mini {
+            width: 280px;
+            background: white;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .card-mini::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c9a96e, #e8d5b0, #c9a96e);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .card-mini .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .card-mini .message {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .card-mini .qr-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .card-mini .stars {
+            font-size: 1.3rem;
+            color: #c9a96e;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .card-mini .instruction {
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+
+        .format-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #999;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* --- Impression --- */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .config, .format-label, .no-print {
+                display: none !important;
+            }
+
+            .card, .card-mini {
+                box-shadow: none;
+                border: 1px solid #eee;
+                page-break-inside: avoid;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Panneau de configuration -->
+    <div class="config no-print">
+        <h2>Configurer ton QR Code avis Google</h2>
+
+        <div class="steps">
+            <p><strong>Comment trouver ton lien d'avis :</strong></p>
+            <ol>
+                <li>Va sur <strong>Google Maps</strong> et cherche "Blanc Cocon"</li>
+                <li>Clique sur ta fiche</li>
+                <li>Clique le bouton <strong>"Demander des avis"</strong></li>
+                <li>Copie le lien et colle-le ci-dessous</li>
+            </ol>
+        </div>
+
+        <label for="urlInput">Lien d'avis Google :</label>
+        <input type="url" id="urlInput" placeholder="https://g.page/r/..." value="">
+
+        <button onclick="genererQR()">Générer le QR Code</button>
+        <button class="print-btn" onclick="window.print()">Imprimer les cartes</button>
+    </div>
+
+    <!-- Format 1 : Grande carte (comptoir / cadre) -->
+    <p class="format-label no-print">Format comptoir / cadre</p>
+    <div class="card">
+        <div class="logo-text">BLANC COCON</div>
+        <div class="subtitle">Institut Médico-Esthétique</div>
+
+        <div class="separator"></div>
+
+        <div class="message">
+            Votre avis compte<br>
+            énormément pour moi
+        </div>
+
+        <div class="qr-container">
+            <img src="qr-avis-google.png" alt="QR Code Avis Google" width="200" height="200" style="border-radius:8px">
+        </div>
+
+        <div class="instruction">Scannez avec l'appareil photo de votre téléphone</div>
+
+        <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+
+        <div class="merci">Merci pour votre confiance</div>
+    </div>
+
+    <!-- Format 2 : Petit chevalet -->
+    <p class="format-label no-print">Format petit chevalet</p>
+    <div class="card-mini">
+        <div class="logo-text">BLANC COCON</div>
+        <div class="message">Votre avis compte pour moi</div>
+
+        <div class="qr-container">
+            <img src="qr-avis-google.png" alt="QR Code Avis Google" width="140" height="140" style="border-radius:8px">
+        </div>
+
+        <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <div class="instruction">Scannez pour laisser un avis Google</div>
+    </div>
+
+    <!-- Format 3 : Carte Instagram -->
+    <p class="format-label no-print">Format Instagram</p>
+    <div class="card">
+        <div class="logo-text">BLANC COCON</div>
+        <div class="subtitle">Institut Médico-Esthétique</div>
+
+        <div class="separator"></div>
+
+        <div class="message">
+            Suivez-moi<br>
+            sur Instagram
+        </div>
+
+        <div class="qr-container">
+            <img src="qr-instagram.png" alt="QR Code Instagram" width="200" height="200" style="border-radius:8px">
+        </div>
+
+        <div class="instruction">Scannez avec l'appareil photo de votre téléphone</div>
+
+        <div style="font-size:1.1rem; color:#c9a96e; margin-top:15px; letter-spacing:1px;">@blanccocon34</div>
+    </div>
+
+
+</body>
+</html>

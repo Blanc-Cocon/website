@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Codes — Blanc Cocon — Impression</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #f5f0eb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .print-btn {
+            padding: 14px 40px;
+            background: #5a7a5a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+
+        .print-btn:hover { background: #4a6a4a; }
+
+        /* --- Cartes --- */
+        .cards {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            width: 340px;
+            background: white;
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c9a96e, #e8d5b0, #c9a96e);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 0.7rem;
+            color: #999;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .separator {
+            width: 40px;
+            height: 1px;
+            background: #e0d6cc;
+            margin: 0 auto 20px;
+        }
+
+        .message {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 22px;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .qr-container img {
+            border-radius: 8px;
+        }
+
+        .instruction {
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            font-size: 1.6rem;
+            color: #c9a96e;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        .bottom-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: #c9a96e;
+            font-style: italic;
+        }
+
+        .handle {
+            font-size: 1rem;
+            color: #c9a96e;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .icon {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .contact {
+            font-size: 0.65rem;
+            color: #bbb;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        /* --- Impression --- */
+        @media print {
+            body {
+                background: white;
+                padding: 10mm;
+            }
+
+            .no-print { display: none !important; }
+
+            .cards {
+                gap: 15mm;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+                width: 85mm;
+                padding: 8mm 6mm;
+                border-radius: 4mm;
+            }
+
+            .logo-text { font-size: 1.3rem; }
+            .message { font-size: 0.95rem; margin-bottom: 5mm; }
+            .stars { font-size: 1.3rem; }
+            .qr-container img { width: 35mm !important; height: 35mm !important; }
+            .instruction { font-size: 0.65rem; }
+            .contact { font-size: 0.55rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="no-print">Cartes QR — Blanc Cocon</h1>
+    <p class="intro no-print">2 cartes prêtes à imprimer, découper et plastifier</p>
+    <button class="print-btn no-print" onclick="window.print()">Imprimer</button>
+
+    <div class="cards">
+
+        <!-- Carte 1 : Avis Google -->
+        <div class="card">
+            <div class="logo-text">BLANC COCON</div>
+            <div class="subtitle">Institut Médico-Esthétique</div>
+            <div class="separator"></div>
+
+            <div class="message">
+                Votre avis compte<br>
+                énormément pour moi
+            </div>
+
+            <div class="qr-container">
+                <img src="qr-avis-google-print.png" alt="QR Code Avis Google" width="180" height="180">
+            </div>
+
+            <div class="instruction">Scannez avec l'appareil photo de votre téléphone</div>
+
+            <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+
+            <div class="bottom-text">Merci pour votre confiance</div>
+
+            <div class="contact">
+                135 Av. du Miradou — Saint-Clément-de-Rivière<br>
+                07 49 49 13 35
+            </div>
+        </div>
+
+        <!-- Carte 2 : Instagram -->
+        <div class="card">
+            <div class="logo-text">BLANC COCON</div>
+            <div class="subtitle">Institut Médico-Esthétique</div>
+            <div class="separator"></div>
+
+            <div class="message">
+                Suivez-moi sur<br>
+                Instagram
+            </div>
+
+            <div class="qr-container">
+                <img src="qr-instagram-print.png" alt="QR Code Instagram" width="180" height="180">
+            </div>
+
+            <div class="instruction">Scannez avec l'appareil photo de votre téléphone</div>
+
+            <div class="handle">@blanccocon34</div>
+
+            <div style="margin-top:12px;">
+                <span style="font-size:0.8rem; color:#999;">Actualités &middot; Conseils &middot; Promotions</span>
+            </div>
+
+            <div class="contact">
+                135 Av. du Miradou — Saint-Clément-de-Rivière<br>
+                07 49 49 13 35
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
