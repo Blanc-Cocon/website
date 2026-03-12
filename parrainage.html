@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parrainage — Blanc Cocon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #faf9f7;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #3d2e24;
+      color: #f5ede4;
+      padding: 35px 32px;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    header p { color: #c9b9a8; font-size: .9rem; }
+
+    nav {
+      background: #fff;
+      border-bottom: 1px solid #e8e0d6;
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      display: block;
+      padding: 14px 18px;
+      font-size: .82rem;
+      letter-spacing: .5px;
+      color: #7a6a5e;
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: #3d2e24; border-bottom-color: #8c7b6e; }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* --- Rappel de l'offre --- */
+    .offre-box {
+      background: linear-gradient(135deg, #3d2e24, #5a4535);
+      color: #f5ede4;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .offre-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    .offre-cols {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .offre-col {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 18px 24px;
+      min-width: 200px;
+    }
+    .offre-col .role {
+      font-size: .7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a96e;
+      margin-bottom: 6px;
+    }
+    .offre-col .avantage {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+    }
+    .offre-note {
+      font-size: .8rem;
+      color: #c9b9a8;
+      margin-top: 10px;
+    }
+
+    /* --- Stats --- */
+    .stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #3d2e24;
+      font-weight: 700;
+    }
+    .stat-label {
+      font-size: .75rem;
+      color: #8c7b6e;
+      letter-spacing: .5px;
+      margin-top: 4px;
+    }
+
+    /* --- Tableau de suivi --- */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #3d2e24;
+      margin-bottom: 6px;
+    }
+    .section-desc {
+      font-size: .85rem;
+      color: #7a6a5e;
+      margin-bottom: 16px;
+    }
+
+    .table-wrapper {
+      background: #fff;
+      border: 1px solid #e8e0d6;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .table-actions {
+      padding: 14px 16px;
+      background: #f5f0eb;
+      border-bottom: 1px solid #e8e0d6;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: .8rem;
+      font-family: 'Lato', sans-serif;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-primary { background: #3d2e24; color: #f5ede4; }
+    .btn-primary:hover { background: #5a4535; }
+    .btn-secondary { background: #e8e0d6; color: #3d2e24; }
+    .btn-secondary:hover { background: #d4c9bc; }
+    .btn-danger { background: #d4453a; color: white; font-size: .75rem; padding: 5px 10px; }
+    .btn-danger:hover { background: #b8372e; }
+    .btn-check { background: #4a7c59; color: white; font-size: .75rem; padding: 5px 10px; }
+    .btn-check:hover { background: #3d6b4a; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+    }
+    thead { background: #f5f0eb; }
+    th {
+      padding: 12px 14px;
+      text-align: left;
+      font-size: .7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8c7b6e;
+      font-weight: 600;
+      border-bottom: 1px solid #e8e0d6;
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0ebe4;
+      color: #3d2e24;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover { background: #faf7f3; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+    .badge-pending { background: #fff3cd; color: #856404; }
+    .badge-done { background: #d4edda; color: #155724; }
+
+    .empty-row {
+      text-align: center;
+      color: #b0a090;
+      padding: 40px 14px;
+      font-style: italic;
+    }
+
+    /* --- Formulaire ajout --- */
+    .form-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-overlay.active { display: flex; }
+
+    .form-box {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 440px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    }
+    .form-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #3d2e24;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: .75rem;
+      color: #8c7b6e;
+      letter-spacing: .5px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid #e8e0d6;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-family: 'Lato', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #c9a96e;
+    }
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .form-buttons .btn { flex: 1; padding: 12px; }
+
+    /* --- Support imprimable --- */
+    .print-section {
+      margin-bottom: 40px;
+    }
+
+    .print-card {
+      background: white;
+      border: 2px solid #e8e0d6;
+      border-radius: 16px;
+      padding: 35px 30px;
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .print-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #c9a96e, #e8d5b0, #c9a96e);
+      border-radius: 16px 16px 0 0;
+    }
+    .print-card .pc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #3d2e24;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .print-card .pc-sub {
+      font-size: .7rem;
+      color: #999;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .print-card .pc-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    .print-card .pc-offer {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #3d2e24;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .print-card .pc-detail {
+      font-size: .85rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .print-card .pc-how {
+      background: #f5f0eb;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: .85rem;
+      color: #5a4535;
+      margin-bottom: 15px;
+    }
+    .print-card .pc-merci {
+      font-family: 'Playfair Display', serif;
+      color: #c9a96e;
+      font-style: italic;
+      font-size: .95rem;
+    }
+
+    /* --- Impression --- */
+    @media print {
+      body { background: white; }
+      header, nav, .stats, .table-wrapper, .table-actions, .section-title, .section-desc, .no-print, .form-overlay { display: none !important; }
+      .print-card {
+        border: 1px solid #ddd;
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 24px 16px 60px; }
+      .offre-cols { flex-direction: column; align-items: center; }
+      .stats { flex-direction: column; }
+      table { font-size: .78rem; }
+      th, td { padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Parrainage — Blanc Cocon</h1>
+  <p>Suivi des parrainages et support imprimable</p>
+</header>
+
+<nav>
+  <a href="kit-demarrage.html">← Kit démarrage</a>
+  <a href="#suivi">Suivi</a>
+  <a href="#support">Support imprimable</a>
+</nav>
+
+<main>
+
+  <!-- Rappel de l'offre -->
+  <div class="offre-box">
+    <h2>Programme Parrainage</h2>
+    <div class="offre-cols">
+      <div class="offre-col">
+        <div class="role">La marraine</div>
+        <div class="avantage">-15% sur sa prochaine séance</div>
+      </div>
+      <div class="offre-col">
+        <div class="role">La filleule</div>
+        <div class="avantage">-15% sur sa 1ère séance</div>
+      </div>
+    </div>
+    <div class="offre-note">La filleule mentionne le prénom de la marraine à la réservation.</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-number" id="stat-total">0</div>
+      <div class="stat-label">Parrainages</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="stat-filleules">0</div>
+      <div class="stat-label">Nouvelles clientes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="stat-pending">0</div>
+      <div class="stat-label">Réductions marraine en attente</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="stat-done">0</div>
+      <div class="stat-label">Réductions appliquées</div>
+    </div>
+  </div>
+
+  <!-- Tableau de suivi -->
+  <div id="suivi">
+    <h2 class="section-title">Suivi des parrainages</h2>
+    <p class="section-desc">Ajoute un parrainage quand une filleule mentionne le prénom d'une marraine.</p>
+
+    <div class="table-wrapper">
+      <div class="table-actions">
+        <button class="btn btn-primary" onclick="openForm()">+ Nouveau parrainage</button>
+        <button class="btn btn-secondary" onclick="exportCSV()">Exporter CSV</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Marraine</th>
+            <th>Filleule</th>
+            <th>Soin</th>
+            <th>Réduc. filleule</th>
+            <th>Réduc. marraine</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="7" class="empty-row">Aucun parrainage pour le moment</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Formulaire -->
+  <div class="form-overlay" id="form-overlay">
+    <div class="form-box">
+      <h3>Nouveau parrainage</h3>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="f-date">
+      </div>
+      <div class="form-group">
+        <label>Prénom de la marraine</label>
+        <input type="text" id="f-marraine" placeholder="Sophie M.">
+      </div>
+      <div class="form-group">
+        <label>Prénom de la filleule</label>
+        <input type="text" id="f-filleule" placeholder="Julie D.">
+      </div>
+      <div class="form-group">
+        <label>Soin réservé</label>
+        <select id="f-soin">
+          <option>Cryolipolyse</option>
+          <option>Épilation laser</option>
+          <option>Radiofréquence</option>
+          <option>Sauna dôme</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-buttons">
+        <button class="btn btn-secondary" onclick="closeForm()">Annuler</button>
+        <button class="btn btn-primary" onclick="addParrainage()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support imprimable -->
+  <div class="print-section" id="support">
+    <h2 class="section-title no-print">Support imprimable pour le comptoir</h2>
+    <p class="section-desc no-print">
+      Clique sur "Imprimer" pour sortir la carte à poser sur ton comptoir.
+      <button class="btn btn-secondary" onclick="window.print()" style="margin-left:10px;">Imprimer</button>
+    </p>
+
+    <div class="print-card">
+      <div class="pc-title">BLANC COCON</div>
+      <div class="pc-sub">Institut Médico-Esthétique</div>
+
+      <div class="pc-icon">🎁</div>
+
+      <div class="pc-offer">
+        Parrainez une amie,<br>
+        vous êtes toutes les deux gagnantes
+      </div>
+
+      <div class="pc-detail">
+        <strong>Votre amie</strong> bénéficie de <strong>-15%</strong> sur sa 1ère séance<br>
+        <strong>Vous</strong> bénéficiez de <strong>-15%</strong> sur votre prochaine séance
+      </div>
+
+      <div class="pc-how">
+        Il suffit qu'elle mentionne <strong>votre prénom</strong><br>
+        au moment de la réservation.
+      </div>
+
+      <div class="pc-merci">Merci pour votre confiance</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // --- Données stockées en localStorage ---
+  const STORAGE_KEY = 'blanccocon_parrainages';
+
+  function getData() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch { return []; }
+  }
+
+  function saveData(data) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  // --- Rendu du tableau ---
+  function render() {
+    const data = getData();
+    const tbody = document.getElementById('table-body');
+
+    if (data.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-row">Aucun parrainage pour le moment</td></tr>';
+    } else {
+      tbody.innerHTML = data.map((row, i) => `
+        <tr>
+          <td>${row.date}</td>
+          <td>${row.marraine}</td>
+          <td>${row.filleule}</td>
+          <td>${row.soin}</td>
+          <td><span class="badge badge-done">-15% appliqué</span></td>
+          <td>
+            ${row.marraineOk
+              ? '<span class="badge badge-done">-15% appliqué</span>'
+              : `<span class="badge badge-pending">En attente</span>
+                 <button class="btn-check" onclick="validerMarraine(${i})" style="margin-left:6px;">Appliquer</button>`
+            }
+          </td>
+          <td>
+            <button class="btn-danger" onclick="supprimer(${i})">Suppr.</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Stats
+    document.getElementById('stat-total').textContent = data.length;
+    document.getElementById('stat-filleules').textContent = data.length;
+    document.getElementById('stat-pending').textContent = data.filter(r => !r.marraineOk).length;
+    document.getElementById('stat-done').textContent = data.filter(r => r.marraineOk).length;
+  }
+
+  // --- Actions ---
+  function openForm() {
+    document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+    document.getElementById('f-marraine').value = '';
+    document.getElementById('f-filleule').value = '';
+    document.getElementById('form-overlay').classList.add('active');
+    document.getElementById('f-marraine').focus();
+  }
+
+  function closeForm() {
+    document.getElementById('form-overlay').classList.remove('active');
+  }
+
+  function addParrainage() {
+    const date = document.getElementById('f-date').value;
+    const marraine = document.getElementById('f-marraine').value.trim();
+    const filleule = document.getElementById('f-filleule').value.trim();
+    const soin = document.getElementById('f-soin').value;
+
+    if (!marraine || !filleule) {
+      alert('Remplis le prénom de la marraine et de la filleule.');
+      return;
+    }
+
+    const data = getData();
+    data.unshift({ date, marraine, filleule, soin, marraineOk: false });
+    saveData(data);
+    closeForm();
+    render();
+  }
+
+  function validerMarraine(index) {
+    const data = getData();
+    data[index].marraineOk = true;
+    saveData(data);
+    render();
+  }
+
+  function supprimer(index) {
+    if (!confirm('Supprimer ce parrainage ?')) return;
+    const data = getData();
+    data.splice(index, 1);
+    saveData(data);
+    render();
+  }
+
+  function exportCSV() {
+    const data = getData();
+    if (data.length === 0) { alert('Aucun parrainage à exporter.'); return; }
+
+    let csv = 'Date,Marraine,Filleule,Soin,Réduction marraine\n';
+    data.forEach(r => {
+      csv += `${r.date},${r.marraine},${r.filleule},${r.soin},${r.marraineOk ? 'Appliquée' : 'En attente'}\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'parrainages-blanc-cocon.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // Fermer le formulaire en cliquant en dehors
+  document.getElementById('form-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeForm();
+  });
+
+  // Init
+  render();
+</script>
+
+</body>
+</html>
