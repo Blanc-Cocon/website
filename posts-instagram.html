@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blanc Cocon — Posts Instagram Amincissement &amp; Anti-âge</title>
+  <title>Blanc Cocon — Publications Instagram</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -108,9 +108,9 @@
       border-bottom: 1px solid #e8e0d6;
     }
 
-    .post-card-top.type-pub  { background: #fdf0ef; }
-    .post-card-top.type-info { background: #eef4fa; }
-    .post-card-top.type-prev { background: #eef8f1; }
+    .post-card-top {
+      background: #f5ede4;
+    }
 
     .post-meta {
       display: flex;
@@ -127,27 +127,6 @@
       padding: 3px 10px;
       border-radius: 10px;
     }
-    .post-type {
-      font-size: .7rem;
-      padding: 3px 10px;
-      border-radius: 10px;
-      font-weight: 600;
-      letter-spacing: .5px;
-    }
-    .type-pub  .post-type { background: #c0392b; color: #fff; }
-    .type-info .post-type { background: #2980b9; color: #fff; }
-    .type-prev .post-type { background: #27ae60; color: #fff; }
-
-    .badge-sponsor {
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: #f39c12;
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 10px;
-    }
 
     .post-body {
       padding: 20px;
@@ -157,16 +136,6 @@
       font-weight: 600;
       color: #3d2e24;
       margin-bottom: 10px;
-    }
-    .post-visual {
-      font-size: .8rem;
-      color: #8c7b6e;
-      font-style: italic;
-      margin-bottom: 16px;
-      background: #f5ede4;
-      border-radius: 8px;
-      padding: 10px 14px;
-      border-left: 3px solid #c9b9a8;
     }
     .post-caption {
       font-size: .9rem;
@@ -202,29 +171,6 @@
       margin: 48px 0;
     }
 
-    /* ── Legend ── */
-    .legend {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .85rem;
-      color: #5a4a3e;
-    }
-    .legend-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .dot-pub  { background: #c0392b; }
-    .dot-info { background: #2980b9; }
-    .dot-prev { background: #27ae60; }
 
     /* ── Recap ── */
     .recap {
@@ -275,7 +221,7 @@
 
 <header>
   <div class="brand">Blanc Cocon</div>
-  <div class="subtitle">Posts Instagram — Amincissement &amp; Anti-âge</div>
+  <div class="subtitle">Publications Instagram — 3 par semaine</div>
 </header>
 
 <nav>
@@ -301,11 +247,6 @@
     </div>
   </div>
 
-  <div class="legend">
-    <div class="legend-item"><span class="legend-dot dot-pub"></span> Mardi 19h — Pub</div>
-    <div class="legend-item"><span class="legend-dot dot-info"></span> Jeudi 12h30 — Info</div>
-    <div class="legend-item"><span class="legend-dot dot-prev"></span> Dimanche 19h — Bien-être</div>
-  </div>
 
   <!-- ══════════════════════════════════════════════════ -->
   <!-- SECTION 1 : AMINCISSEMENT / CONTOUR 360           -->
@@ -321,16 +262,13 @@
 
     <!-- Post 1 -->
     <div class="post-card">
-      <div class="post-card-top type-pub">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 1</span>
-          <span class="post-type">Mardi 19h — Pub</span>
         </div>
-        <span class="badge-sponsor">Sponsorisé</span>
       </div>
       <div class="post-body">
         <p class="post-title">Carrousel avant/après cryo</p>
-        <div class="post-visual">Carrousel 5 images → assets/contour-paris/cryolipolyse/reseaux-sociaux/Avant-après Cryo/</div>
         <div class="post-caption" id="post-1">Des rondeurs qui résistent malgré vos efforts ? Vous n'êtes pas seule.
 
 La cryolipolyse avec le Contour 360 cible les amas graisseux par le froid. Ventre, hanches, cuisses… les résultats sont visibles dès la première séance.
@@ -348,15 +286,13 @@ Envie d'en savoir plus ? Contactez-nous en message ou réservez via le lien en b
 
     <!-- Post 2 -->
     <div class="post-card">
-      <div class="post-card-top type-info">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 2</span>
-          <span class="post-type">Jeudi 12h30 — Info</span>
         </div>
       </div>
       <div class="post-body">
         <p class="post-title">Éducatif : c'est quoi la cryo ?</p>
-        <div class="post-visual">Carrousel éducatif → assets/contour-paris/cryolipolyse/reseaux-sociaux/La cryolipolyse c_est quoi _ / (3 slides)</div>
         <div class="post-caption" id="post-2">La cryolipolyse, ça vous parle ?
 
 C'est une technique qui utilise le froid pour éliminer les cellules graisseuses de façon naturelle et définitive. Pas de chirurgie, pas d'aiguille, pas d'éviction sociale.
@@ -374,15 +310,13 @@ Une question ? Glissez en DM, Émilie vous répond personnellement.
 
     <!-- Post 3 -->
     <div class="post-card">
-      <div class="post-card-top type-prev">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 3</span>
-          <span class="post-type">Dimanche 19h — Bien-être</span>
         </div>
       </div>
       <div class="post-body">
         <p class="post-title">Les étapes d'une séance</p>
-        <div class="post-visual">Carrousel → assets/contour-paris/cryolipolyse/reseaux-sociaux/Les étapes d_une cryolipolyse / (5 slides)</div>
         <div class="post-caption" id="post-3">Vous hésitez parce que vous ne savez pas comment ça se passe ? Voici les étapes d'une séance de cryolipolyse chez Blanc Cocon :
 
 1. Bilan personnalisé avec Émilie
@@ -404,16 +338,13 @@ Prête à essayer ? Lien de réservation en bio.
 
     <!-- Post 4 -->
     <div class="post-card">
-      <div class="post-card-top type-pub">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 4</span>
-          <span class="post-type">Mardi 19h — Pub</span>
         </div>
-        <span class="badge-sponsor">Sponsorisé</span>
       </div>
       <div class="post-body">
         <p class="post-title">Les zones traitables</p>
-        <div class="post-visual">Image zones traitables → assets/contour-paris/cryolipolyse/reseaux-sociaux/zones-traitables.png</div>
         <div class="post-caption" id="post-4">Ventre, poignées d'amour, cuisses, bras, dos, double menton…
 
 Le Contour 360 s'adapte à toutes les zones où la graisse s'installe. Chaque traitement est personnalisé selon votre morphologie et vos objectifs.
@@ -446,16 +377,13 @@ Réservez votre bilan personnalisé via le lien en bio ou appelez-nous au 07 49 
 
     <!-- Post 5 -->
     <div class="post-card">
-      <div class="post-card-top type-pub">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 5</span>
-          <span class="post-type">Mardi 19h — Pub</span>
         </div>
-        <span class="badge-sponsor">Sponsorisé</span>
       </div>
       <div class="post-body">
         <p class="post-title">Avant/après radiofréquence</p>
-        <div class="post-visual">Carrousel → assets/contour-paris/collagen-boost/reseaux-sociaux/Publication Avant-Après /</div>
         <div class="post-caption" id="post-5">La peau qui relâche, les traits qui se brouillent… ça arrive à toutes. Mais on peut agir.
 
 La radiofréquence Collagen Boost stimule la production naturelle de collagène en profondeur. Résultat : une peau plus ferme, un ovale redessiné, un éclat retrouvé.
@@ -473,15 +401,13 @@ Curieuse ? Réservez votre première séance via le lien en bio.
 
     <!-- Post 6 -->
     <div class="post-card">
-      <div class="post-card-top type-info">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 6</span>
-          <span class="post-type">Jeudi 12h30 — Info</span>
         </div>
       </div>
       <div class="post-body">
         <p class="post-title">Comment ça marche (éducatif)</p>
-        <div class="post-visual">Visuel → assets/contour-paris/collagen-boost/reseaux-sociaux/stimulation-fibroblastes.png</div>
         <div class="post-caption" id="post-6">À partir de 30 ans, la production de collagène diminue de 1% par an. À 50 ans, votre peau en a perdu près de 20%.
 
 La radiofréquence Collagen Boost envoie une chaleur contrôlée dans le derme pour réveiller les fibroblastes — les cellules qui fabriquent le collagène.
@@ -499,15 +425,13 @@ Envie de comprendre si c'est adapté à votre peau ? Écrivez-nous en DM.
 
     <!-- Post 7 -->
     <div class="post-card">
-      <div class="post-card-top type-prev">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 7</span>
-          <span class="post-type">Dimanche 19h — Bien-être</span>
         </div>
       </div>
       <div class="post-body">
         <p class="post-title">Moment cocon / bien-être</p>
-        <div class="post-visual">Photo ambiance cabinet → assets/photos/</div>
         <div class="post-caption" id="post-7">Et si vous vous accordiez un vrai moment pour vous ?
 
 Chez Blanc Cocon, le soin anti-âge Collagen Boost, c'est aussi 45 minutes de pause. Allongée confortablement, vous sentez une douce chaleur sur le visage pendant que votre peau se régénère.
@@ -525,16 +449,13 @@ Vous méritez cette parenthèse. Lien en bio pour réserver.
 
     <!-- Post 8 -->
     <div class="post-card">
-      <div class="post-card-top type-pub">
+      <div class="post-card-top">
         <div class="post-meta">
           <span class="post-number">Post 8</span>
-          <span class="post-type">Mardi 19h — Pub</span>
         </div>
-        <span class="badge-sponsor">Sponsorisé</span>
       </div>
       <div class="post-body">
         <p class="post-title">Combo cryo + anti-âge</p>
-        <div class="post-visual">Visuel → assets/contour-paris/collagen-boost/reseaux-sociaux/Post Instagram - Collagen.png</div>
         <div class="post-caption" id="post-8">Sculpter la silhouette ET raffermir le visage ? C'est possible.
 
 Chez Blanc Cocon, Émilie combine le Contour 360 (cryolipolyse corps) et le Collagen Boost (radiofréquence visage) pour un résultat complet, de la tête aux pieds.

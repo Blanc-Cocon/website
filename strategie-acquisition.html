@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blanc Cocon — Stratégie d'acquisition organique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brun: #3d2e24;
+      --brun-clair: #5a4a3e;
+      --creme: #f5ede4;
+      --beige: #faf9f7;
+      --sable: #c9b9a8;
+      --sable-clair: #e8e0d6;
+      --accent: #8c7b6e;
+      --vert: #4a7c59;
+      --bleu: #2980b9;
+      --rouge: #c0392b;
+      --orange: #d4860b;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--beige);
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--brun);
+      color: var(--creme);
+      padding: 56px 32px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 140%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(201,185,168,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: 5px;
+      margin-bottom: 6px;
+    }
+    .brand em { font-style: italic; }
+    .tagline {
+      color: var(--sable);
+      font-size: .95rem;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+    }
+    .header-badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(140,123,110,0.3);
+      padding: 6px 18px;
+      border-radius: 20px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid var(--sable-clair);
+      padding: 0 32px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      display: block;
+      padding: 14px 18px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .3px;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: var(--brun); border-bottom-color: var(--sable); }
+
+    /* ── Main ── */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px 28px 80px;
+    }
+
+    /* ── Section ── */
+    .section {
+      margin-bottom: 56px;
+    }
+    .section-label {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--brun);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .section-intro {
+      font-size: .92rem;
+      color: var(--brun-clair);
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    /* ── Recap cards ── */
+    .recap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .recap-card {
+      background: #fff;
+      border: 1px solid var(--sable-clair);
+      border-radius: 14px;
+      padding: 22px 16px;
+      text-align: center;
+    }
+    .recap-card .rc-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .recap-card .rc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--brun);
+    }
+    .recap-card .rc-label {
+      font-size: .72rem;
+      color: var(--accent);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── Phase cards ── */
+    .phase-card {
+      background: #fff;
+      border: 1px solid var(--sable-clair);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .phase-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--sable-clair);
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .phase-header:hover { background: rgba(245,237,228,0.4); }
+    .phase-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brun);
+      color: var(--creme);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .phase-title-wrap { flex: 1; }
+    .phase-title {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--brun);
+    }
+    .phase-subtitle {
+      font-size: .78rem;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .phase-body {
+      padding: 20px;
+    }
+
+    /* ── Items list ── */
+    .items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .items li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: .88rem;
+      color: var(--brun-clair);
+      line-height: 1.6;
+    }
+    .items li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sable);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ── Priority badge ── */
+    .priority {
+      display: inline-block;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 8px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .priority.high { background: #fce8ec; color: var(--rouge); }
+    .priority.medium { background: #fef4e6; color: var(--orange); }
+    .priority.low { background: #e8f4ea; color: var(--vert); }
+
+    /* ── Table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+      margin-top: 12px;
+    }
+    .data-table th {
+      text-align: left;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 10px 12px;
+      border-bottom: 2px solid var(--sable-clair);
+    }
+    .data-table td {
+      padding: 10px 12px;
+      color: var(--brun-clair);
+      border-bottom: 1px solid var(--sable-clair);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table td strong { color: var(--brun); font-weight: 600; }
+
+    /* ── Flyer section ── */
+    .flyer-mockup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .flyer-side {
+      background: var(--beige);
+      border: 1px solid var(--sable-clair);
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+    .flyer-side-label {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .flyer-side ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .flyer-side li {
+      font-size: .85rem;
+      color: var(--brun-clair);
+      padding-left: 14px;
+      position: relative;
+    }
+    .flyer-side li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--sable);
+    }
+
+    /* ── Emilie section ── */
+    .emilie-box {
+      background: var(--brun);
+      color: var(--creme);
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin-top: 20px;
+    }
+    .emilie-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .emilie-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .emilie-items li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .88rem;
+      color: var(--sable);
+      line-height: 1.6;
+    }
+    .emilie-items li .num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--creme);
+      flex-shrink: 0;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--sable-clair);
+      margin: 48px 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: .78rem;
+      color: var(--sable);
+      border-top: 1px solid var(--sable-clair);
+    }
+
+    @media (max-width: 700px) {
+      main { padding: 32px 16px 60px; }
+      .recap { grid-template-columns: repeat(2, 1fr); }
+      .flyer-mockup { grid-template-columns: 1fr; }
+      .brand { font-size: 1.8rem; }
+      .section-title { font-size: 1.4rem; }
+      nav a { padding: 12px 14px; font-size: .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Blanc <em>Cocon</em></div>
+  <div class="tagline">Institut médico-esthétique</div>
+  <span class="header-badge">Plan d'acquisition organique — Mars 2026</span>
+</header>
+
+<nav>
+  <a href="index.html" style="color:var(--brun);font-weight:600;">&#8592; Accueil</a>
+  <a href="#objectif">Objectif</a>
+  <a href="#site">Site web</a>
+  <a href="#google">Google</a>
+  <a href="#terrain">Terrain</a>
+  <a href="#plateformes">Plateformes</a>
+  <a href="#opportunites">Opportunités</a>
+  <a href="#emilie">Actions Émilie</a>
+</nav>
+
+<main>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- OBJECTIF                              -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="objectif">
+    <div class="section-label">L'objectif</div>
+    <div class="section-title">Attirer des clientes naturellement, sans publicité payante</div>
+    <p class="section-intro">
+      Ce plan regroupe toutes les actions pour développer la visibilité de Blanc Cocon de manière organique :
+      référencement Google, présence sur les plateformes, actions de terrain et contenu.
+      Le soin prioritaire à mettre en avant est la <strong>cryolipolyse</strong>.
+    </p>
+
+    <div class="recap">
+      <div class="recap-card">
+        <div class="rc-icon">🌐</div>
+        <div class="rc-num">5</div>
+        <div class="rc-label">Pages du site</div>
+      </div>
+      <div class="recap-card">
+        <div class="rc-icon">📍</div>
+        <div class="rc-num">1</div>
+        <div class="rc-label">Fiche Google</div>
+      </div>
+      <div class="recap-card">
+        <div class="rc-icon">🤝</div>
+        <div class="rc-num">6+</div>
+        <div class="rc-label">Plateformes</div>
+      </div>
+      <div class="recap-card">
+        <div class="rc-icon">📄</div>
+        <div class="rc-num">15+</div>
+        <div class="rc-label">Lieux flyers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SITE WEB                              -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="site">
+    <div class="section-label">Phase 1</div>
+    <div class="section-title">Le site web — blanc-cocon.fr</div>
+    <p class="section-intro">
+      Un site public professionnel pour être trouvé sur Google. Chaque page cible des mots-clés différents pour capter un maximum de recherches.
+    </p>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">5</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Pages à créer</div>
+          <div class="phase-subtitle">Structure du site</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Page</th><th>Mots-clés ciblés</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Accueil</strong></td><td>"institut médico-esthétique Montpellier", "Blanc Cocon"</td></tr>
+            <tr><td><strong>Soins &amp; Tarifs</strong></td><td>"cryolipolyse Montpellier", "cryolipolyse prix", "épilation laser Montpellier", "radiofréquence visage"</td></tr>
+            <tr><td><strong>À propos</strong></td><td>"institut beauté Saint-Clément-de-Rivière", expertise médicale</td></tr>
+            <tr><td><strong>Blog</strong></td><td>4 articles existants + futurs articles longue traîne</td></tr>
+            <tr><td><strong>Contact</strong></td><td>"institut beauté près de Montpellier", carte, Planity</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">+</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Pages futures</div>
+          <div class="phase-subtitle">Pour capter encore plus de recherches</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>FAQ</strong> — "est-ce que la cryo fait mal ?", "combien de séances laser ?", "radiofréquence danger ?"</li>
+          <li><strong>Nouveaux articles blog</strong> — "cryolipolyse avant après résultats", "épilation laser peau mate", "sauna infrarouge vs traditionnel"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- GOOGLE                                -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="google">
+    <div class="section-label">Phase 2</div>
+    <div class="section-title">Google — Être visible quand on nous cherche</div>
+    <p class="section-intro">
+      La fiche Google Business est créée mais incomplète. Le référencement technique du site sera mis en place.
+      L'objectif : apparaître dans le top 3 quand quelqu'un cherche "cryolipolyse Montpellier" ou "institut beauté Saint-Clément".
+    </p>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">1</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Fiche Google Business</div>
+          <div class="phase-subtitle">Priorité absolue — visibilité locale</div>
+        </div>
+        <span class="priority high">Urgent</span>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li>Compléter toutes les infos : nom, catégories, adresse, téléphone, <strong>horaires</strong>, description avec mots-clés</li>
+          <li>Uploader les photos du cabinet (14 photos disponibles) + photos d'Émilie</li>
+          <li>Ajouter le lien Planity pour la réservation</li>
+          <li>Ajouter le lien vers blanc-cocon.fr</li>
+          <li>Publier des <strong>posts Google Business</strong> régulièrement (offres, actus, avant/après)</li>
+          <li>Pré-remplir les <strong>questions/réponses</strong> fréquentes sur la fiche</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">2</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Avis Google</div>
+          <div class="phase-subtitle">Le levier n°1 du référencement local</div>
+        </div>
+        <span class="priority high">Urgent</span>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li>Objectif : <strong>15 à 20 avis</strong> dans le premier mois</li>
+          <li>Envoyer un SMS à chaque cliente après son soin avec le lien direct vers la page d'avis</li>
+          <li>Afficher un <strong>QR code</strong> dans l'institut (comptoir, salle d'attente)</li>
+          <li>Les avis avec des mots-clés naturels ("cryolipolyse", "super accueil", "Montpellier") boostent le classement</li>
+        </ul>
+        <div style="background:var(--beige);border-radius:10px;padding:14px 16px;margin-top:14px;border-left:3px solid var(--sable);">
+          <strong style="font-size:.82rem;color:var(--brun);">Message SMS type :</strong>
+          <p style="font-size:.85rem;color:var(--brun-clair);margin-top:6px;font-style:italic;">
+            "Bonjour [Prénom], merci pour votre confiance chez Blanc Cocon ! Si vous avez un instant, un petit avis Google nous aiderait beaucoup : [lien]. Merci et à bientôt !"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">3</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">SEO technique</div>
+          <div class="phase-subtitle">Déjà partiellement fait</div>
+        </div>
+        <span class="priority medium">En cours</span>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li>robots.txt + sitemap.xml pour l'indexation Google</li>
+          <li>Schema LocalBusiness (données structurées) sur toutes les pages</li>
+          <li>Schema Article sur les 4 articles de blog</li>
+          <li>Open Graph pour les partages sur les réseaux sociaux</li>
+          <li>Maillage interne entre les articles du blog</li>
+          <li>Google Search Console + Google Analytics 4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- TERRAIN                               -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="terrain">
+    <div class="section-label">Phase 3</div>
+    <div class="section-title">Terrain — Flyers et partenariats locaux</div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">A</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Flyer Blanc Cocon</div>
+          <div class="phase-subtitle">À déposer dans les commerces partenaires</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <div class="flyer-mockup">
+          <div class="flyer-side">
+            <div class="flyer-side-label">Face</div>
+            <ul>
+              <li>Logo Blanc Cocon</li>
+              <li>"Institut médico-esthétique"</li>
+              <li>"Résultats visibles dès la 1re séance"</li>
+              <li>4 soins en pictos : cryo, anti-âge, laser, sauna</li>
+              <li>"25 ans d'expertise médicale"</li>
+              <li>"Bilan offert — Réservez votre 1re consultation"</li>
+            </ul>
+          </div>
+          <div class="flyer-side">
+            <div class="flyer-side-label">Dos</div>
+            <ul>
+              <li>QR code Planity (gros, centré)</li>
+              <li>135 Av. du Miradou, Saint-Clément-de-Rivière</li>
+              <li>07 49 49 13 35</li>
+              <li>@blanccocon34</li>
+              <li>Tarif d'appel cryo (à partir de 290 €)</li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:var(--accent);margin-top:12px;">Format A5 ou carte postale — papier épais mat — charte marron/crème</p>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">B</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Où déposer les flyers</div>
+          <div class="phase-subtitle">Commerces identifiés à Saint-Clément-de-Rivière</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Lieu</th><th>Type</th><th>Pourquoi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Pharmacie Trifontaine</strong></td><td>Pharmacie</td><td>Crédibilité médicale, clientèle santé</td></tr>
+            <tr><td><strong>Pharmacie des Sources</strong></td><td>Pharmacie</td><td>Pharmacie du village, fort passage</td></tr>
+            <tr><td><strong>Basic-Fit</strong></td><td>Salle de sport</td><td>Cible amincissement/silhouette</td></tr>
+            <tr><td><strong>Easygym Trifontaine</strong></td><td>Salle de sport</td><td>Idem</td></tr>
+            <tr><td><strong>Zen'Harmonie</strong></td><td>Club bien-être</td><td>Parfait match cible bien-être</td></tr>
+            <tr><td><strong>Franck Provost</strong></td><td>Coiffeur</td><td>Clientèle féminine, temps d'attente</td></tr>
+            <tr><td><strong>Les Nouveaux Coiffeurs</strong></td><td>Coiffeur</td><td>Idem</td></tr>
+            <tr><td><strong>Fris'Style</strong></td><td>Coiffeur</td><td>Idem</td></tr>
+            <tr><td><strong>Nocibé</strong></td><td>Beauté</td><td>Clientèle beauté directe</td></tr>
+            <tr><td><strong>Yves Rocher</strong></td><td>Beauté</td><td>Même cible femmes 40-60</td></tr>
+            <tr><td><strong>Boulangerie Claudette</strong></td><td>Boulangerie</td><td>Tout le monde y passe</td></tr>
+            <tr><td><strong>Pivoine Fleurs</strong></td><td>Fleuriste</td><td>Clientèle féminine</td></tr>
+            <tr><td><strong>Boulidou Presse</strong></td><td>Tabac/Presse</td><td>Fort passage quotidien</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">C</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Partenariats locaux</div>
+          <div class="phase-subtitle">Aller plus loin que le flyer</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>Médecins / kinés / ostéos</strong> — Émilie se présente comme consoeur infirmière. Un médecin qui recommande la cryo post-perte de poids, c'est très puissant</li>
+          <li><strong>Salles de sport</strong> — Vrai partenariat croisé : -10% pour leurs adhérents, affiche dans les vestiaires</li>
+          <li><strong>Coiffeurs</strong> — Réduction croisée : -10% chez Blanc Cocon pour les clientes du salon, et inversement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- PLATEFORMES                           -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="plateformes">
+    <div class="section-label">Phase 4</div>
+    <div class="section-title">Plateformes partenaires</div>
+    <p class="section-intro">S'inscrire sur des plateformes qui envoient des clients directement, sans effort continu.</p>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">★</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Coffrets cadeaux — acquisition passive</div>
+          <div class="phase-subtitle">Les gens viennent à vous</div>
+        </div>
+        <span class="priority high">Fort potentiel</span>
+      </div>
+      <div class="phase-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Plateforme</th><th>Principe</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Smartbox</strong></td><td>Leader coffrets bien-être. Quelqu'un offre un coffret, le bénéficiaire choisit Blanc Cocon dans sa région</td></tr>
+            <tr><td><strong>Wonderbox</strong></td><td>Concurrent direct Smartbox, forte présence en France</td></tr>
+            <tr><td><strong>Dakotabox</strong></td><td>Groupe Smartbox, positionnement premium</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">→</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Plateformes de réservation</div>
+          <div class="phase-subtitle">Visibilité en ligne complémentaire</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <table class="data-table">
+          <thead>
+            <tr><th>Plateforme</th><th>Statut</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Planity</strong></td><td>Déjà en place</td></tr>
+            <tr><td><strong>Funbooker</strong></td><td>Contact en cours</td></tr>
+            <tr><td><strong>Treatwell</strong></td><td>À inscrire — 25 000+ salons en Europe</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">→</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Annuaires gratuits</div>
+          <div class="phase-subtitle">Bon pour le SEO local</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>PagesJaunes</strong> — créer/revendiquer la fiche</li>
+          <li><strong>Petit Futé</strong> — inscription institut Montpellier</li>
+          <li><strong>Bottin.fr</strong> — annuaire local</li>
+          <li><strong>SemiPermanent.fr</strong> — annuaire spécialisé esthétique</li>
+          <li><strong>Facebook</strong> — page professionnelle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- OPPORTUNITÉS                          -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="opportunites">
+    <div class="section-label">Bonus</div>
+    <div class="section-title">Opportunités supplémentaires</div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">📸</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Contenu Instagram qui convertit</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>Reels avant/après</strong> — le contenu qui convertit le plus en esthétique. Pas besoin de montrer le visage, juste la zone traitée</li>
+          <li><strong>Témoignages vidéo clientes</strong> — 30 secondes, filmé au téléphone dans l'institut, ultra authentique</li>
+          <li><strong>3 publications par semaine</strong> — régularité = visibilité</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">🎉</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Événements</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>Portes ouvertes</strong> — un samedi, démo gratuite des machines, bilan offert, petits fours. Crée du bouche-à-oreille</li>
+          <li><strong>Atelier découverte</strong> — inviter 5-10 femmes pour une séance sauna dôme offerte en échange d'un avis Google et d'un post Instagram</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">🔄</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Fidélisation et bouche-à-oreille</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>Programme parrainage</strong> — -15% pour la marraine et la filleule (existe déjà, à activer)</li>
+          <li><strong>Carte de fidélité</strong> — 10e séance offerte ou -20% après X séances</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <div class="phase-num">👁</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Visibilité physique</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <ul class="items">
+          <li><strong>Vitrine / signalétique</strong> — enseigne visible de la rue, panneau directionnel</li>
+          <li><strong>Sticker voiture</strong> — Blanc Cocon sur la voiture d'Émilie, elle roule tous les jours dans le secteur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- ACTIONS ÉMILIE                        -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" id="emilie">
+    <div class="section-label">Pour Émilie</div>
+    <div class="section-title">Ce dont on a besoin de toi</div>
+    <p class="section-intro">
+      Tout le reste (site web, SEO technique, documents) sera géré pour toi.
+      Voici uniquement les choses qu'on ne peut pas faire sans toi.
+    </p>
+
+    <div class="emilie-box">
+      <h3>Les 6 choses à fournir ou faire</h3>
+      <ol class="emilie-items">
+        <li><span class="num">1</span> <strong style="color:var(--creme);">Horaires d'ouverture</strong> de l'institut — jours et heures (pour la fiche Google et le site)</li>
+        <li><span class="num">2</span> <strong style="color:var(--creme);">Photos d'elle</strong> (portrait pro) + photos pendant les soins — pour le site et la fiche Google</li>
+        <li><span class="num">3</span> <strong style="color:var(--creme);">Accès au compte Google</strong> — pour configurer Search Console et Analytics</li>
+        <li><span class="num">4</span> <strong style="color:var(--creme);">Envoyer un SMS</strong> à ses clientes pour demander un avis Google (message type fourni ci-dessus)</li>
+        <li><span class="num">5</span> <strong style="color:var(--creme);">Liste des nouveaux services</strong> qu'elle envisage de proposer (pour les intégrer au site et aux tarifs)</li>
+        <li><span class="num">6</span> <strong style="color:var(--creme);">Déposer les flyers</strong> dans les commerces listés — en se présentant en personne (plus efficace qu'un simple dépôt)</li>
+      </ol>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Blanc Cocon · Stratégie d'acquisition organique · Mars 2026
+</footer>
+
+</body>
+</html>

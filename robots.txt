@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Pages internes — ne pas indexer
+Disallow: /kit-demarrage.html
+Disallow: /plan-marketing.html
+Disallow: /plan-marketing.md
+Disallow: /carte-visite.html
+Disallow: /programme-mars.html
+Disallow: /parrainage.html
+Disallow: /posts-instagram.html
+Disallow: /posts-instagram/
+Disallow: /presentation.html
+Disallow: /canva-import/
+
+Sitemap: https://blanc-cocon.fr/sitemap.xml
