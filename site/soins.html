@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soins & Tarifs — Blanc Cocon, institut médico-esthétique</title>
+  <meta name="description" content="Cryolipolyse, radiofréquence anti-âge, épilation laser définitive et sauna dôme japonais. Tarifs et détails de chaque soin. Bilan personnalisé offert." />
+  <meta name="keywords" content="cryolipolyse tarif Montpellier, radiofréquence anti-âge prix, épilation laser définitive, sauna dôme japonais, soins esthétiques Saint-Clément-de-Rivière" />
+  <link rel="canonical" href="https://blanc-cocon.fr/soins.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Soins & Tarifs — Blanc Cocon" />
+  <meta property="og:description" content="Cryolipolyse, radiofréquence, épilation laser et sauna dôme. Découvrez nos soins et tarifs. Bilan personnalisé offert." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blanc-cocon.fr/soins.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Blanc Cocon" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brun: #3d2e24;
+      --brun-mid: #5a4a3e;
+      --brun-light: #7a6a5e;
+      --creme: #f5ede4;
+      --beige: #faf9f7;
+      --sable: #c9b9a8;
+      --sable-light: #e8e0d6;
+      --blanc: #ffffff;
+      --accent-warm: #b8956a;
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans: 'Outfit', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--beige);
+      color: var(--brun);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Grain overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+    }
+    .nav.scrolled {
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--sable-light);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brun);
+      text-decoration: none;
+    }
+    .nav-brand em { font-style: italic; font-weight: 300; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .5px;
+      color: var(--brun-light);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--brun); }
+    .nav-links a.active { color: var(--brun); font-weight: 600; }
+    .nav-cta {
+      font-size: .78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 1px !important;
+      text-transform: uppercase;
+      color: var(--blanc) !important;
+      background: var(--brun);
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: background .2s, transform .2s !important;
+    }
+    .nav-cta:hover { background: var(--brun-mid); transform: translateY(-1px); }
+
+    /* Mobile menu */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--brun);
+      margin: 5px 0;
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* ── Page Hero (smaller) ── */
+    .page-hero {
+      padding: 140px 32px 80px;
+      text-align: center;
+      background: linear-gradient(175deg, var(--beige) 0%, var(--creme) 50%, rgba(201,185,168,0.15) 100%);
+      position: relative;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,149,106,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      color: var(--brun);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp .8s ease forwards;
+    }
+    .page-hero-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp .8s ease .15s forwards;
+    }
+
+    /* ── Anchor nav (jump links) ── */
+    .anchor-nav {
+      background: var(--blanc);
+      border-bottom: 1px solid var(--sable-light);
+      padding: 16px 48px;
+      position: sticky;
+      top: 72px;
+      z-index: 50;
+    }
+    .anchor-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .anchor-nav a {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .5px;
+      color: var(--brun-light);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .anchor-nav a:hover {
+      color: var(--brun);
+      border-bottom-color: var(--accent-warm);
+    }
+
+    /* ── Service detail sections ── */
+    .soin-section {
+      padding: 100px 48px;
+      scroll-margin-top: 140px;
+    }
+    .soin-section:nth-child(odd) {
+      background: var(--blanc);
+    }
+    .soin-section:nth-child(even) {
+      background: var(--beige);
+    }
+    .soin-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .soin-section:nth-child(even) .soin-inner {
+      direction: rtl;
+    }
+    .soin-section:nth-child(even) .soin-inner > * {
+      direction: ltr;
+    }
+
+    .soin-images {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .soin-img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+    }
+    .soin-img-main {
+      aspect-ratio: 4/3;
+    }
+    .soin-img-secondary {
+      aspect-ratio: 16/9;
+    }
+
+    .soin-content {}
+
+    .soin-badge {
+      display: inline-block;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--accent-warm);
+      color: var(--blanc);
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .soin-machine {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 8px;
+    }
+    .soin-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+    .soin-desc {
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun-mid);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .soin-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .soin-detail-item {
+      background: rgba(184,149,106,0.06);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .soin-detail-label {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brun-light);
+      margin-bottom: 4px;
+    }
+    .soin-detail-value {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--brun);
+    }
+    .soin-detail-value small {
+      font-family: var(--sans);
+      font-size: .78rem;
+      font-weight: 400;
+      color: var(--brun-light);
+    }
+
+    .soin-zones {
+      margin-bottom: 28px;
+    }
+    .soin-zones-title {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brun-light);
+      margin-bottom: 10px;
+    }
+    .soin-zones-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+    .soin-zones-list li {
+      font-size: .82rem;
+      font-weight: 400;
+      color: var(--brun-mid);
+      background: rgba(184,149,106,0.08);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--creme);
+      background: var(--brun);
+      padding: 16px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-primary:hover {
+      background: var(--brun-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(61,46,36,0.15);
+    }
+    .btn-secondary {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .5px;
+      color: var(--brun-light);
+      text-decoration: none;
+      padding: 16px 24px;
+      border: 1px solid var(--sable-light);
+      border-radius: 6px;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--sable); color: var(--brun); }
+
+    /* ── Disclaimer ── */
+    .tarif-disclaimer {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 32px 48px 0;
+      font-size: .82rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      font-style: italic;
+    }
+
+    /* ── Section common ── */
+    .section-pad {
+      padding: 100px 48px;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 12px;
+    }
+
+    /* ── CTA band ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--creme) 0%, rgba(201,185,168,0.2) 100%);
+      text-align: center;
+    }
+    .cta-band-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cta-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 16px;
+    }
+    .cta-text {
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--brun);
+      color: var(--sable);
+      padding: 64px 48px 40px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--creme);
+      margin-bottom: 12px;
+    }
+    .footer-brand em { font-style: italic; font-weight: 300; }
+    .footer-tagline {
+      font-size: .85rem;
+      font-weight: 300;
+      color: var(--sable);
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a {
+      font-size: .85rem;
+      color: var(--sable);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(201,185,168,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .75rem;
+      color: var(--brun-light);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--beige);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--sable-light);
+      }
+      .nav-toggle { display: block; }
+      .section-pad { padding: 64px 24px; }
+      .soin-section { padding: 64px 24px; }
+      .soin-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .soin-section:nth-child(even) .soin-inner {
+        direction: ltr;
+      }
+      .soin-images { order: -1; }
+      .soin-details { grid-template-columns: 1fr; }
+      .anchor-nav { padding: 12px 24px; }
+      .anchor-nav-inner { gap: 16px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .tarif-disclaimer { padding: 24px 24px 0; }
+    }
+
+    @media (max-width: 600px) {
+      .page-hero { padding: 110px 20px 60px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .anchor-nav-inner { gap: 12px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+      .anchor-nav a { white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-brand">Blanc <em>Cocon</em></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="soins.html" class="active">Soins & Tarifs</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="blog/">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="nav-cta" target="_blank" rel="noopener">Réserver</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════ PAGE HERO ══════════════ -->
+<section class="page-hero">
+  <h1 class="page-hero-title">Nos soins & tarifs</h1>
+  <p class="page-hero-subtitle">Des technologies de pointe pour des résultats visibles dès la première séance. Chaque protocole commence par un bilan personnalisé offert.</p>
+</section>
+
+<!-- ══════════════ ANCHOR NAV ══════════════ -->
+<div class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#cryolipolyse">Cryolipolyse</a>
+    <a href="#radiofrequence">Radiofréquence</a>
+    <a href="#laser">Épilation laser</a>
+    <a href="#sauna">Sauna dôme</a>
+  </div>
+</div>
+
+<!-- ══════════════ CRYOLIPOLYSE ══════════════ -->
+<section class="soin-section" id="cryolipolyse">
+  <div class="soin-inner reveal">
+    <div class="soin-images">
+      <img src="assets/photos/fackt6zfwqvuvz9ppmai.jpg" alt="Cryolipolyse Contour 360 — traitement amincissement par le froid" class="soin-img soin-img-main" loading="lazy">
+      <img src="assets/photos/dav7u0iizp8itifjsv66.jpg" alt="Zones traitables par cryolipolyse" class="soin-img soin-img-secondary" loading="lazy">
+    </div>
+    <div class="soin-content">
+      <span class="soin-badge">Soin phare</span>
+      <div class="soin-machine">Contour 360</div>
+      <h2 class="soin-title">Cryolipolyse</h2>
+      <p class="soin-desc">
+        Élimination définitive des graisses localisées par le froid. La cryolipolyse aspire le bourrelet ciblé et le refroidit à -8°C pendant 45 à 60 minutes. Les cellules graisseuses cristallisées sont ensuite éliminées naturellement par l'organisme en 6 à 12 semaines. Les cellules détruites ne reviennent jamais.
+      </p>
+      <div class="soin-details">
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Tarif</div>
+          <div class="soin-detail-value">À partir de 290 € <small>la zone</small></div>
+        </div>
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Durée</div>
+          <div class="soin-detail-value">45 à 60 min</div>
+        </div>
+        <div class="soin-detail-item" style="grid-column: span 2;">
+          <div class="soin-detail-label">Résultats</div>
+          <div class="soin-detail-value">Visibles dès 6 semaines <small>— résultat final à 12 semaines</small></div>
+        </div>
+      </div>
+      <div class="soin-zones">
+        <div class="soin-zones-title">Zones traitables</div>
+        <ul class="soin-zones-list">
+          <li>Ventre</li>
+          <li>Hanches / poignées d'amour</li>
+          <li>Culotte de cheval</li>
+          <li>Cuisses (interne et externe)</li>
+          <li>Bras</li>
+          <li>Dos / plis du soutien-gorge</li>
+          <li>Double menton</li>
+        </ul>
+      </div>
+      <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Réserver mon bilan minceur offert</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ RADIOFRÉQUENCE ══════════════ -->
+<section class="soin-section" id="radiofrequence">
+  <div class="soin-inner reveal">
+    <div class="soin-images">
+      <img src="assets/photos/omvxd0o6zs7ggxeccunh.jpg" alt="Radiofréquence Collagen Boost — soin anti-âge" class="soin-img soin-img-main" loading="lazy">
+      <img src="assets/photos/turiqm8s0bylf862jvnr.jpg" alt="Traitement radiofréquence visage et corps" class="soin-img soin-img-secondary" loading="lazy">
+    </div>
+    <div class="soin-content">
+      <div class="soin-machine">Collagen Boost</div>
+      <h2 class="soin-title">Radiofréquence anti-âge</h2>
+      <p class="soin-desc">
+        La radiofréquence chauffe les couches profondes de la peau pour relancer la production naturelle de collagène et d'élastine. Résultat : une peau plus ferme, un ovale redessiné, des rides atténuées. Protocole non invasif et sans éviction sociale.
+      </p>
+      <div class="soin-details">
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Tarif</div>
+          <div class="soin-detail-value">À partir de 69 € <small>la séance</small></div>
+        </div>
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Durée</div>
+          <div class="soin-detail-value">30 à 45 min</div>
+        </div>
+      </div>
+      <div class="soin-zones">
+        <div class="soin-zones-title">Zones</div>
+        <ul class="soin-zones-list">
+          <li>Visage</li>
+          <li>Cou</li>
+          <li>Décolleté</li>
+          <li>Corps</li>
+        </ul>
+      </div>
+      <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Réserver ma séance anti-âge</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ÉPILATION LASER ══════════════ -->
+<section class="soin-section" id="laser">
+  <div class="soin-inner reveal">
+    <div class="soin-images">
+      <img src="assets/photos/fnbindfdaou5teinveo0.jpg" alt="Épilation laser Clinical Skin Laser" class="soin-img soin-img-main" loading="lazy">
+      <img src="assets/photos/pcphefpscxc4gfhhrpa0.jpg" alt="Salle de traitement épilation laser" class="soin-img soin-img-secondary" loading="lazy">
+    </div>
+    <div class="soin-content">
+      <div class="soin-machine">Clinical Skin Laser</div>
+      <h2 class="soin-title">Épilation définitive</h2>
+      <p class="soin-desc">
+        Le laser diode de dernière génération cible le bulbe pileux avec une précision extrême. Plus efficace et plus rapide que la lumière pulsée. Convient à tous les phototypes, toute l'année. Résultat progressif sur 6 à 8 séances.
+      </p>
+      <div class="soin-details">
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Tarif</div>
+          <div class="soin-detail-value">À partir de 60 € <small>la zone</small></div>
+        </div>
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Séances</div>
+          <div class="soin-detail-value">6 à 8 <small>séances</small></div>
+        </div>
+      </div>
+      <div class="soin-zones">
+        <div class="soin-zones-title">Zones</div>
+        <ul class="soin-zones-list">
+          <li>Visage</li>
+          <li>Aisselles</li>
+          <li>Maillot intégral</li>
+          <li>Maillot brésilien</li>
+          <li>Maillot classique</li>
+          <li>Jambes complètes</li>
+          <li>Demi-jambes</li>
+          <li>Bras</li>
+          <li>Dos</li>
+          <li>Torse</li>
+        </ul>
+      </div>
+      <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Réserver mon épilation laser</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SAUNA DÔME ══════════════ -->
+<section class="soin-section" id="sauna">
+  <div class="soin-inner reveal">
+    <div class="soin-images">
+      <img src="assets/photos/zrchhhybisapmpblcyor.jpg" alt="Sauna dôme japonais — détox infrarouge" class="soin-img soin-img-main" loading="lazy">
+    </div>
+    <div class="soin-content">
+      <div class="soin-machine">Sauna dôme japonais</div>
+      <h2 class="soin-title">Sauna dôme japonais</h2>
+      <p class="soin-desc">
+        Infrarouges longs qui pénètrent en profondeur pour une détoxification complète. Élimine jusqu'à 600 calories par séance. Détend les muscles, purifie la peau, favorise le sommeil. Idéal en complément d'un protocole minceur.
+      </p>
+      <div class="soin-details">
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Tarif</div>
+          <div class="soin-detail-value">40 € <small>la séance</small></div>
+        </div>
+        <div class="soin-detail-item">
+          <div class="soin-detail-label">Durée</div>
+          <div class="soin-detail-value">30 min</div>
+        </div>
+      </div>
+      <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Réserver ma séance sauna</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ DISCLAIMER ══════════════ -->
+<div class="tarif-disclaimer">
+  Tous nos tarifs sont indicatifs. Le prix exact est déterminé lors du bilan personnalisé offert.
+</div>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="cta-band section-pad">
+  <div class="cta-band-inner reveal">
+    <div class="section-label">Première visite</div>
+    <h2 class="cta-heading">Votre bilan personnalisé est offert</h2>
+    <p class="cta-text">
+      15 à 20 minutes pour évaluer vos besoins, vérifier les contre-indications et vous proposer un protocole adapté. Sans engagement.
+    </p>
+    <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Blanc <em>Cocon</em></div>
+      <p class="footer-tagline">Institut médico-esthétique<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
+    </div>
+    <div class="footer-col">
+      <h4>Soins</h4>
+      <ul>
+        <li><a href="soins.html#cryolipolyse">Cryolipolyse</a></li>
+        <li><a href="soins.html#radiofrequence">Radiofréquence</a></li>
+        <li><a href="soins.html#laser">Épilation laser</a></li>
+        <li><a href="soins.html#sauna">Sauna dôme</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Institut</h4>
+      <ul>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0749491335">07 49 49 13 35</a></li>
+        <li><a href="https://instagram.com/blanccocon34" target="_blank" rel="noopener">@blanccocon34</a></li>
+        <li><a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" target="_blank" rel="noopener">Réserver sur Planity</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Blanc Cocon</span>
+    <span>Lun–Ven 9h–19h · Sam 9h–16h</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    const spans = toggle.querySelectorAll('span');
+    if (links.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

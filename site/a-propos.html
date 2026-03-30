@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Blanc Cocon, institut médico-esthétique</title>
+  <meta name="description" content="Découvrez Blanc Cocon : 25 ans d'expertise médicale au service de la beauté et du bien-être. Un institut équipé de technologies françaises de pointe à Saint-Clément-de-Rivière." />
+  <link rel="canonical" href="https://blanc-cocon.fr/a-propos.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="À propos — Blanc Cocon" />
+  <meta property="og:description" content="25 ans d'expertise médicale au service de votre beauté. Découvrez l'histoire de Blanc Cocon et nos valeurs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blanc-cocon.fr/a-propos.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Blanc Cocon" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brun: #3d2e24;
+      --brun-mid: #5a4a3e;
+      --brun-light: #7a6a5e;
+      --creme: #f5ede4;
+      --beige: #faf9f7;
+      --sable: #c9b9a8;
+      --sable-light: #e8e0d6;
+      --blanc: #ffffff;
+      --accent-warm: #b8956a;
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans: 'Outfit', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--beige);
+      color: var(--brun);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Grain overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+    }
+    .nav.scrolled {
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--sable-light);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brun);
+      text-decoration: none;
+    }
+    .nav-brand em { font-style: italic; font-weight: 300; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .5px;
+      color: var(--brun-light);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--brun); }
+    .nav-cta {
+      font-size: .78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 1px !important;
+      text-transform: uppercase;
+      color: var(--blanc) !important;
+      background: var(--brun);
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: background .2s, transform .2s !important;
+    }
+    .nav-cta:hover { background: var(--brun-mid); transform: translateY(-1px); }
+
+    /* Mobile menu */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--brun);
+      margin: 5px 0;
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* ── Hero (smaller, page-level) ── */
+    .hero-page {
+      padding: 140px 32px 80px;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(175deg, var(--beige) 0%, var(--creme) 50%, rgba(201,185,168,0.15) 100%);
+    }
+    .hero-page::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,149,106,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-page-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--brun);
+      max-width: 600px;
+      margin: 0 auto 20px;
+      opacity: 0;
+      animation: fadeUp .8s ease .1s forwards;
+    }
+    .hero-page-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp .8s ease .25s forwards;
+    }
+
+    /* ── Section common ── */
+    .section-pad {
+      padding: 100px 48px;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 12px;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--brun);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    /* ── Story section ── */
+    .story {
+      background: var(--blanc);
+    }
+    .story-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-img-main {
+      width: 100%;
+      border-radius: 20px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+    .story-logo {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      background: var(--blanc);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 12px 36px rgba(61,46,36,0.12);
+    }
+    .story-content {}
+    .story-text {
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun-mid);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    /* ── Values ── */
+    .values {
+      background: var(--beige);
+    }
+    .values-top {
+      max-width: 1100px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+    .values-top .section-desc {
+      margin: 0 auto;
+    }
+    .values-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      background: var(--blanc);
+      border-radius: 16px;
+      padding: 40px 32px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(61,46,36,0.08);
+    }
+    .value-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(184,149,106,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--accent-warm);
+      margin-bottom: 20px;
+    }
+    .value-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--brun);
+      margin-bottom: 12px;
+    }
+    .value-desc {
+      font-size: .88rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      line-height: 1.8;
+    }
+
+    /* ── Institut photo grid ── */
+    .institut {
+      background: var(--blanc);
+    }
+    .institut-top {
+      max-width: 1100px;
+      margin: 0 auto 48px;
+    }
+    .photo-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .photo-grid img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(61,46,36,0.1);
+    }
+
+    /* ── CTA band ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--creme) 0%, rgba(201,185,168,0.2) 100%);
+      text-align: center;
+    }
+    .cta-band-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cta-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 16px;
+    }
+    .cta-text {
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--creme);
+      background: var(--brun);
+      padding: 16px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-primary:hover {
+      background: var(--brun-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(61,46,36,0.15);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--brun);
+      color: var(--sable);
+      padding: 64px 48px 40px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--creme);
+      margin-bottom: 12px;
+    }
+    .footer-brand em { font-style: italic; font-weight: 300; }
+    .footer-tagline {
+      font-size: .85rem;
+      font-weight: 300;
+      color: var(--sable);
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a {
+      font-size: .85rem;
+      color: var(--sable);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(201,185,168,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .75rem;
+      color: var(--brun-light);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--beige);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--sable-light);
+      }
+      .nav-toggle { display: block; }
+      .section-pad { padding: 64px 24px; }
+      .story-inner { grid-template-columns: 1fr; gap: 40px; }
+      .story-visual { order: -1; }
+      .values-grid { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-page { padding: 120px 20px 60px; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .story-logo { width: 80px; height: 80px; bottom: -16px; right: -8px; padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-brand">Blanc <em>Cocon</em></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="soins.html">Soins & Tarifs</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="blog/">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="nav-cta" target="_blank" rel="noopener">Réserver</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero-page">
+  <h1 class="hero-page-title">À propos de Blanc <em>Cocon</em></h1>
+  <p class="hero-page-subtitle">Un cocon de douceur où expertise médicale et bien-être se rejoignent.</p>
+</section>
+
+<!-- ══════════════ STORY ══════════════ -->
+<section class="story section-pad">
+  <div class="story-inner">
+    <div class="story-visual reveal">
+      <img src="assets/photos/sshxtuazcvifiuoek97v.jpg" alt="Cabine de soin Blanc Cocon" class="story-img-main">
+      <img src="assets/photos/y1mtnt4rcayvmdftbssr.jpg" alt="Logo Blanc Cocon" class="story-logo">
+    </div>
+
+    <div class="story-content reveal">
+      <div class="section-label">Notre histoire</div>
+      <div class="section-heading">L'expertise médicale<br>au service de la beauté</div>
+      <p class="story-text">
+        Après 25 années passées dans le domaine médical, Émilie a choisi de mettre son expertise au service de la beauté et du bien-être. Blanc Cocon est né de cette conviction : les soins esthétiques méritent la même rigueur et la même exigence que les soins médicaux.
+      </p>
+      <p class="story-text">
+        Chez Blanc Cocon, chaque soin commence par un bilan personnalisé. Parce qu'un bon résultat, c'est avant tout un protocole adapté à votre corps, à votre peau et à vos attentes. Pas de promesses irréalistes, pas de soins inutiles — juste ce qu'il vous faut.
+      </p>
+      <p class="story-text">
+        L'institut est équipé de technologies françaises de dernière génération : le Contour 360 pour la cryolipolyse, le Collagen Boost pour la radiofréquence et le Clinical Skin Laser pour l'épilation définitive. Des machines choisies pour leur efficacité prouvée et leur sécurité.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VALUES ══════════════ -->
+<section class="values section-pad">
+  <div class="values-top reveal">
+    <div class="section-label">Nos valeurs</div>
+    <div class="section-heading">Ce qui nous guide au quotidien</div>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon">&#9899;</div>
+      <div class="value-title">Sécurité d'abord</div>
+      <p class="value-desc">Chaque soin est précédé d'un bilan complet. Les contre-indications sont systématiquement vérifiées. Votre santé passe avant l'esthétique.</p>
+    </div>
+
+    <div class="value-card reveal">
+      <div class="value-icon">&#9673;</div>
+      <div class="value-title">Transparence</div>
+      <p class="value-desc">Des résultats réalistes, des prix clairs, des explications détaillées. Ici, on ne vous vend pas du rêve — on vous accompagne.</p>
+    </div>
+
+    <div class="value-card reveal">
+      <div class="value-icon">&#10022;</div>
+      <div class="value-title">Sur-mesure</div>
+      <p class="value-desc">Pas de protocole standard. Chaque programme est adapté à votre morphologie, votre peau et vos objectifs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ INSTITUT ══════════════ -->
+<section class="institut section-pad">
+  <div class="institut-top reveal">
+    <div class="section-label">L'institut</div>
+    <div class="section-heading">Un espace pensé pour vous</div>
+    <p class="section-desc">Un espace pensé pour votre confort et votre sérénité. Chaque cabine est équipée de technologies de pointe dans un cadre chaleureux et apaisant.</p>
+  </div>
+
+  <div class="photo-grid">
+    <img src="assets/photos/k20lkxuq4ygimxq5oica.jpg" alt="Cabine de soin" class="reveal">
+    <img src="assets/photos/ihg3c3yn6tsx9h3c8u5m.jpg" alt="Espace consultation" class="reveal">
+    <img src="assets/photos/t8jv3oe9jqxnqvgh7huy.jpg" alt="Espace d'accueil" class="reveal">
+    <img src="assets/photos/i7xq5fpefywrhcgq51qp.jpg" alt="Cabine équipée" class="reveal">
+  </div>
+</section>
+
+<!-- ══════════════ CTA ══════════════ -->
+<section class="cta-band section-pad">
+  <div class="cta-band-inner reveal">
+    <div class="section-label">Première visite</div>
+    <h2 class="cta-heading">Votre bilan personnalisé est offert</h2>
+    <p class="cta-text">
+      15 à 20 minutes pour évaluer vos besoins, vérifier les contre-indications et vous proposer un protocole adapté. Sans engagement.
+    </p>
+    <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Blanc <em>Cocon</em></div>
+      <p class="footer-tagline">Institut médico-esthétique<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
+    </div>
+    <div class="footer-col">
+      <h4>Soins</h4>
+      <ul>
+        <li><a href="soins.html#cryolipolyse">Cryolipolyse</a></li>
+        <li><a href="soins.html#radiofrequence">Radiofréquence</a></li>
+        <li><a href="soins.html#laser">Épilation laser</a></li>
+        <li><a href="soins.html#sauna">Sauna dôme</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Institut</h4>
+      <ul>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="blog/">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0749491335">07 49 49 13 35</a></li>
+        <li><a href="https://instagram.com/blanccocon34" target="_blank" rel="noopener">@blanccocon34</a></li>
+        <li><a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" target="_blank" rel="noopener">Réserver sur Planity</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Blanc Cocon</span>
+    <span>Lun–Ven 9h–19h · Sam 9h–16h</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    const spans = toggle.querySelectorAll('span');
+    if (links.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

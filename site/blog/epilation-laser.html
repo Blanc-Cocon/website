@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Épilation laser : le guide complet — Blanc Cocon, institut médico-esthétique</title>
+  <meta name="description" content="Tout savoir sur l'épilation laser diode : fonctionnement, zones traitables, nombre de séances et tarifs chez Blanc Cocon à Saint-Clément-de-Rivière près de Montpellier." />
+  <meta name="keywords" content="épilation laser Montpellier, laser diode, épilation définitive, épilation laser prix, épilation laser aisselles, épilation laser jambes, Saint-Clément-de-Rivière" />
+  <link rel="canonical" href="https://blanc-cocon.fr/blog/epilation-laser.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Épilation laser : le guide complet pour en finir avec les poils" />
+  <meta property="og:description" content="Fonctionnement, zones traitables, nombre de séances et tarifs. Le guide complet de l'épilation laser diode chez Blanc Cocon." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://blanc-cocon.fr/blog/epilation-laser.html" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Blanc Cocon" />
+  <meta property="article:published_time" content="2026-03-30" />
+  <meta property="article:section" content="Épilation" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Épilation laser : le guide complet pour en finir avec les poils",
+        "description": "Tout ce qu'il faut savoir sur l'épilation laser diode : fonctionnement, zones traitables, nombre de séances et tarifs chez Blanc Cocon.",
+        "datePublished": "2026-03-30",
+        "author": {
+          "@type": "Person",
+          "name": "Émilie",
+          "worksFor": {
+            "@type": "BeautySalon",
+            "name": "Blanc Cocon"
+          }
+        },
+        "publisher": {
+          "@type": "BeautySalon",
+          "name": "Blanc Cocon",
+          "url": "https://blanc-cocon.fr"
+        },
+        "mainEntityOfPage": "https://blanc-cocon.fr/blog/epilation-laser.html"
+      },
+      {
+        "@type": "BeautySalon",
+        "name": "Blanc Cocon",
+        "url": "https://blanc-cocon.fr",
+        "telephone": "+33749491335",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "135 Av. du Miradou",
+          "addressLocality": "Saint-Clément-de-Rivière",
+          "postalCode": "34980",
+          "addressCountry": "FR"
+        },
+        "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-16:00"]
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* ── Reset & Variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brun: #3d2e24;
+      --brun-mid: #5a4a3e;
+      --brun-light: #7a6a5e;
+      --creme: #f5ede4;
+      --beige: #faf9f7;
+      --sable: #c9b9a8;
+      --sable-light: #e8e0d6;
+      --blanc: #ffffff;
+      --accent-warm: #b8956a;
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans: 'Outfit', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--beige);
+      color: var(--brun);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Grain overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+    }
+    .nav.scrolled {
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 var(--sable-light);
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--brun);
+      text-decoration: none;
+    }
+    .nav-brand em { font-style: italic; font-weight: 300; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .5px;
+      color: var(--brun-light);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--brun); }
+    .nav-links a.active { color: var(--brun); }
+    .nav-cta {
+      font-size: .78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 1px !important;
+      text-transform: uppercase;
+      color: var(--blanc) !important;
+      background: var(--brun);
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: background .2s, transform .2s !important;
+    }
+    .nav-cta:hover { background: var(--brun-mid); transform: translateY(-1px); }
+
+    /* Mobile menu */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--brun);
+      margin: 5px 0;
+      transition: transform .3s, opacity .3s;
+    }
+
+    /* ── Hero (article) ── */
+    .hero-article {
+      padding: 140px 32px 80px;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(175deg, var(--beige) 0%, var(--creme) 50%, rgba(201,185,168,0.15) 100%);
+    }
+    .hero-article::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,149,106,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-overtitle {
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp .8s ease .05s forwards;
+    }
+    .hero-article-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--brun);
+      max-width: 700px;
+      margin: 0 auto 20px;
+      opacity: 0;
+      animation: fadeUp .8s ease .1s forwards;
+    }
+    .hero-article-subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp .8s ease .25s forwards;
+    }
+
+    /* ── Article body ── */
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 24px 40px;
+    }
+
+    .article-card-section {
+      background: var(--blanc);
+      border-radius: 16px;
+      border: 1px solid var(--sable-light);
+      padding: 40px 36px;
+      margin-bottom: 28px;
+    }
+
+    .article-card-section h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--brun);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .article-card-section p {
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--brun-mid);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .article-card-section p:last-child { margin-bottom: 0; }
+
+    .article-card-section ul {
+      list-style: none;
+      margin: 12px 0 16px;
+    }
+    .article-card-section ul li {
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--brun-mid);
+      line-height: 1.85;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .article-card-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: var(--creme);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+      font-size: .92rem;
+      font-weight: 400;
+      color: var(--brun);
+      line-height: 1.8;
+    }
+
+    /* Intro box */
+    .intro-box {
+      background: var(--creme);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin-bottom: 28px;
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun);
+      line-height: 1.85;
+    }
+
+    /* Sub-headings within sections */
+    .article-card-section h3 {
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin: 24px 0 10px;
+    }
+    .article-card-section h3:first-of-type { margin-top: 0; }
+
+    /* ── Tarifs table ── */
+    .tarifs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .tarifs-table thead th {
+      font-family: var(--sans);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brun-light);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--sable-light);
+    }
+    .tarifs-table tbody td {
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--brun-mid);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--sable-light);
+    }
+    .tarifs-table tbody tr:last-child td { border-bottom: none; }
+    .tarifs-table .prix {
+      font-weight: 500;
+      color: var(--brun);
+    }
+
+    /* ── Maillage (related articles) ── */
+    .maillage-section {
+      max-width: 760px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+    .maillage-label {
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 20px;
+    }
+    .maillage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .maillage-card {
+      background: var(--blanc);
+      border-radius: 16px;
+      border: 1px solid var(--sable-light);
+      padding: 28px 24px;
+      text-decoration: none;
+      transition: transform .3s, box-shadow .3s;
+      display: block;
+    }
+    .maillage-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(61,46,36,0.08);
+    }
+    .maillage-card-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--brun);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .maillage-card-desc {
+      font-size: .84rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      line-height: 1.7;
+    }
+
+    /* ── CTA band ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--creme) 0%, rgba(201,185,168,0.2) 100%);
+      text-align: center;
+    }
+    .cta-band-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-pad {
+      padding: 100px 48px;
+    }
+    .section-label {
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 12px;
+    }
+    .cta-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--brun);
+      margin-bottom: 16px;
+    }
+    .cta-text {
+      font-size: .95rem;
+      font-weight: 300;
+      color: var(--brun-light);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--creme);
+      background: var(--brun);
+      padding: 16px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-primary:hover {
+      background: var(--brun-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(61,46,36,0.15);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--brun);
+      color: var(--sable);
+      padding: 64px 48px 40px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: var(--creme);
+      margin-bottom: 12px;
+    }
+    .footer-brand em { font-style: italic; font-weight: 300; }
+    .footer-tagline {
+      font-size: .85rem;
+      font-weight: 300;
+      color: var(--sable);
+      line-height: 1.7;
+    }
+    .footer-col h4 {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a {
+      font-size: .85rem;
+      color: var(--sable);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--creme); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(201,185,168,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .75rem;
+      color: var(--brun-light);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--beige);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--sable-light);
+      }
+      .nav-toggle { display: block; }
+      .section-pad { padding: 64px 24px; }
+      .maillage-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .article-card-section { padding: 32px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-article { padding: 120px 20px 60px; }
+      .article-body { padding: 60px 16px 30px; }
+      .article-card-section { padding: 28px 20px; }
+      .intro-box { padding: 24px 20px; }
+      .highlight-box { padding: 20px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .tarifs-table thead th,
+      .tarifs-table tbody td { padding: 10px 10px; font-size: .85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVIGATION ══════════════ -->
+<nav class="nav" id="nav">
+  <a href="../" class="nav-brand">Blanc <em>Cocon</em></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../soins.html">Soins & Tarifs</a></li>
+    <li><a href="../a-propos.html">À propos</a></li>
+    <li><a href="./">Blog</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="nav-cta" target="_blank" rel="noopener">Réserver</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero-article">
+  <div class="hero-overtitle">Épilation &middot; Laser diode</div>
+  <h1 class="hero-article-title">Épilation laser : le guide complet pour en finir avec les poils</h1>
+  <p class="hero-article-subtitle">Tout ce qu'il faut savoir sur l'épilation laser diode : fonctionnement, zones traitables, nombre de séances et tarifs chez Blanc Cocon.</p>
+</section>
+
+<!-- ══════════════ ARTICLE BODY ══════════════ -->
+<div class="article-body">
+
+  <!-- Intro -->
+  <div class="intro-box reveal">
+    Vous en avez assez de la cire, du rasoir et des repousses incessantes ? L'épilation laser est aujourd'hui la solution la plus efficace pour réduire durablement la pilosité. Chez Blanc Cocon, à Saint-Clément-de-Rivière près de Montpellier, Émilie vous accompagne avec un laser diode de dernière génération.
+  </div>
+
+  <!-- Section 1 -->
+  <div class="article-card-section reveal">
+    <h2>Qu'est-ce que l'épilation laser ?</h2>
+    <p>L'épilation laser repose sur un principe simple : un faisceau de lumière concentrée cible la mélanine du poil pour détruire le bulbe pileux en profondeur.</p>
+    <ul>
+      <li>La mélanine absorbe l'énergie lumineuse et la convertit en chaleur</li>
+      <li>Cette chaleur détruit le follicule pileux de manière sélective</li>
+      <li>Le résultat est durable : la repousse est très réduite, voire inexistante</li>
+      <li>La technologie est utilisée et perfectionnée depuis plus de 20 ans</li>
+    </ul>
+    <p>Contrairement aux méthodes temporaires (rasoir, cire, crème dépilatoire), le laser agit à la racine du problème, sur le follicule lui-même.</p>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="article-card-section reveal">
+    <h2>Laser diode vs lumière pulsée : quelle différence ?</h2>
+    <p>On confond souvent les deux, mais les résultats ne sont pas comparables.</p>
+
+    <h3>Lumière pulsée (IPL)</h3>
+    <ul>
+      <li>Spectre lumineux large et diffus</li>
+      <li>Moins ciblée, donc moins efficace sur les poils fins</li>
+      <li>Résultats limités sur les peaux mates ou foncées</li>
+    </ul>
+
+    <h3>Laser diode (808 nm)</h3>
+    <ul>
+      <li>Longueur d'onde unique (808 nm) pour une pénétration plus profonde</li>
+      <li>Meilleure sélectivité : cible le poil sans abîmer la peau</li>
+      <li>Adapté aux phototypes I à V (peaux claires à mates)</li>
+      <li>En moyenne 30 % de séances en moins qu'avec la lumière pulsée</li>
+      <li>Système de refroidissement intégré pour un confort optimal</li>
+    </ul>
+
+    <div class="highlight-box">
+      Le laser diode est la référence actuelle en matière d'épilation médicale. C'est la technologie que nous utilisons chez Blanc Cocon avec notre Clinical Skin Laser.
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="article-card-section reveal">
+    <h2>Comment se déroule une séance ?</h2>
+
+    <h3>Avant la séance</h3>
+    <ul>
+      <li>Rasez la zone à traiter la veille (pas le jour même)</li>
+      <li>Pas de cire ni d'épilateur électrique 4 semaines avant</li>
+      <li>Pas d'exposition au soleil ni d'autobronzant récent</li>
+    </ul>
+
+    <h3>Pendant la séance</h3>
+    <ul>
+      <li>Le laser est appliqué sur la zone, impulsion par impulsion</li>
+      <li>Sensation de chaleur et de légers picotements, bien tolérée</li>
+      <li>Le refroidissement intégré protège et apaise la peau en continu</li>
+      <li>Durée : 10 à 45 minutes selon la zone traitée</li>
+    </ul>
+
+    <h3>Après la séance</h3>
+    <ul>
+      <li>Légère rougeur possible, qui disparaît en quelques heures</li>
+      <li>Reprise immédiate de vos activités</li>
+      <li>Application d'une crème apaisante recommandée</li>
+      <li>Évitez le soleil direct pendant 48 heures</li>
+    </ul>
+
+    <div class="highlight-box">
+      Chaque parcours commence par un bilan personnalisé gratuit. Émilie évalue votre type de peau, la zone à traiter et définit un protocole adapté à vos besoins.
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="article-card-section reveal">
+    <h2>Combien de séances faut-il ?</h2>
+    <p>Le laser ne peut détruire que les poils en phase de croissance active (phase anagène). Or, seulement 20 à 30 % des poils sont dans cette phase à un instant donné.</p>
+    <ul>
+      <li><strong>6 à 10 séances</strong> sont généralement nécessaires pour un résultat optimal</li>
+      <li>Les séances sont espacées de <strong>4 à 8 semaines</strong> selon la zone</li>
+      <li>Dès la 3e séance, on observe déjà une <strong>réduction de 50 à 60 %</strong> de la pilosité</li>
+      <li>Une séance d'entretien annuelle peut être envisagée pour maintenir le résultat</li>
+    </ul>
+    <p>Le nombre exact de séances dépend de votre type de poil, de votre phototype et de la zone concernée. C'est ce que nous déterminons ensemble lors du bilan initial.</p>
+  </div>
+
+  <!-- Section 5 -->
+  <div class="article-card-section reveal">
+    <h2>Les zones traitables</h2>
+
+    <h3>Femmes</h3>
+    <ul>
+      <li>Visage : lèvre supérieure, menton, joues</li>
+      <li>Aisselles</li>
+      <li>Bras et avant-bras</li>
+      <li>Maillot : classique, brésilien ou intégral</li>
+      <li>Jambes complètes ou demi-jambes</li>
+      <li>Cuisses</li>
+    </ul>
+
+    <h3>Hommes</h3>
+    <ul>
+      <li>Dos et épaules</li>
+      <li>Torse et abdomen</li>
+      <li>Barbe et cou</li>
+    </ul>
+
+    <p>Pratiquement toutes les zones du corps peuvent être traitées. Lors du bilan, nous définirons ensemble les zones prioritaires et le protocole le plus adapté.</p>
+  </div>
+
+  <!-- Section 6 -->
+  <div class="article-card-section reveal">
+    <h2>L'épilation laser après 40 ans</h2>
+    <p>Avec les variations hormonales liées à la péri-ménopause et à la ménopause, de nombreuses femmes voient apparaître des poils indésirables sur le menton, la lèvre supérieure ou les joues.</p>
+    <ul>
+      <li>Il n'y a pas de limite d'âge pour l'épilation laser</li>
+      <li>Le laser diode est parfaitement adapté aux poils liés aux changements hormonaux</li>
+      <li>Le gain de confort au quotidien est considérable</li>
+    </ul>
+    <div class="highlight-box">
+      Chez Blanc Cocon, de nombreuses clientes ont entre 40 et 60 ans. L'épilation laser leur offre une solution durable à un problème qui touche beaucoup de femmes, sans tabou.
+    </div>
+  </div>
+
+  <!-- Section 7 -->
+  <div class="article-card-section reveal">
+    <h2>Les avantages face à la cire et au rasoir</h2>
+    <ul>
+      <li><strong>Gain de temps</strong> : en moyenne, une femme passe plus de 100 heures par an à se raser. Après un protocole laser, ce temps tombe à zéro.</li>
+      <li><strong>Économies sur le long terme</strong> : la cire en institut coûte entre 3 600 et 6 000 € sur 10 ans. Le laser revient bien moins cher sur la durée.</li>
+      <li><strong>Confort incomparable</strong> : fini les poils incarnés, les irritations et les micro-coupures du rasoir.</li>
+      <li><strong>Peau en meilleure santé</strong> : sans agression répétée, la peau retrouve sa douceur et son homogénéité.</li>
+    </ul>
+  </div>
+
+  <!-- Section 8 -->
+  <div class="article-card-section reveal">
+    <h2>Contre-indications et précautions</h2>
+    <p>L'épilation laser est un soin très sûr, mais certaines situations nécessitent de reporter ou d'adapter le traitement :</p>
+    <ul>
+      <li><strong>Peau bronzée</strong> : attendre 4 semaines après la dernière exposition</li>
+      <li><strong>Grossesse et allaitement</strong> : par principe de précaution</li>
+      <li><strong>Médicaments photosensibilisants</strong> : certains antibiotiques, rétinoïdes, etc.</li>
+      <li><strong>Lésions cutanées</strong> sur la zone à traiter (eczéma actif, plaie ouverte)</li>
+      <li><strong>Tatouages</strong> : le laser ne doit pas être appliqué sur une zone tatouée</li>
+      <li><strong>Poils blancs ou très blonds</strong> : le laser cible la mélanine, il est peu efficace sans pigment</li>
+    </ul>
+    <p>Toutes ces questions sont abordées lors du bilan initial. En cas de doute, Émilie vous orientera vers la solution la plus adaptée.</p>
+  </div>
+
+  <!-- Section 9 -->
+  <div class="article-card-section reveal">
+    <h2>Les tarifs chez Blanc Cocon</h2>
+    <p>Voici un aperçu de nos tarifs par séance pour les zones les plus demandées :</p>
+
+    <table class="tarifs-table">
+      <thead>
+        <tr>
+          <th>Zone</th>
+          <th>Tarif / séance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aisselles</td>
+          <td class="prix">60 &euro;</td>
+        </tr>
+        <tr>
+          <td>Demi-jambes</td>
+          <td class="prix">100 &euro;</td>
+        </tr>
+        <tr>
+          <td>Cuisses</td>
+          <td class="prix">110 &euro;</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <strong>Forfait 5 séances</strong> : -10 % sur le tarif unitaire<br>
+      <strong>2 zones simultanées</strong> : -20 % sur la deuxième zone<br><br>
+      <em>Exemples :</em><br>
+      Aisselles, forfait 5 séances = 270 &euro; (soit 54 &euro; / séance)<br>
+      Aisselles + demi-jambes en simultané = 128 &euro; / séance
+    </div>
+
+    <p>Le bilan est gratuit et sans engagement. Il vous permet de connaître le nombre de séances estimé et le budget total avant de vous engager.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════ CTA BAND ══════════════ -->
+<section class="cta-band section-pad">
+  <div class="cta-band-inner reveal">
+    <div class="section-label">Épilation laser</div>
+    <h2 class="cta-heading">Prête à dire adieu aux poils ?</h2>
+    <p class="cta-text">Réservez votre bilan gratuit en ligne. Émilie vous accueille dans un cadre chaleureux pour définir le protocole idéal.</p>
+    <a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" class="btn-primary" target="_blank" rel="noopener">Prendre rendez-vous</a>
+  </div>
+</section>
+
+<!-- ══════════════ MAILLAGE INTERNE ══════════════ -->
+<div class="maillage-section reveal">
+  <div class="maillage-label">Découvrez aussi</div>
+  <div class="maillage-grid">
+    <a href="cryolipolyse.html" class="maillage-card">
+      <div class="maillage-card-title">Cryolipolyse</div>
+      <p class="maillage-card-desc">Éliminer les graisses localisées par le froid, sans chirurgie ni éviction sociale.</p>
+    </a>
+    <a href="radiofrequence.html" class="maillage-card">
+      <div class="maillage-card-title">Radiofréquence</div>
+      <p class="maillage-card-desc">Raffermir et rajeunir la peau sans chirurgie grâce à la stimulation du collagène.</p>
+    </a>
+    <a href="sauna-japonais.html" class="maillage-card">
+      <div class="maillage-card-title">Sauna dôme japonais</div>
+      <p class="maillage-card-desc">Détox, minceur et bien-être en une seule séance grâce à l'infrarouge japonais.</p>
+    </a>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Blanc <em>Cocon</em></div>
+      <p class="footer-tagline">Institut médico-esthétique<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
+    </div>
+    <div class="footer-col">
+      <h4>Soins</h4>
+      <ul>
+        <li><a href="../soins.html#cryolipolyse">Cryolipolyse</a></li>
+        <li><a href="../soins.html#radiofrequence">Radiofréquence</a></li>
+        <li><a href="../soins.html#laser">Épilation laser</a></li>
+        <li><a href="../soins.html#sauna">Sauna dôme</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Institut</h4>
+      <ul>
+        <li><a href="../a-propos.html">À propos</a></li>
+        <li><a href="./">Blog</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0749491335">07 49 49 13 35</a></li>
+        <li><a href="https://instagram.com/blanccocon34" target="_blank" rel="noopener">@blanccocon34</a></li>
+        <li><a href="https://www.planity.com/blanc-cocon-34980-saint-clement-de-riviere" target="_blank" rel="noopener">Réserver sur Planity</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Blanc Cocon</span>
+    <span>Lun-Ven 9h-19h &middot; Sam 9h-16h</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    const spans = toggle.querySelectorAll('span');
+    if (links.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
