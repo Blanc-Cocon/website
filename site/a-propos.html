@@ -3,16 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>À propos — Blanc Cocon, institut médico-esthétique</title>
-  <meta name="description" content="Découvrez Blanc Cocon : 25 ans d'expertise médicale au service de la beauté et du bien-être. Un institut équipé de technologies françaises de pointe à Saint-Clément-de-Rivière." />
+  <title>À propos — Blanc Cocon, institut esthétique et bien-être</title>
+  <meta name="description" content="Découvrez Blanc Cocon : 26 ans d'expertise médicale au service de la beauté et du bien-être. Un institut équipé de technologies françaises de pointe à Saint-Clément-de-Rivière." />
   <link rel="canonical" href="https://blanc-cocon.fr/a-propos.html" />
   <!-- Open Graph -->
   <meta property="og:title" content="À propos — Blanc Cocon" />
-  <meta property="og:description" content="25 ans d'expertise médicale au service de votre beauté. Découvrez l'histoire de Blanc Cocon et nos valeurs." />
+  <meta property="og:description" content="26 ans d'expertise médicale au service de votre beauté. Découvrez l'histoire de Blanc Cocon et nos valeurs." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blanc-cocon.fr/a-propos.html" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Blanc Cocon" />
+  <meta property="og:image" content="https://blanc-cocon.fr/assets/photos/emilie-portrait.jpg" />
+  <meta property="og:image:alt" content="Cabine de soin Blanc Cocon" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="À propos — Blanc Cocon" />
+  <meta name="twitter:description" content="26 ans d'expertise médicale au service de votre beauté." />
+  <meta name="twitter:image" content="https://blanc-cocon.fr/assets/photos/emilie-portrait.jpg" />
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "À propos — Blanc Cocon",
+    "url": "https://blanc-cocon.fr/a-propos.html",
+    "description": "Découvrez Blanc Cocon : 26 ans d'expertise médicale au service de la beauté et du bien-être à Saint-Clément-de-Rivière.",
+    "inLanguage": "fr-FR",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Blanc Cocon",
+      "url": "https://blanc-cocon.fr"
+    },
+    "mainEntity": {
+      "@type": "BeautySalon",
+      "name": "Blanc Cocon",
+      "url": "https://blanc-cocon.fr",
+      "telephone": "+33749491335",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "135 Avenue du Miradou",
+        "addressLocality": "Saint-Clément-de-Rivière",
+        "postalCode": "34980",
+        "addressCountry": "FR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Émilie",
+        "jobTitle": "Fondatrice de Blanc Cocon",
+        "description": "26 ans d'expertise médicale au service de la beauté et du bien-être."
+      }
+    }
+  }
+  </script>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,14 +121,31 @@
       box-shadow: 0 1px 0 var(--sable-light);
     }
     .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: var(--brun);
+      display: flex;
+      align-items: center;
+      gap: 10px;
       text-decoration: none;
     }
-    .nav-brand em { font-style: italic; font-weight: 300; }
+    .nav-brand .brand-icon {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+    .nav-brand .brand-text {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+      color: var(--brun);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .nav-brand .brand-text em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent-warm);
+      letter-spacing: 1.5px;
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -210,6 +270,7 @@
     .story-visual {
       position: relative;
     }
+    .story-visual picture { display: block; width: 100%; }
     .story-img-main {
       width: 100%;
       border-radius: 20px;
@@ -475,7 +536,10 @@
 
 <!-- ══════════════ NAVIGATION ══════════════ -->
 <nav class="nav" id="nav">
-  <a href="/" class="nav-brand">Blanc <em>Cocon</em></a>
+  <a href="/" class="nav-brand" aria-label="Blanc Cocon — accueil">
+    <img src="assets/logo/blanc-cocon-icon.png" alt="" class="brand-icon" />
+    <span class="brand-text">Blanc <em>Cocon</em></span>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="soins.html">Soins & Tarifs</a></li>
     <li><a href="a-propos.html">À propos</a></li>
@@ -498,15 +562,18 @@
 <section class="story section-pad">
   <div class="story-inner">
     <div class="story-visual reveal">
-      <img src="assets/photos/sshxtuazcvifiuoek97v.jpg" alt="Cabine de soin Blanc Cocon" class="story-img-main">
-      <img src="assets/photos/y1mtnt4rcayvmdftbssr.jpg" alt="Logo Blanc Cocon" class="story-logo">
+      <picture>
+        <source srcset="assets/photos/emilie-portrait.webp" type="image/webp" />
+        <img src="assets/photos/emilie-portrait.jpg" alt="Émilie, fondatrice de Blanc Cocon, paramétrant le Contour 360 en cabinet" class="story-img-main" loading="lazy" decoding="async" width="900" height="1125">
+      </picture>
+      <img src="assets/photos/y1mtnt4rcayvmdftbssr.jpg" alt="Logo Blanc Cocon" class="story-logo" loading="lazy" decoding="async">
     </div>
 
     <div class="story-content reveal">
       <div class="section-label">Notre histoire</div>
       <div class="section-heading">L'expertise médicale<br>au service de la beauté</div>
       <p class="story-text">
-        Après 25 années passées dans le domaine médical, Émilie a choisi de mettre son expertise au service de la beauté et du bien-être. Blanc Cocon est né de cette conviction : les soins esthétiques méritent la même rigueur et la même exigence que les soins médicaux.
+        Après 26 années passées dans le domaine médical, Émilie a choisi de mettre son expertise au service de la beauté et du bien-être. Blanc Cocon est né de cette conviction : les soins esthétiques méritent la même rigueur et la même exigence que les soins médicaux.
       </p>
       <p class="story-text">
         Chez Blanc Cocon, chaque soin commence par un bilan personnalisé. Parce qu'un bon résultat, c'est avant tout un protocole adapté à votre corps, à votre peau et à vos attentes. Pas de promesses irréalistes, pas de soins inutiles — juste ce qu'il vous faut.
@@ -555,10 +622,10 @@
   </div>
 
   <div class="photo-grid">
-    <img src="assets/photos/k20lkxuq4ygimxq5oica.jpg" alt="Cabine de soin" class="reveal">
-    <img src="assets/photos/ihg3c3yn6tsx9h3c8u5m.jpg" alt="Espace consultation" class="reveal">
-    <img src="assets/photos/t8jv3oe9jqxnqvgh7huy.jpg" alt="Espace d'accueil" class="reveal">
-    <img src="assets/photos/i7xq5fpefywrhcgq51qp.jpg" alt="Cabine équipée" class="reveal">
+    <img src="assets/photos/k20lkxuq4ygimxq5oica.jpg" alt="Cabine de soin" class="reveal" loading="lazy" decoding="async">
+    <img src="assets/photos/ihg3c3yn6tsx9h3c8u5m.jpg" alt="Espace consultation" class="reveal" loading="lazy" decoding="async">
+    <img src="assets/photos/t8jv3oe9jqxnqvgh7huy.jpg" alt="Espace d'accueil" class="reveal" loading="lazy" decoding="async">
+    <img src="assets/photos/i7xq5fpefywrhcgq51qp.jpg" alt="Cabine équipée" class="reveal" loading="lazy" decoding="async">
   </div>
 </section>
 
@@ -566,7 +633,7 @@
 <section class="cta-band section-pad">
   <div class="cta-band-inner reveal">
     <div class="section-label">Première visite</div>
-    <h2 class="cta-heading">Votre bilan personnalisé est offert</h2>
+    <h2 class="cta-heading">Votre bilan personnalisé est offert lors de la 1ère séance</h2>
     <p class="cta-text">
       15 à 20 minutes pour évaluer vos besoins, vérifier les contre-indications et vous proposer un protocole adapté. Sans engagement.
     </p>
@@ -579,7 +646,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Blanc <em>Cocon</em></div>
-      <p class="footer-tagline">Institut médico-esthétique<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
+      <p class="footer-tagline">Institut Esthétique et bien-être<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
     </div>
     <div class="footer-col">
       <h4>Soins</h4>

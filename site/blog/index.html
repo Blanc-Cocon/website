@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog — Blanc Cocon, institut médico-esthétique</title>
+  <title>Blog — Blanc Cocon, institut esthétique et bien-être</title>
   <meta name="description" content="Comprendre nos soins, leurs bienfaits et ce qu'ils peuvent faire pour vous. Cryolipolyse, radiofréquence, sauna japonais, épilation laser : nos guides complets." />
   <link rel="canonical" href="https://blanc-cocon.fr/blog/" />
   <!-- Open Graph -->
@@ -13,6 +13,37 @@
   <meta property="og:url" content="https://blanc-cocon.fr/blog/" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Blanc Cocon" />
+  <meta property="og:image" content="https://blanc-cocon.fr/assets/photos/sshxtuazcvifiuoek97v.jpg" />
+  <meta property="og:image:alt" content="Cabine de soin Blanc Cocon" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — Blanc Cocon" />
+  <meta name="twitter:description" content="Guides complets sur cryolipolyse, radiofréquence, sauna japonais et épilation laser." />
+  <meta name="twitter:image" content="https://blanc-cocon.fr/assets/photos/sshxtuazcvifiuoek97v.jpg" />
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Blanc Cocon",
+    "description": "Guides complets sur les soins proposés chez Blanc Cocon : cryolipolyse, radiofréquence, sauna japonais, épilation laser.",
+    "url": "https://blanc-cocon.fr/blog/",
+    "inLanguage": "fr-FR",
+    "publisher": {
+      "@type": "BeautySalon",
+      "name": "Blanc Cocon",
+      "url": "https://blanc-cocon.fr",
+      "logo": "https://blanc-cocon.fr/assets/photos/y1mtnt4rcayvmdftbssr.jpg"
+    },
+    "blogPost": [
+      { "@type": "BlogPosting", "headline": "Cryolipolyse : éliminer les graisses localisées par le froid", "url": "https://blanc-cocon.fr/blog/cryolipolyse.html" },
+      { "@type": "BlogPosting", "headline": "Radiofréquence esthétique : raffermir visage et corps", "url": "https://blanc-cocon.fr/blog/radiofrequence.html" },
+      { "@type": "BlogPosting", "headline": "Épilation laser diode : définitive et sans douleur", "url": "https://blanc-cocon.fr/blog/epilation-laser.html" },
+      { "@type": "BlogPosting", "headline": "Sauna dôme japonais : détox et bien-être par l'infrarouge", "url": "https://blanc-cocon.fr/blog/sauna-japonais.html" }
+    ]
+  }
+  </script>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,14 +109,31 @@
       box-shadow: 0 1px 0 var(--sable-light);
     }
     .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: var(--brun);
+      display: flex;
+      align-items: center;
+      gap: 10px;
       text-decoration: none;
     }
-    .nav-brand em { font-style: italic; font-weight: 300; }
+    .nav-brand .brand-icon {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+    .nav-brand .brand-text {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+      color: var(--brun);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .nav-brand .brand-text em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent-warm);
+      letter-spacing: 1.5px;
+    }
     .nav-links {
       display: flex;
       align-items: center;
@@ -429,7 +477,10 @@
 
 <!-- ══════════════ NAVIGATION ══════════════ -->
 <nav class="nav" id="nav">
-  <a href="../" class="nav-brand">Blanc <em>Cocon</em></a>
+  <a href="../" class="nav-brand" aria-label="Blanc Cocon — accueil">
+    <img src="../assets/logo/blanc-cocon-icon.png" alt="" class="brand-icon" />
+    <span class="brand-text">Blanc <em>Cocon</em></span>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="../soins.html">Soins & Tarifs</a></li>
     <li><a href="../a-propos.html">À propos</a></li>
@@ -500,7 +551,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Blanc <em>Cocon</em></div>
-      <p class="footer-tagline">Institut médico-esthétique<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
+      <p class="footer-tagline">Institut Esthétique et bien-être<br>135 Av. du Miradou<br>34980 Saint-Clément-de-Rivière</p>
     </div>
     <div class="footer-col">
       <h4>Soins</h4>
